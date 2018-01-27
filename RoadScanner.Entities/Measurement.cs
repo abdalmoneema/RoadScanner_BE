@@ -23,6 +23,9 @@ namespace RoadScanner.Entities
         public Nullable<double> AccelerationZ { get; set; }
         public Nullable<double> Speed { get; set; }
         public System.DateTime MeasurementTime { get; set; }
+        public Nullable<double> AccelerationMagnitude { get; set; }
+        public Nullable<double> SnappedLatitude { get; set; }
+        public Nullable<double> SnappedLongitude { get; set; }
     
         public virtual Trip Trip { get; set; }
     }

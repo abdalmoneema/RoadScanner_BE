@@ -26,11 +26,14 @@ namespace RoadScanner.Areas.apis.Controllers
 
         public IHttpActionResult Create(TripModel model)
         {
+
             int id = service.Create(model.MapToTrip());
             if (id > 0)
                 return Ok(new GeneralModel() { Success = 1, Message = "Saved successfully" });
             else
                 return Ok(new GeneralModel() { Success = 0, Message = "Error Saving Trip" });
         }
+
+        
     }
 }

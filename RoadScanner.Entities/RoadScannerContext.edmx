@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RoadScannerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RoadScannerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ManualAnomaly">
           <Key>
             <PropertyRef Name="Id" />
@@ -27,6 +27,9 @@
           <Property Name="AccelerationZ" Type="float" />
           <Property Name="Speed" Type="float" />
           <Property Name="MeasurementTime" Type="datetime" Nullable="false" />
+          <Property Name="AccelerationMagnitude" Type="float" />
+          <Property Name="SnappedLatitude" Type="float" />
+          <Property Name="SnappedLongitude" Type="float" />
         </EntityType>
         <EntityType Name="Trip">
           <Key>
@@ -56,8 +59,7 @@
             <End Role="Measurement" EntitySet="Measurement" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RoadScannerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -84,6 +86,9 @@
           <Property Name="Speed" Type="Double" />
           <Property Name="MeasurementTime" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Trip" Relationship="Self.FK_Measurement_Trip" FromRole="Measurement" ToRole="Trip" />
+          <Property Name="AccelerationMagnitude" Type="Double" />
+          <Property Name="SnappedLatitude" Type="Double" />
+          <Property Name="SnappedLongitude" Type="Double" />
         </EntityType>
         <EntityType Name="Trip">
           <Key>
@@ -105,7 +110,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="RoadScannerContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ManualAnomalies" EntityType="Self.ManualAnomaly" />
           <EntitySet Name="Measurements" EntityType="Self.Measurement" />
           <EntitySet Name="Trips" EntityType="Self.Trip" />
@@ -119,7 +124,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="RoadScannerModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="RoadScannerModelStoreContainer" CdmEntityContainer="RoadScannerContext">
           <EntitySetMapping Name="ManualAnomalies">
             <EntityTypeMapping TypeName="RoadScannerModel.ManualAnomaly">
               <MappingFragment StoreEntitySet="ManualAnomaly">
@@ -133,6 +138,9 @@
           <EntitySetMapping Name="Measurements">
             <EntityTypeMapping TypeName="RoadScannerModel.Measurement">
               <MappingFragment StoreEntitySet="Measurement">
+                <ScalarProperty Name="SnappedLongitude" ColumnName="SnappedLongitude" />
+                <ScalarProperty Name="SnappedLatitude" ColumnName="SnappedLatitude" />
+                <ScalarProperty Name="AccelerationMagnitude" ColumnName="AccelerationMagnitude" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TripId" ColumnName="TripId" />
                 <ScalarProperty Name="Longitude" ColumnName="Longitude" />
