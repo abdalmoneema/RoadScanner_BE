@@ -30,71 +30,81 @@ namespace RoadScanner.Areas.API.Mapper
             };
         }
 
-
         private static List<Measurement> MapToSnappedLocations(this List<Measurement> measurements)
         {
             if (measurements.Count > 0)
             {
-                string locationPoints = "";
-                for (int i = 0; i < measurements.Count; i++)
+                int batchesCount = measurements.Count/100 + (measurements.Count % 100 > 0? 1:0 );
+                for (int i = 0; i < batchesCount; i++)
                 {
-                    if (i >= 100) break; //api allow only 100 point
-                    if (i > 0)
-                        locationPoints += "|";
-                    locationPoints += measurements[i].Latitude + "," + measurements[i].Longitude;
-                }
-                using (var client = new HttpClient())
-                {
-                    string path = String.Format("https://roads.googleapis.com/v1/snapToRoads?path={0}&key={1}", locationPoints, Constants.GoogleMapsRoadsAPIKey);
-                    HttpResponseMessage response = client.GetAsync(path).Result;
-                    if (response.IsSuccessStatusCode)
-                    {
-                        SnappedPath snappedPath = response.Content.ReadAsAsync<SnappedPath>().Result;
+                    var batch =measurements.Skip(100 * i).Take(100).ToList();
 
-                        if (snappedPath != null && snappedPath.snappedPoints.Count() > 0)
+                    string locationPoints = "";
+                    for (int j = 0; j < batch.Count; j++)
+                    {
+                        if (j > 0)
+                            locationPoints += "|";
+                        locationPoints += batch[j].Latitude + "," + batch[j].Longitude;
+                    }
+
+                    using (var client = new HttpClient())
+                    {
+                        string path = String.Format("https://roads.googleapis.com/v1/snapToRoads?path={0}&key={1}", locationPoints, Constants.GoogleMapsRoadsAPIKey);
+                        HttpResponseMessage response = client.GetAsync(path).Result;
+                        if (response.IsSuccessStatusCode)
                         {
-                            for (int i = 0; i < snappedPath.snappedPoints.Count(); i++)
+                            SnappedPath snappedPath = response.Content.ReadAsAsync<SnappedPath>().Result;
+
+                            if (snappedPath != null && snappedPath.snappedPoints.Count() > 0)
                             {
-                                measurements[snappedPath.snappedPoints.ElementAt(i).originalIndex].SnappedLatitude = snappedPath.snappedPoints.ElementAt(i).location.latitude;
-                                measurements[snappedPath.snappedPoints.ElementAt(i).originalIndex].SnappedLongitude = snappedPath.snappedPoints.ElementAt(i).location.longitude;
+                                for (int j = 0; j < snappedPath.snappedPoints.Count(); j++)
+                                {
+                                    measurements[100 * i + snappedPath.snappedPoints.ElementAt(j).originalIndex].SnappedLatitude = snappedPath.snappedPoints.ElementAt(j).location.latitude;
+                                    measurements[100 * i + snappedPath.snappedPoints.ElementAt(j).originalIndex].SnappedLongitude = snappedPath.snappedPoints.ElementAt(j).location.longitude;
+                                }
                             }
+
                         }
-
-                    }
+                    }  
                 }
 
-                for (int i = 1; i < measurements.Count; i++)
+                for (int j = 1; j < measurements.Count; j++)
                 {
+                    var longitude = measurements[j].Longitude;
+                    var latitude = measurements[j].Latitude;
+                    var perviouslongitude = measurements[j - 1].Longitude;
+                    var perviouslatitude = measurements[j - 1].Latitude;
 
-                    var longitude = measurements[i].Longitude;
-                    var latitude = measurements[i].Latitude;
-                    var perviouslongitude = measurements[i - 1].Longitude;
-                    var perviouslatitude = measurements[i - 1].Latitude;
-
-                    if (measurements[i].SnappedLongitude.HasValue)
+                    if (measurements[j].SnappedLongitude.HasValue)
                     {
-                        longitude = measurements[i].SnappedLongitude.Value;
+                        longitude = measurements[j].SnappedLongitude.Value;
                     }
 
-                    if (measurements[i].SnappedLatitude.HasValue)
+                    if (measurements[j].SnappedLatitude.HasValue)
                     {
-                        latitude = measurements[i].SnappedLatitude.Value;
+                        latitude = measurements[j].SnappedLatitude.Value;
                     }
 
-                    if (measurements[i - 1].SnappedLongitude.HasValue)
+                    if (measurements[j - 1].SnappedLongitude.HasValue)
                     {
-                        perviouslongitude = measurements[i - 1].SnappedLongitude.Value;
+                        perviouslongitude = measurements[j - 1].SnappedLongitude.Value;
                     }
 
-                    if (measurements[i - 1].SnappedLatitude.HasValue)
+                    if (measurements[j - 1].SnappedLatitude.HasValue)
                     {
-                        perviouslatitude = measurements[i - 1].SnappedLatitude.Value;
+                        perviouslatitude = measurements[j - 1].SnappedLatitude.Value;
                     }
 
-                    double timeSeconds = measurements[i].MeasurementTime.Subtract(measurements[i - 1].MeasurementTime).TotalSeconds;
+                    double timeSeconds = measurements[j].MeasurementTime.Subtract(measurements[j - 1].MeasurementTime).TotalSeconds;
                     if (timeSeconds > 0)
-                        measurements[i].Speed = Math.Sqrt(Math.Pow(longitude - perviouslongitude, 2) + Math.Pow(latitude - perviouslatitude, 2))/ timeSeconds;
-                }
+                    {
+                        measurements[j].Speed = Math.Sqrt(Math.Pow(longitude - perviouslongitude, 2) + Math.Pow(latitude - perviouslatitude, 2)) / timeSeconds;
+                        if (measurements[j].Speed > measurements[j - 1].Speed)
+                            measurements[j].IsAccelerating = true;
+                        else if (measurements[j].Speed < measurements[j - 1].Speed)
+                            measurements[j].IsAccelerating = false;
+                    }
+                 }
             }
 
             return measurements;

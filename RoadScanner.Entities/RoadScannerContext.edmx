@@ -30,6 +30,7 @@
           <Property Name="AccelerationMagnitude" Type="float" />
           <Property Name="SnappedLatitude" Type="float" />
           <Property Name="SnappedLongitude" Type="float" />
+          <Property Name="IsAccelerating" Type="bit" />
         </EntityType>
         <EntityType Name="Trip">
           <Key>
@@ -89,6 +90,7 @@
           <Property Name="AccelerationMagnitude" Type="Double" />
           <Property Name="SnappedLatitude" Type="Double" />
           <Property Name="SnappedLongitude" Type="Double" />
+          <Property Name="IsAccelerating" Type="Boolean" />
         </EntityType>
         <EntityType Name="Trip">
           <Key>
@@ -138,6 +140,7 @@
           <EntitySetMapping Name="Measurements">
             <EntityTypeMapping TypeName="RoadScannerModel.Measurement">
               <MappingFragment StoreEntitySet="Measurement">
+                <ScalarProperty Name="IsAccelerating" ColumnName="IsAccelerating" />
                 <ScalarProperty Name="SnappedLongitude" ColumnName="SnappedLongitude" />
                 <ScalarProperty Name="SnappedLatitude" ColumnName="SnappedLatitude" />
                 <ScalarProperty Name="AccelerationMagnitude" ColumnName="AccelerationMagnitude" />
