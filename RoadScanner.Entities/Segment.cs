@@ -12,15 +12,13 @@ namespace RoadScanner.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class ManualAnomaly
+    public partial class Segment
     {
         public int Id { get; set; }
-        public double Longitude { get; set; }
-        public double Latitude { get; set; }
-        public int Type { get; set; }
-        public System.DateTime CreationDate { get; set; }
-        public Nullable<int> SegmentId { get; set; }
-        public Nullable<double> SnappedLatitude { get; set; }
-        public Nullable<double> SnappedLongitude { get; set; }
+        public Nullable<double> Latitude { get; set; }
+        public Nullable<double> Longitude { get; set; }
+        public Nullable<double> speedAvg { get; set; }
+        public Nullable<double> speedVar { get; set; }
+        public Nullable<int> NextSegmentId { get; set; }
     }
 }

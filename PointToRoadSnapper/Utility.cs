@@ -1,44 +1,23 @@
-﻿using RoadScanner.Areas.API.Models;
-using RoadScanner.Areas.apis;
-using RoadScanner.Entities;
+﻿using RoadScanner.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace RoadScanner.Areas.API.Mapper
+namespace PointToRoadSnapper
 {
-    public static class TripMapper
+    public static class Utility
     {
-        public static Trip MapToTrip(this TripModel tripModel)
-        {
-            return new Trip()
-            {
-                DeviceID = tripModel.DeviceID,
-                Measurements = tripModel.Measurements.Select(m => new Measurement()
-                {
-                    Longitude = m.Longitude,
-                    Latitude = m.Latitude,
-                    AccelerationX = m.AccelerationX,
-                    AccelerationY = m.AccelerationY,
-                    AccelerationZ = m.AccelerationZ,
-                    AccelerationMagnitude = Math.Sqrt((m.AccelerationX * m.AccelerationX) + (m.AccelerationY * m.AccelerationY) + (m.AccelerationZ * m.AccelerationZ)),
-                    Speed = 0,
-                    MeasurementTime = m.MeasurementTime
-                    //Accelerations = m.Accelerations.Select(a=>new Acceleration() { AccelerationX = a.AccelerationX, AccelerationY = a.AccelerationY,AccelerationZ = a.AccelerationZ}).ToList()
-                }).ToList().MapToSnappedLocations()
-            };
-        }
-
-        private static List<Measurement> MapToSnappedLocations(this List<Measurement> measurements)
+        public static void MapToSnappedLocations(this List<Measurement> measurements)
         {
             if (measurements.Count > 0)
             {
-                int batchesCount = measurements.Count/100 + (measurements.Count % 100 > 0? 1:0 );
+                int batchesCount = measurements.Count / 100 + (measurements.Count % 100 > 0 ? 1 : 0);
                 for (int i = 0; i < batchesCount; i++)
                 {
-                    var batch =measurements.Skip(100 * i).Take(100).ToList();
+                    var batch = measurements.Skip(100 * i).Take(100).ToList();
 
                     string locationPoints = "";
                     for (int j = 0; j < batch.Count; j++)
@@ -66,7 +45,7 @@ namespace RoadScanner.Areas.API.Mapper
                             }
 
                         }
-                    }  
+                    }
                 }
 
                 for (int j = 1; j < measurements.Count; j++)
@@ -105,12 +84,12 @@ namespace RoadScanner.Areas.API.Mapper
                         else if (measurements[j].Speed < measurements[j - 1].Speed)
                             measurements[j].IsSpeedIncrease = false;
 
-                        
+
                     }
-                 }
+                }
             }
 
-            return measurements;
+            //return measurements;
         }
     }
 }

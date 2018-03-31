@@ -4,15 +4,19 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="RoadScannerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RoadScanner.Entities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ManualAnomaly">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Longitude" Type="float" Nullable="false" />
           <Property Name="Latitude" Type="float" Nullable="false" />
           <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="SegmentId" Type="int" />
+          <Property Name="SnappedLatitude" Type="float" />
+          <Property Name="SnappedLongitude" Type="float" />
         </EntityType>
         <EntityType Name="Measurement">
           <Key>
@@ -30,7 +34,19 @@
           <Property Name="AccelerationMagnitude" Type="float" />
           <Property Name="SnappedLatitude" Type="float" />
           <Property Name="SnappedLongitude" Type="float" />
-          <Property Name="IsAccelerating" Type="bit" />
+          <Property Name="IsSpeedIncrease" Type="bit" />
+          <Property Name="SegmentId" Type="int" />
+        </EntityType>
+        <EntityType Name="Segment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="speedAvg" Type="float" />
+          <Property Name="speedVar" Type="float" />
+          <Property Name="NextSegmentId" Type="int" />
         </EntityType>
         <EntityType Name="Trip">
           <Key>
@@ -38,6 +54,80 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DeviceID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'abdalmoneem_RoadScanner.dbo.SegmentChain2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SegmentChain2">
+          <Key>
+            <PropertyRef Name="ContainAnomaly" />
+          </Key>
+          <Property Name="Segment1Id" Type="int" />
+          <Property Name="Segment2Id" Type="int" />
+          <Property Name="speedAvg1" Type="float" />
+          <Property Name="speedVar1" Type="float" />
+          <Property Name="speedAvg2" Type="float" />
+          <Property Name="speedVar2" Type="float" />
+          <Property Name="ContainAnomaly" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'abdalmoneem_RoadScanner.dbo.SegmentChain3' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SegmentChain3">
+          <Key>
+            <PropertyRef Name="ContainAnomaly" />
+          </Key>
+          <Property Name="Segment1Id" Type="int" />
+          <Property Name="Segment2Id" Type="int" />
+          <Property Name="Segment3Id" Type="int" />
+          <Property Name="speedAvg1" Type="float" />
+          <Property Name="speedVar1" Type="float" />
+          <Property Name="speedAvg2" Type="float" />
+          <Property Name="speedVar2" Type="float" />
+          <Property Name="speedAvg3" Type="float" />
+          <Property Name="speedVar3" Type="float" />
+          <Property Name="ContainAnomaly" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'abdalmoneem_RoadScanner.dbo.SegmentChain4' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SegmentChain4">
+          <Key>
+            <PropertyRef Name="ContainAnomaly" />
+          </Key>
+          <Property Name="Segment1Id" Type="int" />
+          <Property Name="Segment2Id" Type="int" />
+          <Property Name="Segment3Id" Type="int" />
+          <Property Name="Segment4Id" Type="int" />
+          <Property Name="speedAvg1" Type="float" />
+          <Property Name="speedVar1" Type="float" />
+          <Property Name="speedAvg2" Type="float" />
+          <Property Name="speedVar2" Type="float" />
+          <Property Name="speedAvg3" Type="float" />
+          <Property Name="speedVar3" Type="float" />
+          <Property Name="speedAvg4" Type="float" />
+          <Property Name="speedVar4" Type="float" />
+          <Property Name="ContainAnomaly" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'abdalmoneem_RoadScanner.dbo.SegmentChain5' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SegmentChain5">
+          <Key>
+            <PropertyRef Name="ContainAnomaly" />
+          </Key>
+          <Property Name="Segment1Id" Type="int" />
+          <Property Name="Segment2Id" Type="int" />
+          <Property Name="Segment3Id" Type="int" />
+          <Property Name="Segment4Id" Type="int" />
+          <Property Name="Segment5Id" Type="int" />
+          <Property Name="speedAvg1" Type="float" />
+          <Property Name="speedVar1" Type="float" />
+          <Property Name="speedAvg2" Type="float" />
+          <Property Name="speedVar2" Type="float" />
+          <Property Name="speedAvg3" Type="float" />
+          <Property Name="speedVar3" Type="float" />
+          <Property Name="speedAvg4" Type="float" />
+          <Property Name="speedVar4" Type="float" />
+          <Property Name="speedAvg5" Type="float" />
+          <Property Name="speedVar5" Type="float" />
+          <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Measurement_Trip">
           <End Role="Trip" Type="Self.Trip" Multiplicity="1" />
@@ -51,10 +141,73 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="RoadScannerModelStoreContainer">
+        <EntityContainer Name="RoadScannerEntitiesStoreContainer">
           <EntitySet Name="ManualAnomaly" EntityType="Self.ManualAnomaly" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Measurement" EntityType="Self.Measurement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Segment" EntityType="Self.Segment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Trip" EntityType="Self.Trip" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SegmentChain2" EntityType="Self.SegmentChain2" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SegmentChain2].[Segment1Id] AS [Segment1Id], 
+    [SegmentChain2].[Segment2Id] AS [Segment2Id], 
+    [SegmentChain2].[speedAvg1] AS [speedAvg1], 
+    [SegmentChain2].[speedVar1] AS [speedVar1], 
+    [SegmentChain2].[speedAvg2] AS [speedAvg2], 
+    [SegmentChain2].[speedVar2] AS [speedVar2], 
+    [SegmentChain2].[ContainAnomaly] AS [ContainAnomaly]
+    FROM [dbo].[SegmentChain2] AS [SegmentChain2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SegmentChain3" EntityType="Self.SegmentChain3" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SegmentChain3].[Segment1Id] AS [Segment1Id], 
+    [SegmentChain3].[Segment2Id] AS [Segment2Id], 
+    [SegmentChain3].[Segment3Id] AS [Segment3Id], 
+    [SegmentChain3].[speedAvg1] AS [speedAvg1], 
+    [SegmentChain3].[speedVar1] AS [speedVar1], 
+    [SegmentChain3].[speedAvg2] AS [speedAvg2], 
+    [SegmentChain3].[speedVar2] AS [speedVar2], 
+    [SegmentChain3].[speedAvg3] AS [speedAvg3], 
+    [SegmentChain3].[speedVar3] AS [speedVar3], 
+    [SegmentChain3].[ContainAnomaly] AS [ContainAnomaly]
+    FROM [dbo].[SegmentChain3] AS [SegmentChain3]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SegmentChain4" EntityType="Self.SegmentChain4" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SegmentChain4].[Segment1Id] AS [Segment1Id], 
+    [SegmentChain4].[Segment2Id] AS [Segment2Id], 
+    [SegmentChain4].[Segment3Id] AS [Segment3Id], 
+    [SegmentChain4].[Segment4Id] AS [Segment4Id], 
+    [SegmentChain4].[speedAvg1] AS [speedAvg1], 
+    [SegmentChain4].[speedVar1] AS [speedVar1], 
+    [SegmentChain4].[speedAvg2] AS [speedAvg2], 
+    [SegmentChain4].[speedVar2] AS [speedVar2], 
+    [SegmentChain4].[speedAvg3] AS [speedAvg3], 
+    [SegmentChain4].[speedVar3] AS [speedVar3], 
+    [SegmentChain4].[speedAvg4] AS [speedAvg4], 
+    [SegmentChain4].[speedVar4] AS [speedVar4], 
+    [SegmentChain4].[ContainAnomaly] AS [ContainAnomaly]
+    FROM [dbo].[SegmentChain4] AS [SegmentChain4]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SegmentChain5" EntityType="Self.SegmentChain5" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SegmentChain5].[Segment1Id] AS [Segment1Id], 
+    [SegmentChain5].[Segment2Id] AS [Segment2Id], 
+    [SegmentChain5].[Segment3Id] AS [Segment3Id], 
+    [SegmentChain5].[Segment4Id] AS [Segment4Id], 
+    [SegmentChain5].[Segment5Id] AS [Segment5Id], 
+    [SegmentChain5].[speedAvg1] AS [speedAvg1], 
+    [SegmentChain5].[speedVar1] AS [speedVar1], 
+    [SegmentChain5].[speedAvg2] AS [speedAvg2], 
+    [SegmentChain5].[speedVar2] AS [speedVar2], 
+    [SegmentChain5].[speedAvg3] AS [speedAvg3], 
+    [SegmentChain5].[speedVar3] AS [speedVar3], 
+    [SegmentChain5].[speedAvg4] AS [speedAvg4], 
+    [SegmentChain5].[speedVar4] AS [speedVar4], 
+    [SegmentChain5].[speedAvg5] AS [speedAvg5], 
+    [SegmentChain5].[speedVar5] AS [speedVar5], 
+    [SegmentChain5].[ContainAnomaly] AS [ContainAnomaly]
+    FROM [dbo].[SegmentChain5] AS [SegmentChain5]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Measurement_Trip" Association="Self.FK_Measurement_Trip">
             <End Role="Trip" EntitySet="Trip" />
             <End Role="Measurement" EntitySet="Measurement" />
@@ -63,7 +216,7 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="RoadScannerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="RoadScanner.Entities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ManualAnomaly">
           <Key>
             <PropertyRef Name="Id" />
@@ -72,12 +225,16 @@
           <Property Name="Longitude" Type="Double" Nullable="false" />
           <Property Name="Latitude" Type="Double" Nullable="false" />
           <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SegmentId" Type="Int32" />
+          <Property Name="SnappedLatitude" Type="Double" />
+          <Property Name="SnappedLongitude" Type="Double" />
         </EntityType>
         <EntityType Name="Measurement">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="TripId" Type="Int32" Nullable="false" />
           <Property Name="Longitude" Type="Double" Nullable="false" />
           <Property Name="Latitude" Type="Double" Nullable="false" />
@@ -86,17 +243,29 @@
           <Property Name="AccelerationZ" Type="Double" />
           <Property Name="Speed" Type="Double" />
           <Property Name="MeasurementTime" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Trip" Relationship="Self.FK_Measurement_Trip" FromRole="Measurement" ToRole="Trip" />
           <Property Name="AccelerationMagnitude" Type="Double" />
           <Property Name="SnappedLatitude" Type="Double" />
           <Property Name="SnappedLongitude" Type="Double" />
-          <Property Name="IsAccelerating" Type="Boolean" />
+          <Property Name="IsSpeedIncrease" Type="Boolean" />
+          <Property Name="SegmentId" Type="Int32" />
+          <NavigationProperty Name="Trip" Relationship="Self.FK_Measurement_Trip" FromRole="Measurement" ToRole="Trip" />
+        </EntityType>
+        <EntityType Name="Segment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Latitude" Type="Double" />
+          <Property Name="Longitude" Type="Double" />
+          <Property Name="speedAvg" Type="Double" />
+          <Property Name="speedVar" Type="Double" />
+          <Property Name="NextSegmentId" Type="Int32" />
         </EntityType>
         <EntityType Name="Trip">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="DeviceID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Measurements" Relationship="Self.FK_Measurement_Trip" FromRole="Trip" ToRole="Measurement" />
         </EntityType>
@@ -115,35 +284,106 @@
         <EntityContainer Name="RoadScannerContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ManualAnomalies" EntityType="Self.ManualAnomaly" />
           <EntitySet Name="Measurements" EntityType="Self.Measurement" />
+          <EntitySet Name="Segments" EntityType="Self.Segment" />
           <EntitySet Name="Trips" EntityType="Self.Trip" />
           <AssociationSet Name="FK_Measurement_Trip" Association="Self.FK_Measurement_Trip">
             <End Role="Trip" EntitySet="Trips" />
             <End Role="Measurement" EntitySet="Measurements" />
           </AssociationSet>
+          <EntitySet Name="SegmentChain3" EntityType="RoadScanner.Entities.SegmentChain3" />
+          <EntitySet Name="SegmentChain2" EntityType="RoadScanner.Entities.SegmentChain2" />
+          <EntitySet Name="SegmentChain4" EntityType="RoadScanner.Entities.SegmentChain4" />
+          <EntitySet Name="SegmentChain5" EntityType="RoadScanner.Entities.SegmentChain5" />
         </EntityContainer>
+        <EntityType Name="SegmentChain3">
+          <Key>
+            <PropertyRef Name="ContainAnomaly" />
+          </Key>
+          <Property Name="Segment1Id" Type="Int32" />
+          <Property Name="Segment2Id" Type="Int32" />
+          <Property Name="Segment3Id" Type="Int32" />
+          <Property Name="speedAvg1" Type="Double" />
+          <Property Name="speedVar1" Type="Double" />
+          <Property Name="speedAvg2" Type="Double" />
+          <Property Name="speedVar2" Type="Double" />
+          <Property Name="speedAvg3" Type="Double" />
+          <Property Name="speedVar3" Type="Double" />
+          <Property Name="ContainAnomaly" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SegmentChain2">
+          <Key>
+            <PropertyRef Name="ContainAnomaly" />
+          </Key>
+          <Property Name="Segment1Id" Type="Int32" />
+          <Property Name="Segment2Id" Type="Int32" />
+          <Property Name="speedAvg1" Type="Double" />
+          <Property Name="speedVar1" Type="Double" />
+          <Property Name="speedAvg2" Type="Double" />
+          <Property Name="speedVar2" Type="Double" />
+          <Property Name="ContainAnomaly" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SegmentChain4">
+          <Key>
+            <PropertyRef Name="ContainAnomaly" />
+          </Key>
+          <Property Name="Segment1Id" Type="Int32" />
+          <Property Name="Segment2Id" Type="Int32" />
+          <Property Name="Segment3Id" Type="Int32" />
+          <Property Name="Segment4Id" Type="Int32" />
+          <Property Name="speedAvg1" Type="Double" />
+          <Property Name="speedVar1" Type="Double" />
+          <Property Name="speedAvg2" Type="Double" />
+          <Property Name="speedVar2" Type="Double" />
+          <Property Name="speedAvg3" Type="Double" />
+          <Property Name="speedVar3" Type="Double" />
+          <Property Name="speedAvg4" Type="Double" />
+          <Property Name="speedVar4" Type="Double" />
+          <Property Name="ContainAnomaly" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SegmentChain5">
+          <Key>
+            <PropertyRef Name="ContainAnomaly" />
+          </Key>
+          <Property Name="Segment1Id" Type="Int32" />
+          <Property Name="Segment2Id" Type="Int32" />
+          <Property Name="Segment3Id" Type="Int32" />
+          <Property Name="Segment4Id" Type="Int32" />
+          <Property Name="Segment5Id" Type="Int32" />
+          <Property Name="speedAvg1" Type="Double" />
+          <Property Name="speedVar1" Type="Double" />
+          <Property Name="speedAvg2" Type="Double" />
+          <Property Name="speedVar2" Type="Double" />
+          <Property Name="speedAvg3" Type="Double" />
+          <Property Name="speedVar3" Type="Double" />
+          <Property Name="speedAvg4" Type="Double" />
+          <Property Name="speedVar4" Type="Double" />
+          <Property Name="speedAvg5" Type="Double" />
+          <Property Name="speedVar5" Type="Double" />
+          <Property Name="ContainAnomaly" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="RoadScannerModelStoreContainer" CdmEntityContainer="RoadScannerContext">
+        <EntityContainerMapping StorageEntityContainer="RoadScannerEntitiesStoreContainer" CdmEntityContainer="RoadScannerContext">
           <EntitySetMapping Name="ManualAnomalies">
-            <EntityTypeMapping TypeName="RoadScannerModel.ManualAnomaly">
+            <EntityTypeMapping TypeName="RoadScanner.Entities.ManualAnomaly">
               <MappingFragment StoreEntitySet="ManualAnomaly">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Longitude" ColumnName="Longitude" />
                 <ScalarProperty Name="Latitude" ColumnName="Latitude" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="SegmentId" ColumnName="SegmentId" />
+                <ScalarProperty Name="SnappedLatitude" ColumnName="SnappedLatitude" />
+                <ScalarProperty Name="SnappedLongitude" ColumnName="SnappedLongitude" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Measurements">
-            <EntityTypeMapping TypeName="RoadScannerModel.Measurement">
+            <EntityTypeMapping TypeName="RoadScanner.Entities.Measurement">
               <MappingFragment StoreEntitySet="Measurement">
-                <ScalarProperty Name="IsAccelerating" ColumnName="IsAccelerating" />
-                <ScalarProperty Name="SnappedLongitude" ColumnName="SnappedLongitude" />
-                <ScalarProperty Name="SnappedLatitude" ColumnName="SnappedLatitude" />
-                <ScalarProperty Name="AccelerationMagnitude" ColumnName="AccelerationMagnitude" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TripId" ColumnName="TripId" />
                 <ScalarProperty Name="Longitude" ColumnName="Longitude" />
@@ -153,14 +393,101 @@
                 <ScalarProperty Name="AccelerationZ" ColumnName="AccelerationZ" />
                 <ScalarProperty Name="Speed" ColumnName="Speed" />
                 <ScalarProperty Name="MeasurementTime" ColumnName="MeasurementTime" />
+                <ScalarProperty Name="AccelerationMagnitude" ColumnName="AccelerationMagnitude" />
+                <ScalarProperty Name="SnappedLatitude" ColumnName="SnappedLatitude" />
+                <ScalarProperty Name="SnappedLongitude" ColumnName="SnappedLongitude" />
+                <ScalarProperty Name="IsSpeedIncrease" ColumnName="IsSpeedIncrease" />
+                <ScalarProperty Name="SegmentId" ColumnName="SegmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Segments">
+            <EntityTypeMapping TypeName="RoadScanner.Entities.Segment">
+              <MappingFragment StoreEntitySet="Segment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="speedAvg" ColumnName="speedAvg" />
+                <ScalarProperty Name="speedVar" ColumnName="speedVar" />
+                <ScalarProperty Name="NextSegmentId" ColumnName="NextSegmentId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Trips">
-            <EntityTypeMapping TypeName="RoadScannerModel.Trip">
+            <EntityTypeMapping TypeName="RoadScanner.Entities.Trip">
               <MappingFragment StoreEntitySet="Trip">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SegmentChain3">
+            <EntityTypeMapping TypeName="RoadScanner.Entities.SegmentChain3">
+              <MappingFragment StoreEntitySet="SegmentChain3">
+                <ScalarProperty Name="ContainAnomaly" ColumnName="ContainAnomaly" />
+                <ScalarProperty Name="speedVar3" ColumnName="speedVar3" />
+                <ScalarProperty Name="speedAvg3" ColumnName="speedAvg3" />
+                <ScalarProperty Name="speedVar2" ColumnName="speedVar2" />
+                <ScalarProperty Name="speedAvg2" ColumnName="speedAvg2" />
+                <ScalarProperty Name="speedVar1" ColumnName="speedVar1" />
+                <ScalarProperty Name="speedAvg1" ColumnName="speedAvg1" />
+                <ScalarProperty Name="Segment3Id" ColumnName="Segment3Id" />
+                <ScalarProperty Name="Segment2Id" ColumnName="Segment2Id" />
+                <ScalarProperty Name="Segment1Id" ColumnName="Segment1Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SegmentChain2">
+            <EntityTypeMapping TypeName="RoadScanner.Entities.SegmentChain2">
+              <MappingFragment StoreEntitySet="SegmentChain2">
+                <ScalarProperty Name="ContainAnomaly" ColumnName="ContainAnomaly" />
+                <ScalarProperty Name="speedVar2" ColumnName="speedVar2" />
+                <ScalarProperty Name="speedAvg2" ColumnName="speedAvg2" />
+                <ScalarProperty Name="speedVar1" ColumnName="speedVar1" />
+                <ScalarProperty Name="speedAvg1" ColumnName="speedAvg1" />
+                <ScalarProperty Name="Segment2Id" ColumnName="Segment2Id" />
+                <ScalarProperty Name="Segment1Id" ColumnName="Segment1Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SegmentChain4">
+            <EntityTypeMapping TypeName="RoadScanner.Entities.SegmentChain4">
+              <MappingFragment StoreEntitySet="SegmentChain4">
+                <ScalarProperty Name="ContainAnomaly" ColumnName="ContainAnomaly" />
+                <ScalarProperty Name="speedVar4" ColumnName="speedVar4" />
+                <ScalarProperty Name="speedAvg4" ColumnName="speedAvg4" />
+                <ScalarProperty Name="speedVar3" ColumnName="speedVar3" />
+                <ScalarProperty Name="speedAvg3" ColumnName="speedAvg3" />
+                <ScalarProperty Name="speedVar2" ColumnName="speedVar2" />
+                <ScalarProperty Name="speedAvg2" ColumnName="speedAvg2" />
+                <ScalarProperty Name="speedVar1" ColumnName="speedVar1" />
+                <ScalarProperty Name="speedAvg1" ColumnName="speedAvg1" />
+                <ScalarProperty Name="Segment4Id" ColumnName="Segment4Id" />
+                <ScalarProperty Name="Segment3Id" ColumnName="Segment3Id" />
+                <ScalarProperty Name="Segment2Id" ColumnName="Segment2Id" />
+                <ScalarProperty Name="Segment1Id" ColumnName="Segment1Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SegmentChain5">
+            <EntityTypeMapping TypeName="RoadScanner.Entities.SegmentChain5">
+              <MappingFragment StoreEntitySet="SegmentChain5">
+                <ScalarProperty Name="ContainAnomaly" ColumnName="ContainAnomaly" />
+                <ScalarProperty Name="speedVar5" ColumnName="speedVar5" />
+                <ScalarProperty Name="speedAvg5" ColumnName="speedAvg5" />
+                <ScalarProperty Name="speedVar4" ColumnName="speedVar4" />
+                <ScalarProperty Name="speedAvg4" ColumnName="speedAvg4" />
+                <ScalarProperty Name="speedVar3" ColumnName="speedVar3" />
+                <ScalarProperty Name="speedAvg3" ColumnName="speedAvg3" />
+                <ScalarProperty Name="speedVar2" ColumnName="speedVar2" />
+                <ScalarProperty Name="speedAvg2" ColumnName="speedAvg2" />
+                <ScalarProperty Name="speedVar1" ColumnName="speedVar1" />
+                <ScalarProperty Name="speedAvg1" ColumnName="speedAvg1" />
+                <ScalarProperty Name="Segment5Id" ColumnName="Segment5Id" />
+                <ScalarProperty Name="Segment4Id" ColumnName="Segment4Id" />
+                <ScalarProperty Name="Segment3Id" ColumnName="Segment3Id" />
+                <ScalarProperty Name="Segment2Id" ColumnName="Segment2Id" />
+                <ScalarProperty Name="Segment1Id" ColumnName="Segment1Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

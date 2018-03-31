@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RoadScanner.Entities
+namespace HelperTools
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RoadScannerContext : DbContext
+    public partial class Entities : DbContext
     {
-        public RoadScannerContext()
-            : base("name=RoadScannerContext")
+        public Entities()
+            : base("name=Entities")
         {
         }
     
@@ -25,13 +25,5 @@ namespace RoadScanner.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ManualAnomaly> ManualAnomalies { get; set; }
-        public virtual DbSet<Measurement> Measurements { get; set; }
-        public virtual DbSet<Segment> Segments { get; set; }
-        public virtual DbSet<Trip> Trips { get; set; }
-        public virtual DbSet<SegmentChain3> SegmentChain3 { get; set; }
-        public virtual DbSet<SegmentChain2> SegmentChain2 { get; set; }
-        public virtual DbSet<SegmentChain4> SegmentChain4 { get; set; }
-        public virtual DbSet<SegmentChain5> SegmentChain5 { get; set; }
     }
 }

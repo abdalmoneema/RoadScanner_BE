@@ -26,7 +26,8 @@ namespace RoadScanner.Entities
         public Nullable<double> AccelerationMagnitude { get; set; }
         public Nullable<double> SnappedLatitude { get; set; }
         public Nullable<double> SnappedLongitude { get; set; }
-        public Nullable<bool> IsAccelerating { get; set; }
+        public Nullable<bool> IsSpeedIncrease { get; set; }
+        public Nullable<int> SegmentId { get; set; }
     
         public virtual Trip Trip { get; set; }
     }

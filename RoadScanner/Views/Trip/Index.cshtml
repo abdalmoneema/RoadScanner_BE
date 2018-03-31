@@ -1,8 +1,8 @@
 ﻿@using RoadScanner.Models
-@model HomeModel
+@model TripPathViewModel
 
 @{
-    ViewBag.Title = "ASP.NET Web API Help Page";
+    ViewBag.Title = "Trip path";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -26,6 +26,29 @@
 </style>
 <br />
 <!-- This is the div that will contain the Google Map -->
+<div>
+    @using (Html.BeginForm("Index", "Trip", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {<div class="form-inline" role="form">
+
+        @Html.DropDownListFor(m => m.TripId, Model.AllTrips, "Select Trip", new { @class = "form-control" })
+        @Html.CheckBoxFor(m => m.ViewRawLocation)
+        @Html.Label("View Raw Location") 
+        <input type="submit" class="btn " value="Search" />
+    
+
+
+    </div>
+
+    }
+</div>
+<div class="form-group ">
+    @Html.Label("Samples Count:")
+    @Html.DisplayFor(model => model.SamplesCount)
+       
+    
+</div>
+
+
 <div id="map_canvas" style="height: 450px;"></div>
 
 <!-- Enclose the Javascript in a "section" so that it is rendered in the correct order after scripts have been loaded etc -->
@@ -61,7 +84,7 @@
 
 
 
-        var data = @Html.Raw(Json.Encode(Model.ManualAnomalies)); 
+        var data = @Html.Raw(Json.Encode(Model.Measurements));
         //[
         //          { "Id": 1, "PlaceName": "Zaghouan", "GeoLong": "36.401081", "GeoLat": "10.16596" },
         //          { "Id": 2, "PlaceName": "Hammamet ", "GeoLong": "36.4", "GeoLat": "10.616667" },
@@ -72,7 +95,7 @@
         // Using the JQuery "each" selector to iterate through the JSON list and drop marker pins
         $.each(data, function (i, item) {
             var marker = new google.maps.Marker({
-                'position': new google.maps.LatLng(item.SnappedLatitude,item.SnappedLongitude),
+                'position': new google.maps.LatLng(@Json.Encode(Model.ViewRawLocation)? item.Latitude:item.SnappedLatitude,@Json.Encode(Model.ViewRawLocation)?item.Longitude:item.SnappedLongitude),
                 'map': map,
                 'title': item.Id
             });
@@ -82,7 +105,43 @@
 
             // put in some information about each json object - in this case, the opening hours.
             var infowindow = new google.maps.InfoWindow({
-                content: "<div class='infoDiv'>"+   "<h5>Id:" + item.Id + "</h5>"+ 
+                content: "<div class='infoDiv'>"+   "<h5>Id:" + item.Id + "</h5>"+
+                                                    "<h5>Creation Date:" + item.MeasurementTime + "</h5>"+
+                                                    "<h5>Snapped Latitude:" + item.SnappedLatitude + "</h5>"+
+                                                    "<h5>Snapped Latitude:" + item.SnappedLongitude + "</h5>"+
+                                                    "<h5>Speed:" + item.Speed + "</h5>"+
+                                                    "<h5>Segment Id:" + item.SegmentId + "</h5>"+"</div>"
+            });
+
+            // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked!
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+
+        })
+
+        var anomalydata = @Html.Raw(Json.Encode(Model.ManualAnomalies));
+        //[
+        //          { "Id": 1, "PlaceName": "Zaghouan", "GeoLong": "36.401081", "GeoLat": "10.16596" },
+        //          { "Id": 2, "PlaceName": "Hammamet ", "GeoLong": "36.4", "GeoLat": "10.616667" },
+        //          { "Id": 3, "PlaceName": "Sousse", "GeoLong": "35.8329809", "GeoLat": "10.63875" },
+        //          { "Id": 4, "PlaceName": "Sfax", "GeoLong": "34.745159", "GeoLat": "10.7613" }
+        //       ];
+
+        // Using the JQuery "each" selector to iterate through the JSON list and drop marker pins
+        $.each(anomalydata, function (i, item) {
+            var marker = new google.maps.Marker({
+                'position': new google.maps.LatLng(item.SnappedLatitude,item.SnappedLongitude),
+                'map': map,
+                'title': item.Id
+            });
+
+            // Make the marker-pin blue!
+            marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png')
+
+            // put in some information about each json object - in this case, the opening hours.
+            var infowindow = new google.maps.InfoWindow({
+                content: "<div class='infoDiv'>"+   "<h5>Id:" + item.Id + "</h5>"+
                                                     "<h5>Creation Date:" + item.CreationDate + "</h5>"+
                                                     "<h5>Snapped Latitude:" + item.SnappedLatitude + "</h5>"+
                                                     "<h5>Snapped Latitude:" + item.SnappedLongitude + "</h5>"+

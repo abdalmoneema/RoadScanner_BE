@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RoadScanner.Areas.apis.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,5 +19,6 @@ namespace RoadScanner.Areas.API.Models
         public double AccelerationZ { get; set; }
 
         public DateTime MeasurementTime { get; set; }
+
     }
 }
