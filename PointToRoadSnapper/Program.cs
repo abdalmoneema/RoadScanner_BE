@@ -74,6 +74,64 @@ namespace PointToRoadSnapper
             return service.SaveChanges();
         }
 
+        public static int SnapAnomalyToRoad(int anomalyId)
+        {
+            AnomalyService service = new AnomalyService();
+            var anomaly = service.GetAnomaly(anomalyId);
+
+            using (var client = new HttpClient())
+            {
+                string path = String.Format("https://roads.googleapis.com/v1/snapToRoads?path={0}&key={1}", anomaly.Latitude+","+anomaly.Longitude, Constants.GoogleMapsRoadsAPIKey);
+                HttpResponseMessage response = client.GetAsync(path).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    SnappedPath snappedPath = response.Content.ReadAsAsync<SnappedPath>().Result;
+
+                    if (snappedPath != null && snappedPath.snappedPoints != null && snappedPath.snappedPoints.Count() > 0)
+                    {
+                        for (int j = 0; j < snappedPath.snappedPoints.Count(); j++)
+                        {
+                            anomaly.SnappedLatitude = snappedPath.snappedPoints.ElementAt(j).location.latitude;
+                            anomaly.SnappedLongitude =  snappedPath.snappedPoints.ElementAt(j).location.longitude ;
+                        }
+                    }
+                }
+            }
+
+            return service.SaveChanges();
+        }
+
+        public static int SnapAnomaliesToRoad()
+        {
+            AnomalyService service = new AnomalyService();
+            var anomalies = service.GetAnomalies();
+
+            foreach (var anomaly in anomalies)
+            {
+                using (var client = new HttpClient())
+                {
+                    string path = String.Format("https://roads.googleapis.com/v1/snapToRoads?path={0}&key={1}", anomaly.Latitude + "," + anomaly.Longitude, Constants.GoogleMapsRoadsAPIKey);
+                    HttpResponseMessage response = client.GetAsync(path).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        SnappedPath snappedPath = response.Content.ReadAsAsync<SnappedPath>().Result;
+
+                        if (snappedPath != null && snappedPath.snappedPoints != null && snappedPath.snappedPoints.Count() > 0)
+                        {
+                            for (int j = 0; j < snappedPath.snappedPoints.Count(); j++)
+                            {
+                                anomaly.SnappedLatitude = snappedPath.snappedPoints.ElementAt(j).location.latitude;
+                                anomaly.SnappedLongitude = snappedPath.snappedPoints.ElementAt(j).location.longitude;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            return service.SaveChanges();
+        }
+
+
         public static void SnapPointToRoad()
         {
             string locationPoints = Console.ReadLine();

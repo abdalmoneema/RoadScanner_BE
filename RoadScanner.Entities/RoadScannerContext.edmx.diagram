@@ -14,6 +14,20 @@
         <EntityTypeShape EntityType="RoadScanner.Entities.SegmentChain2" Width="1.5" PointX="8.375" PointY="4.75" />
         <EntityTypeShape EntityType="RoadScanner.Entities.SegmentChain4" Width="1.5" PointX="8.75" PointY="8.75" />
         <EntityTypeShape EntityType="RoadScanner.Entities.SegmentChain5" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="RoadScanner.Entities.Segments_SegmentChain2" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RoadScanner.Entities.Segments_SegmentChain3" Width="1.5" PointX="3.375" PointY="9.75" />
+        <EntityTypeShape EntityType="RoadScanner.Entities.Segments_SegmentChain4" Width="1.5" PointX="5.375" PointY="9.75" />
+        <EntityTypeShape EntityType="RoadScanner.Entities.Segments_SegmentChain5" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RoadScanner.Entities.Segments_SpeedDifference_SegmentChain5" Width="1.5" PointX="11.375" PointY="6.75" />
+        <EntityTypeShape EntityType="RoadScanner.Entities.Segments_HighSamplesCount_SegmentChain5" Width="1.5" PointX="11.375" PointY="10.75" />
+        <EntityTypeShape EntityType="RoadScanner.Entities.Segments_SegmentChain5_Top28" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RoadScanner.Entities.Segments_SegmentChain3_HighSampleCount" Width="1.5" PointX="13.375" PointY="7.75" />
+        <EntityTypeShape EntityType="RoadScanner.Entities.Segments_SegmentChain4_HighSampleCount" Width="1.5" PointX="7.375" PointY="13.75" />
+        <EntityTypeShape EntityType="RoadScanner.Entities.Segments_SegmentChain5_HighSampleCount" Width="1.5" PointX="13.375" PointY="13.75" />
+        <EntityTypeShape EntityType="RoadScanner.Entities.Segments_SegmentChain6" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="RoadScanner.Entities.Segments_SpeedDifference_SegmentChain5_Minimized" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RoadScanner.Entities.Segments_SegmentChain6_Rounded" Width="1.5" PointX="3.375" PointY="15.75" />
+        <EntityTypeShape EntityType="RoadScanner.Entities.Segments_SegmentChain6_AnomalySpreaded" Width="3.375" PointX="15.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

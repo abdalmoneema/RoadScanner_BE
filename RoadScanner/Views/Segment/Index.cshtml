@@ -1,0 +1,157 @@
+﻿@using RoadScanner.Models
+@model SegmentViewModel
+
+@{
+    ViewBag.Title = "Segments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="http://maps.google.com/maps/api/js?sensor=true&key=AIzaSyCb78PlI06C7Fd9mQpytL2eU8N0a2pwKHw" type="text/javascript"></script>
+
+
+<style>
+    #map_canvas img {
+        max-width: none;
+    }
+</style>
+
+<!-- This css is to give a nice big popup "info window" when a marker is clicked on the map -->
+<style>
+    .infoDiv {
+        height: 200px;
+        width: 300px;
+        -webkit-user-select: none;
+        background-color: white;
+    }
+</style>
+<br />
+<!-- This is the div that will contain the Google Map -->
+
+
+
+
+<div id="map_canvas" style="height: 450px;"></div>
+
+
+<!-- Enclose the Javascript in a "section" so that it is rendered in the correct order after scripts have been loaded etc -->
+@section scripts {
+    <section class="scripts">
+
+        <script type="text/javascript">
+
+            function getsegments()
+            {
+
+            }
+    $(document).ready(function () {
+        Initialize();
+    });
+
+    // Where all the fun happens
+    function Initialize() {
+
+        // Google has tweaked their interface somewhat - this tells the api to use that new UI
+        google.maps.visualRefresh = true;
+        var sixOfOctoberCity = new google.maps.LatLng(29.972447, 30.944839);
+
+        // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
+        var mapOptions = {
+            zoom: 11,
+            center: sixOfOctoberCity,
+            mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
+        };
+
+        // This makes the div with id "map_canvas" a google map
+        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+        // a sample list of JSON encoded data of places to visit in Tunisia
+        // you can either make up a JSON list server side, or call it from a controller using JSONResult
+
+
+
+
+        var data = @Html.Raw(Model.SegmentsJson);
+
+        // Using the JQuery "each" selector to iterate through the JSON list and drop marker pins
+        $.each(data, function (i, item) {
+            var marker = new google.maps.Marker({
+                'position': new google.maps.LatLng(item.Latitude,item.Longitude),
+                'map': map,
+                'title': item.Id
+            });
+
+            if (item.Id> @Json.Encode(Model.AnomaliesCount) )
+                // Make the marker-pin blue!
+                marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+            else 
+                marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+
+
+            // put in some information about each json object - in this case, the opening hours.
+            var infowindow = new google.maps.InfoWindow({
+                content: "<div class='infoDiv'>"+   "<h5>Id:" + item.Id + "</h5>"+
+
+                                                    "<h5>Latitude:" + item.Latitude + "</h5>"+
+                                                    "<h5>Longitude:" + item.Longitude + "</h5>"+
+                                                    "<h5>Next segment Id:" + item.NextSegmentId + "</h5>"+
+                                                    "<h5>Speed Avg:" + item.speedAvg + "</h5>"+
+                                                    "<h5>Speed Var:" + item.speedVar + "</h5>"+
+                                                    "<h5>Samples count:" + item.samplesCount + "</h5>"+
+                                                    "<h5>Spent time Avg:" + item.AvgSpentTime + "</h5>"+
+                                                    "<h5>Spent time Var:" + item.VarSpentTime + "</h5>"+
+                                                    "</div>"
+            });
+
+
+
+            // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked!
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+
+        })
+
+        @*var anomalydata = @Html.Raw(Json.Encode(Model.ManualAnomalies));
+        //[
+        //          { "Id": 1, "PlaceName": "Zaghouan", "GeoLong": "36.401081", "GeoLat": "10.16596" },
+        //          { "Id": 2, "PlaceName": "Hammamet ", "GeoLong": "36.4", "GeoLat": "10.616667" },
+        //          { "Id": 3, "PlaceName": "Sousse", "GeoLong": "35.8329809", "GeoLat": "10.63875" },
+        //          { "Id": 4, "PlaceName": "Sfax", "GeoLong": "34.745159", "GeoLat": "10.7613" }
+        //       ];
+
+        // Using the JQuery "each" selector to iterate through the JSON list and drop marker pins
+        $.each(anomalydata, function (i, item) {
+            var marker = new google.maps.Marker({
+                'position': new google.maps.LatLng(item.SnappedLatitude,item.SnappedLongitude),
+                'map': map,
+                'title': item.Id
+            });
+
+            if (item.Id> @Json.Encode(Model.AnomaliesCount) )
+            // Make the marker-pin blue!
+                marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png')
+            else
+
+
+            // put in some information about each json object - in this case, the opening hours.
+            var infowindow = new google.maps.InfoWindow({
+                content: "<div class='infoDiv'>"+   "<h5>Id:" + item.Id + "</h5>"+
+                                                    "<h5>Creation Date:" + item.CreationDate + "</h5>"+
+                                                    "<h5>Snapped Latitude:" + item.SnappedLatitude + "</h5>"+
+                                                    "<h5>Snapped Latitude:" + item.SnappedLongitude + "</h5>"+
+                                                    "<h5>Type:" + item.Type + "</h5>"+
+                                                    "<h5>Segment Id:" + item.SegmentId + "</h5>"+"</div>"
+            });
+
+            // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked!
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+
+        })*@
+    }
+
+
+        </script>
+    </section>
+}

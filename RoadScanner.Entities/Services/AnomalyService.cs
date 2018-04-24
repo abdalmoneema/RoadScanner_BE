@@ -26,5 +26,25 @@ namespace RoadScanner.Entities.Services
         {
             return db.ManualAnomalies.ToList();
         }
+
+        public ManualAnomaly GetAnomaly(int Id)
+        {
+            return db.ManualAnomalies.Where(m => m.Id == Id).FirstOrDefault();
+        }
+
+        public List<ManualAnomaly> GetAnomalies()
+        {
+            return db.ManualAnomalies.ToList();
+        }
+
+        public int GetAnomalyCount()
+        {
+            return db.ManualAnomalies.Count();
+        }
+
+        public int SaveChanges()
+        {
+            return db.SaveChanges();
+        }
     }
 }

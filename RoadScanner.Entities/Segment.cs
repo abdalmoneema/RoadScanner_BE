@@ -20,5 +20,9 @@ namespace RoadScanner.Entities
         public Nullable<double> speedAvg { get; set; }
         public Nullable<double> speedVar { get; set; }
         public Nullable<int> NextSegmentId { get; set; }
+        public Nullable<int> samplesCount { get; set; }
+        public Nullable<double> AvgSpentTime { get; set; }
+        public Nullable<double> VarSpentTime { get; set; }
+        public Nullable<double> AccelerationMagnitude { get; set; }
     }
 }

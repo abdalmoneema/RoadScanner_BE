@@ -88,8 +88,51 @@
     <Compile Include="SegmentChain5.cs">
       <DependentUpon>RoadScannerContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Segments_HighSamplesCount_SegmentChain5.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Segments_SegmentChain2.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Segments_SegmentChain3.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Segments_SegmentChain3_HighSampleCount.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Segments_SegmentChain4.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Segments_SegmentChain4_HighSampleCount.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Segments_SegmentChain5.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Segments_SegmentChain5_HighSampleCount.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Segments_SegmentChain5_Top28.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Segments_SegmentChain6.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Segments_SegmentChain6_AnomalySpreaded.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Segments_SegmentChain6_Rounded.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Segments_SpeedDifference_SegmentChain5.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Segments_SpeedDifference_SegmentChain5_Minimized.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Services\AnomalyService.cs" />
     <Compile Include="Services\MLService.cs" />
+    <Compile Include="Services\SegmentService.cs" />
     <Compile Include="Services\TripPathService.cs" />
     <Compile Include="Services\TripService.cs" />
     <Compile Include="Trip.cs">

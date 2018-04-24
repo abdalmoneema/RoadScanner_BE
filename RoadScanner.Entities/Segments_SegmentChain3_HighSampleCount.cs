@@ -12,15 +12,24 @@ namespace RoadScanner.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class SegmentChain2
+    public partial class Segments_SegmentChain3_HighSampleCount
     {
-        public Nullable<int> Segment1Id { get; set; }
-        public Nullable<int> Segment2Id { get; set; }
+        public int Segment1Id { get; set; }
+        public int Segment2Id { get; set; }
+        public int Segment3Id { get; set; }
         public Nullable<double> speedAvg1 { get; set; }
         public Nullable<double> speedVar1 { get; set; }
+        public Nullable<double> AvgSpentTime1 { get; set; }
+        public Nullable<double> VarSpentTime1 { get; set; }
         public Nullable<double> speedAvg2 { get; set; }
         public Nullable<double> speedVar2 { get; set; }
-        public int ContainAnomaly { get; set; }
+        public Nullable<double> AvgSpentTime2 { get; set; }
+        public Nullable<double> VarSpentTime2 { get; set; }
+        public Nullable<double> speedAvg3 { get; set; }
+        public Nullable<double> speedVar3 { get; set; }
+        public Nullable<double> AvgSpentTime3 { get; set; }
+        public Nullable<double> VarSpentTime3 { get; set; }
         public Nullable<int> anomalyId { get; set; }
+        public int ContainAnomaly { get; set; }
     }
 }

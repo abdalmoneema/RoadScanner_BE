@@ -28,6 +28,10 @@ namespace RoadScanner.Entities
         public Nullable<double> SnappedLongitude { get; set; }
         public Nullable<bool> IsSpeedIncrease { get; set; }
         public Nullable<int> SegmentId { get; set; }
+        public Nullable<int> serial { get; set; }
+        public Nullable<double> DistanceFromPrevious { get; set; }
+        public Nullable<int> ElapsedTimeInSec { get; set; }
+        public Nullable<double> SpeedInMeterPerSec { get; set; }
     
         public virtual Trip Trip { get; set; }
     }

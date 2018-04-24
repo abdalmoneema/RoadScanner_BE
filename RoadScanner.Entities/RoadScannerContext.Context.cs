@@ -33,5 +33,19 @@ namespace RoadScanner.Entities
         public virtual DbSet<SegmentChain2> SegmentChain2 { get; set; }
         public virtual DbSet<SegmentChain4> SegmentChain4 { get; set; }
         public virtual DbSet<SegmentChain5> SegmentChain5 { get; set; }
+        public virtual DbSet<Segments_SegmentChain2> Segments_SegmentChain2 { get; set; }
+        public virtual DbSet<Segments_SegmentChain3> Segments_SegmentChain3 { get; set; }
+        public virtual DbSet<Segments_SegmentChain4> Segments_SegmentChain4 { get; set; }
+        public virtual DbSet<Segments_SegmentChain5> Segments_SegmentChain5 { get; set; }
+        public virtual DbSet<Segments_SpeedDifference_SegmentChain5> Segments_SpeedDifference_SegmentChain5 { get; set; }
+        public virtual DbSet<Segments_HighSamplesCount_SegmentChain5> Segments_HighSamplesCount_SegmentChain5 { get; set; }
+        public virtual DbSet<Segments_SegmentChain5_Top28> Segments_SegmentChain5_Top28 { get; set; }
+        public virtual DbSet<Segments_SegmentChain3_HighSampleCount> Segments_SegmentChain3_HighSampleCount { get; set; }
+        public virtual DbSet<Segments_SegmentChain4_HighSampleCount> Segments_SegmentChain4_HighSampleCount { get; set; }
+        public virtual DbSet<Segments_SegmentChain5_HighSampleCount> Segments_SegmentChain5_HighSampleCount { get; set; }
+        public virtual DbSet<Segments_SegmentChain6> Segments_SegmentChain6 { get; set; }
+        public virtual DbSet<Segments_SpeedDifference_SegmentChain5_Minimized> Segments_SpeedDifference_SegmentChain5_Minimized { get; set; }
+        public virtual DbSet<Segments_SegmentChain6_Rounded> Segments_SegmentChain6_Rounded { get; set; }
+        public virtual DbSet<Segments_SegmentChain6_AnomalySpreaded> Segments_SegmentChain6_AnomalySpreaded { get; set; }
     }
 }
