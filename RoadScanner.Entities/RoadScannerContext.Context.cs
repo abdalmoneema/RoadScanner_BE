@@ -47,5 +47,7 @@ namespace RoadScanner.Entities
         public virtual DbSet<Segments_SpeedDifference_SegmentChain5_Minimized> Segments_SpeedDifference_SegmentChain5_Minimized { get; set; }
         public virtual DbSet<Segments_SegmentChain6_Rounded> Segments_SegmentChain6_Rounded { get; set; }
         public virtual DbSet<Segments_SegmentChain6_AnomalySpreaded> Segments_SegmentChain6_AnomalySpreaded { get; set; }
+        public virtual DbSet<Segments_SegmentChain6_4AnomalySpreaded> Segments_SegmentChain6_4AnomalySpreaded { get; set; }
+        public virtual DbSet<Segments_SegmentChain7_AnomalySpreaded> Segments_SegmentChain7_AnomalySpreaded { get; set; }
     }
 }

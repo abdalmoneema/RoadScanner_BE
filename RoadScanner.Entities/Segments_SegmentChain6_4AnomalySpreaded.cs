@@ -12,7 +12,7 @@ namespace RoadScanner.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Segments_SegmentChain6_AnomalySpreaded
+    public partial class Segments_SegmentChain6_4AnomalySpreaded
     {
         public int Segment1Id { get; set; }
         public int Segment2Id { get; set; }
@@ -47,22 +47,14 @@ namespace RoadScanner.Entities
         public Nullable<double> MaxSpeed { get; set; }
         public Nullable<double> MinSpeed { get; set; }
         public Nullable<double> SpeedRange { get; set; }
+        public Nullable<double> MaxTime { get; set; }
+        public Nullable<double> MinTime { get; set; }
+        public Nullable<double> TimeRange { get; set; }
         public Nullable<double> TotalTime { get; set; }
         public Nullable<int> anomaly1Id { get; set; }
         public Nullable<int> anomaly2Id { get; set; }
         public Nullable<int> anomaly3Id { get; set; }
         public Nullable<int> anomaly4Id { get; set; }
-        public Nullable<int> anomaly5Id { get; set; }
         public int ContainAnomaly { get; set; }
-        public Nullable<double> MaxTime { get; set; }
-        public Nullable<double> MinTime { get; set; }
-        public Nullable<double> TimeRange { get; set; }
-        public Nullable<double> MaxSpeedChange { get; set; }
-        public Nullable<double> MinSpeedChange { get; set; }
-        public Nullable<double> MaxSpeedVar { get; set; }
-        public Nullable<double> MinSpeedVar { get; set; }
-        public Nullable<double> SpeedVarRange { get; set; }
-        public Nullable<double> TimeVar { get; set; }
-        public Nullable<int> anomaly6Id { get; set; }
     }
 }

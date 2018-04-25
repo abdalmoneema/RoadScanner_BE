@@ -118,10 +118,16 @@
     <Compile Include="Segments_SegmentChain6.cs">
       <DependentUpon>RoadScannerContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Segments_SegmentChain6_4AnomalySpreaded.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Segments_SegmentChain6_AnomalySpreaded.cs">
       <DependentUpon>RoadScannerContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Segments_SegmentChain6_Rounded.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Segments_SegmentChain7_AnomalySpreaded.cs">
       <DependentUpon>RoadScannerContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Segments_SpeedDifference_SegmentChain5.cs">

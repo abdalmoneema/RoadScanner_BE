@@ -103,5 +103,14 @@ namespace RoadScanner.Entities.Services
         {
             return db.Segments_SegmentChain6_AnomalySpreaded.ToList();
         }
+
+        public List<Segments_SegmentChain6_4AnomalySpreaded> GetAllSegments_SegmentChain6_4AnomalySpreaded()
+        {
+            return db.Segments_SegmentChain6_4AnomalySpreaded.ToList();
+        }
+        public List<Segments_SegmentChain7_AnomalySpreaded> GetAllSegments_SegmentChain7_AnomalySpreaded()
+        {
+            return db.Segments_SegmentChain7_AnomalySpreaded.ToList();
+        }
     }
 }

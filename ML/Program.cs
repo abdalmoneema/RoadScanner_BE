@@ -34,7 +34,9 @@ namespace ML
             //var chain = service.GetAllSegments_SegmentChain5_Top28();
             //var chain = service.GetAllSegments_SpeedDifference_SegmentChain5_Minimized();
             //var chain = service.GetAllSegments_SegmentChain6_Rounded();
-            var chain = service.GetAllSegments_SegmentChain6_AnomalySpreaded();
+            //var chain = service.GetAllSegments_SegmentChain6_AnomalySpreaded();
+            //var chain = service.GetAllSegments_SegmentChain6_AnomalySpreaded();
+            var chain = service.GetAllSegments_SegmentChain7_AnomalySpreaded();
 
             //var chain = service.GetAllSegments_SpeedDifference_SegmentChain5();
             //var chain = service.GetAllSegments_HighSamplesCount_SegmentChain5();
@@ -58,7 +60,7 @@ namespace ML
             //double[][] inputs = chain.Select(sc => new double[] { sc.SpeedDiff1.Value, sc.SpeedDiff2.Value, sc.SpeedDiff3.Value, sc.SpeedDiff4.Value,sc.AvgSpentTime1.Value, sc.AvgSpentTime2.Value, sc.AvgSpentTime3.Value, sc.AvgSpentTime4.Value, sc.AvgSpentTime5.Value }).ToArray();
             //double[][] inputs = chain.Select(sc => new double[] { sc.SpeedDiff1.Value, sc.SpeedDiff2.Value, sc.SpeedDiff3.Value, sc.SpeedDiff4.Value,sc.AvgSpentTime1.Value, sc.AvgSpentTime2.Value, sc.AvgSpentTime3.Value, sc.AvgSpentTime4.Value, sc.AvgSpentTime5.Value }).ToArray();
             //double[][] inputs = chain.Select(sc => new double[] { sc.SpeedDiff1.Value, sc.SpeedDiff2.Value,sc.AvgTime.Value,sc.speedAvg4.Value }).ToArray();
-            double[][] inputs = chain.Select(sc => new double[] { sc.MaxSpeed.Value, sc.MinSpeed.Value, sc.SpeedRange.Value, sc.TotalTime.Value,sc.MinTime.Value,sc.MaxTime.Value,sc.TimeRange.Value }).ToArray();
+            double[][] inputs = chain.Select(sc => new double[] { sc.MaxSpeed.Value, sc.MinSpeed.Value, sc.SpeedRange.Value, sc.TotalTime.Value,sc.MinTime.Value,sc.MaxTime.Value, sc.TimeRange.Value,sc.MaxSpeedVar.Value,sc.MinSpeedVar.Value, sc.SpeedVarRange.Value }).ToArray();  //  
             int[] outputs = chain.Select(sc => sc.ContainAnomaly).ToArray();
 
 
@@ -197,10 +199,41 @@ namespace ML
                 //    Kernel = new Gaussian(0.5)
 
                 //},
+
+                //if ssegments beside hyper removed
+                //Learner = (s) => new SequentialMinimalOptimization<Gaussian, double[]>()
+                //{
+                //    Complexity = 100,
+                //    Kernel = new Gaussian(1) 
+
+                //},
+
+                //with max and min speed variance
+                //Learner = (s) => new SequentialMinimalOptimization<Gaussian, double[]>()
+                //{
+                //    Complexity = 100,
+                //    Kernel = new Gaussian(1.55)
+
+                //},
+
+                //Learner = (s) => new SequentialMinimalOptimization<Gaussian, double[]>()
+                //{
+                //    Complexity = 15,
+                //    Kernel = new Gaussian(1.55)
+
+                //},
+                //Learner = (s) => new SequentialMinimalOptimization<Gaussian, double[]>()
+                //{
+                //    Complexity = 7,
+                //    Kernel = new Gaussian(1.9)
+
+                //},
+
+                //best results for 7 segments witrh fields :sc.MaxSpeed.Value, sc.MinSpeed.Value, sc.SpeedRange.Value, sc.TotalTime.Value,sc.MinTime.Value,sc.MaxTime.Value, sc.TimeRange.Value,sc.MaxSpeedVar.Value,sc.MinSpeedVar.Value, sc.SpeedVarRange.Value
                 Learner = (s) => new SequentialMinimalOptimization<Gaussian, double[]>()
                 {
-                    Complexity = 10,
-                    Kernel = new Gaussian(0.5) ,
+                    Complexity = 7,
+                    Kernel = new Gaussian(2.4)
 
                 },
 

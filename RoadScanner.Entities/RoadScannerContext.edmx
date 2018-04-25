@@ -464,8 +464,8 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain6' does not h
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain6_AnomalySpreaded' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Segments_SegmentChain6_AnomalySpreaded">
+warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain6_4AnomalySpreaded' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Segments_SegmentChain6_4AnomalySpreaded">
           <Key>
             <PropertyRef Name="Segment1Id" />
             <PropertyRef Name="Segment2Id" />
@@ -516,7 +516,69 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain6_AnomalySpre
           <Property Name="anomaly2Id" Type="int" />
           <Property Name="anomaly3Id" Type="int" />
           <Property Name="anomaly4Id" Type="int" />
+          <Property Name="ContainAnomaly" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain6_AnomalySpreaded' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Segments_SegmentChain6_AnomalySpreaded">
+          <Key>
+            <PropertyRef Name="Segment1Id" />
+            <PropertyRef Name="Segment2Id" />
+            <PropertyRef Name="Segment3Id" />
+            <PropertyRef Name="Segment4Id" />
+            <PropertyRef Name="Segment5Id" />
+            <PropertyRef Name="Segment6Id" />
+            <PropertyRef Name="ContainAnomaly" />
+          </Key>
+          <Property Name="Segment1Id" Type="int" Nullable="false" />
+          <Property Name="Segment2Id" Type="int" Nullable="false" />
+          <Property Name="Segment3Id" Type="int" Nullable="false" />
+          <Property Name="Segment4Id" Type="int" Nullable="false" />
+          <Property Name="Segment5Id" Type="int" Nullable="false" />
+          <Property Name="Segment6Id" Type="int" Nullable="false" />
+          <Property Name="speedAvg1" Type="float" />
+          <Property Name="speedVar1" Type="float" />
+          <Property Name="AvgSpentTime1" Type="float" />
+          <Property Name="VarSpentTime1" Type="float" />
+          <Property Name="speedAvg2" Type="float" />
+          <Property Name="speedVar2" Type="float" />
+          <Property Name="AvgSpentTime2" Type="float" />
+          <Property Name="VarSpentTime2" Type="float" />
+          <Property Name="speedAvg3" Type="float" />
+          <Property Name="speedVar3" Type="float" />
+          <Property Name="AvgSpentTime3" Type="float" />
+          <Property Name="VarSpentTime3" Type="float" />
+          <Property Name="speedAvg4" Type="float" />
+          <Property Name="speedVar4" Type="float" />
+          <Property Name="AvgSpentTime4" Type="float" />
+          <Property Name="VarSpentTime4" Type="float" />
+          <Property Name="speedAvg5" Type="float" />
+          <Property Name="speedVar5" Type="float" />
+          <Property Name="AvgSpentTime5" Type="float" />
+          <Property Name="VarSpentTime5" Type="float" />
+          <Property Name="speedAvg6" Type="float" />
+          <Property Name="speedVar6" Type="float" />
+          <Property Name="AvgSpentTime6" Type="float" />
+          <Property Name="VarSpentTime6" Type="float" />
+          <Property Name="MaxSpeed" Type="float" />
+          <Property Name="MinSpeed" Type="float" />
+          <Property Name="SpeedRange" Type="float" />
+          <Property Name="MaxSpeedChange" Type="float" />
+          <Property Name="MinSpeedChange" Type="float" />
+          <Property Name="MaxSpeedVar" Type="float" />
+          <Property Name="MinSpeedVar" Type="float" />
+          <Property Name="SpeedVarRange" Type="float" />
+          <Property Name="MaxTime" Type="float" />
+          <Property Name="MinTime" Type="float" />
+          <Property Name="TimeRange" Type="float" />
+          <Property Name="TimeVar" Type="float" />
+          <Property Name="TotalTime" Type="float" />
+          <Property Name="anomaly1Id" Type="int" />
+          <Property Name="anomaly2Id" Type="int" />
+          <Property Name="anomaly3Id" Type="int" />
+          <Property Name="anomaly4Id" Type="int" />
           <Property Name="anomaly5Id" Type="int" />
+          <Property Name="anomaly6Id" Type="int" />
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -562,6 +624,77 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain6_Rounded' do
           <Property Name="AvgSpentTime6" Type="float" />
           <Property Name="VarSpentTime6" Type="float" />
           <Property Name="anomalyId" Type="int" />
+          <Property Name="ContainAnomaly" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain7_AnomalySpreaded' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Segments_SegmentChain7_AnomalySpreaded">
+          <Key>
+            <PropertyRef Name="Segment1Id" />
+            <PropertyRef Name="Segment2Id" />
+            <PropertyRef Name="Segment3Id" />
+            <PropertyRef Name="Segment4Id" />
+            <PropertyRef Name="Segment5Id" />
+            <PropertyRef Name="Segment6Id" />
+            <PropertyRef Name="Segment7Id" />
+            <PropertyRef Name="ContainAnomaly" />
+          </Key>
+          <Property Name="Segment1Id" Type="int" Nullable="false" />
+          <Property Name="Segment2Id" Type="int" Nullable="false" />
+          <Property Name="Segment3Id" Type="int" Nullable="false" />
+          <Property Name="Segment4Id" Type="int" Nullable="false" />
+          <Property Name="Segment5Id" Type="int" Nullable="false" />
+          <Property Name="Segment6Id" Type="int" Nullable="false" />
+          <Property Name="Segment7Id" Type="int" Nullable="false" />
+          <Property Name="speedAvg1" Type="float" />
+          <Property Name="speedVar1" Type="float" />
+          <Property Name="AvgSpentTime1" Type="float" />
+          <Property Name="VarSpentTime1" Type="float" />
+          <Property Name="speedAvg2" Type="float" />
+          <Property Name="speedVar2" Type="float" />
+          <Property Name="AvgSpentTime2" Type="float" />
+          <Property Name="VarSpentTime2" Type="float" />
+          <Property Name="speedAvg3" Type="float" />
+          <Property Name="speedVar3" Type="float" />
+          <Property Name="AvgSpentTime3" Type="float" />
+          <Property Name="VarSpentTime3" Type="float" />
+          <Property Name="speedAvg4" Type="float" />
+          <Property Name="speedVar4" Type="float" />
+          <Property Name="AvgSpentTime4" Type="float" />
+          <Property Name="VarSpentTime4" Type="float" />
+          <Property Name="speedAvg5" Type="float" />
+          <Property Name="speedVar5" Type="float" />
+          <Property Name="AvgSpentTime5" Type="float" />
+          <Property Name="VarSpentTime5" Type="float" />
+          <Property Name="speedAvg6" Type="float" />
+          <Property Name="speedVar6" Type="float" />
+          <Property Name="AvgSpentTime6" Type="float" />
+          <Property Name="VarSpentTime6" Type="float" />
+          <Property Name="speedAvg7" Type="float" />
+          <Property Name="speedVar7" Type="float" />
+          <Property Name="AvgSpentTime7" Type="float" />
+          <Property Name="VarSpentTime7" Type="float" />
+          <Property Name="MaxSpeed" Type="float" />
+          <Property Name="MinSpeed" Type="float" />
+          <Property Name="SpeedRange" Type="float" />
+          <Property Name="MaxSpeedChange" Type="float" />
+          <Property Name="MinSpeedChange" Type="float" />
+          <Property Name="MaxSpeedVar" Type="float" />
+          <Property Name="MinSpeedVar" Type="float" />
+          <Property Name="SpeedVarRange" Type="float" />
+          <Property Name="MaxTime" Type="float" />
+          <Property Name="MinTime" Type="float" />
+          <Property Name="TimeRange" Type="float" />
+          <Property Name="TimeVar" Type="float" />
+          <Property Name="TotalTime" Type="float" />
+          <Property Name="distance" Type="float" />
+          <Property Name="anomaly1Id" Type="int" />
+          <Property Name="anomaly2Id" Type="int" />
+          <Property Name="anomaly3Id" Type="int" />
+          <Property Name="anomaly4Id" Type="int" />
+          <Property Name="anomaly5Id" Type="int" />
+          <Property Name="anomaly6Id" Type="int" />
+          <Property Name="anomaly7Id" Type="int" />
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -948,6 +1081,52 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
     [Segments_SegmentChain6].[ContainAnomaly] AS [ContainAnomaly]
     FROM [dbo].[Segments_SegmentChain6] AS [Segments_SegmentChain6]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="Segments_SegmentChain6_4AnomalySpreaded" EntityType="Self.Segments_SegmentChain6_4AnomalySpreaded" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Segments_SegmentChain6_4AnomalySpreaded].[Segment1Id] AS [Segment1Id], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[Segment2Id] AS [Segment2Id], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[Segment3Id] AS [Segment3Id], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[Segment4Id] AS [Segment4Id], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[Segment5Id] AS [Segment5Id], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[Segment6Id] AS [Segment6Id], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[speedAvg1] AS [speedAvg1], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[speedVar1] AS [speedVar1], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[AvgSpentTime1] AS [AvgSpentTime1], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[VarSpentTime1] AS [VarSpentTime1], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[speedAvg2] AS [speedAvg2], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[speedVar2] AS [speedVar2], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[AvgSpentTime2] AS [AvgSpentTime2], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[VarSpentTime2] AS [VarSpentTime2], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[speedAvg3] AS [speedAvg3], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[speedVar3] AS [speedVar3], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[AvgSpentTime3] AS [AvgSpentTime3], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[VarSpentTime3] AS [VarSpentTime3], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[speedAvg4] AS [speedAvg4], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[speedVar4] AS [speedVar4], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[AvgSpentTime4] AS [AvgSpentTime4], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[VarSpentTime4] AS [VarSpentTime4], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[speedAvg5] AS [speedAvg5], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[speedVar5] AS [speedVar5], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[AvgSpentTime5] AS [AvgSpentTime5], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[VarSpentTime5] AS [VarSpentTime5], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[speedAvg6] AS [speedAvg6], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[speedVar6] AS [speedVar6], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[AvgSpentTime6] AS [AvgSpentTime6], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[VarSpentTime6] AS [VarSpentTime6], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[MaxSpeed] AS [MaxSpeed], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[MinSpeed] AS [MinSpeed], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[SpeedRange] AS [SpeedRange], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[MaxTime] AS [MaxTime], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[MinTime] AS [MinTime], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[TimeRange] AS [TimeRange], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[TotalTime] AS [TotalTime], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[anomaly1Id] AS [anomaly1Id], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[anomaly2Id] AS [anomaly2Id], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[anomaly3Id] AS [anomaly3Id], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[anomaly4Id] AS [anomaly4Id], 
+    [Segments_SegmentChain6_4AnomalySpreaded].[ContainAnomaly] AS [ContainAnomaly]
+    FROM [dbo].[Segments_SegmentChain6_4AnomalySpreaded] AS [Segments_SegmentChain6_4AnomalySpreaded]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Segments_SegmentChain6_AnomalySpreaded" EntityType="Self.Segments_SegmentChain6_AnomalySpreaded" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Segments_SegmentChain6_AnomalySpreaded].[Segment1Id] AS [Segment1Id], 
@@ -983,15 +1162,22 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
     [Segments_SegmentChain6_AnomalySpreaded].[MaxSpeed] AS [MaxSpeed], 
     [Segments_SegmentChain6_AnomalySpreaded].[MinSpeed] AS [MinSpeed], 
     [Segments_SegmentChain6_AnomalySpreaded].[SpeedRange] AS [SpeedRange], 
+    [Segments_SegmentChain6_AnomalySpreaded].[MaxSpeedChange] AS [MaxSpeedChange], 
+    [Segments_SegmentChain6_AnomalySpreaded].[MinSpeedChange] AS [MinSpeedChange], 
+    [Segments_SegmentChain6_AnomalySpreaded].[MaxSpeedVar] AS [MaxSpeedVar], 
+    [Segments_SegmentChain6_AnomalySpreaded].[MinSpeedVar] AS [MinSpeedVar], 
+    [Segments_SegmentChain6_AnomalySpreaded].[SpeedVarRange] AS [SpeedVarRange], 
     [Segments_SegmentChain6_AnomalySpreaded].[MaxTime] AS [MaxTime], 
     [Segments_SegmentChain6_AnomalySpreaded].[MinTime] AS [MinTime], 
     [Segments_SegmentChain6_AnomalySpreaded].[TimeRange] AS [TimeRange], 
+    [Segments_SegmentChain6_AnomalySpreaded].[TimeVar] AS [TimeVar], 
     [Segments_SegmentChain6_AnomalySpreaded].[TotalTime] AS [TotalTime], 
     [Segments_SegmentChain6_AnomalySpreaded].[anomaly1Id] AS [anomaly1Id], 
     [Segments_SegmentChain6_AnomalySpreaded].[anomaly2Id] AS [anomaly2Id], 
     [Segments_SegmentChain6_AnomalySpreaded].[anomaly3Id] AS [anomaly3Id], 
     [Segments_SegmentChain6_AnomalySpreaded].[anomaly4Id] AS [anomaly4Id], 
     [Segments_SegmentChain6_AnomalySpreaded].[anomaly5Id] AS [anomaly5Id], 
+    [Segments_SegmentChain6_AnomalySpreaded].[anomaly6Id] AS [anomaly6Id], 
     [Segments_SegmentChain6_AnomalySpreaded].[ContainAnomaly] AS [ContainAnomaly]
     FROM [dbo].[Segments_SegmentChain6_AnomalySpreaded] AS [Segments_SegmentChain6_AnomalySpreaded]</DefiningQuery>
           </EntitySet>
@@ -1030,6 +1216,67 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
     [Segments_SegmentChain6_Rounded].[anomalyId] AS [anomalyId], 
     [Segments_SegmentChain6_Rounded].[ContainAnomaly] AS [ContainAnomaly]
     FROM [dbo].[Segments_SegmentChain6_Rounded] AS [Segments_SegmentChain6_Rounded]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Segments_SegmentChain7_AnomalySpreaded" EntityType="Self.Segments_SegmentChain7_AnomalySpreaded" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Segments_SegmentChain7_AnomalySpreaded].[Segment1Id] AS [Segment1Id], 
+    [Segments_SegmentChain7_AnomalySpreaded].[Segment2Id] AS [Segment2Id], 
+    [Segments_SegmentChain7_AnomalySpreaded].[Segment3Id] AS [Segment3Id], 
+    [Segments_SegmentChain7_AnomalySpreaded].[Segment4Id] AS [Segment4Id], 
+    [Segments_SegmentChain7_AnomalySpreaded].[Segment5Id] AS [Segment5Id], 
+    [Segments_SegmentChain7_AnomalySpreaded].[Segment6Id] AS [Segment6Id], 
+    [Segments_SegmentChain7_AnomalySpreaded].[Segment7Id] AS [Segment7Id], 
+    [Segments_SegmentChain7_AnomalySpreaded].[speedAvg1] AS [speedAvg1], 
+    [Segments_SegmentChain7_AnomalySpreaded].[speedVar1] AS [speedVar1], 
+    [Segments_SegmentChain7_AnomalySpreaded].[AvgSpentTime1] AS [AvgSpentTime1], 
+    [Segments_SegmentChain7_AnomalySpreaded].[VarSpentTime1] AS [VarSpentTime1], 
+    [Segments_SegmentChain7_AnomalySpreaded].[speedAvg2] AS [speedAvg2], 
+    [Segments_SegmentChain7_AnomalySpreaded].[speedVar2] AS [speedVar2], 
+    [Segments_SegmentChain7_AnomalySpreaded].[AvgSpentTime2] AS [AvgSpentTime2], 
+    [Segments_SegmentChain7_AnomalySpreaded].[VarSpentTime2] AS [VarSpentTime2], 
+    [Segments_SegmentChain7_AnomalySpreaded].[speedAvg3] AS [speedAvg3], 
+    [Segments_SegmentChain7_AnomalySpreaded].[speedVar3] AS [speedVar3], 
+    [Segments_SegmentChain7_AnomalySpreaded].[AvgSpentTime3] AS [AvgSpentTime3], 
+    [Segments_SegmentChain7_AnomalySpreaded].[VarSpentTime3] AS [VarSpentTime3], 
+    [Segments_SegmentChain7_AnomalySpreaded].[speedAvg4] AS [speedAvg4], 
+    [Segments_SegmentChain7_AnomalySpreaded].[speedVar4] AS [speedVar4], 
+    [Segments_SegmentChain7_AnomalySpreaded].[AvgSpentTime4] AS [AvgSpentTime4], 
+    [Segments_SegmentChain7_AnomalySpreaded].[VarSpentTime4] AS [VarSpentTime4], 
+    [Segments_SegmentChain7_AnomalySpreaded].[speedAvg5] AS [speedAvg5], 
+    [Segments_SegmentChain7_AnomalySpreaded].[speedVar5] AS [speedVar5], 
+    [Segments_SegmentChain7_AnomalySpreaded].[AvgSpentTime5] AS [AvgSpentTime5], 
+    [Segments_SegmentChain7_AnomalySpreaded].[VarSpentTime5] AS [VarSpentTime5], 
+    [Segments_SegmentChain7_AnomalySpreaded].[speedAvg6] AS [speedAvg6], 
+    [Segments_SegmentChain7_AnomalySpreaded].[speedVar6] AS [speedVar6], 
+    [Segments_SegmentChain7_AnomalySpreaded].[AvgSpentTime6] AS [AvgSpentTime6], 
+    [Segments_SegmentChain7_AnomalySpreaded].[VarSpentTime6] AS [VarSpentTime6], 
+    [Segments_SegmentChain7_AnomalySpreaded].[speedAvg7] AS [speedAvg7], 
+    [Segments_SegmentChain7_AnomalySpreaded].[speedVar7] AS [speedVar7], 
+    [Segments_SegmentChain7_AnomalySpreaded].[AvgSpentTime7] AS [AvgSpentTime7], 
+    [Segments_SegmentChain7_AnomalySpreaded].[VarSpentTime7] AS [VarSpentTime7], 
+    [Segments_SegmentChain7_AnomalySpreaded].[MaxSpeed] AS [MaxSpeed], 
+    [Segments_SegmentChain7_AnomalySpreaded].[MinSpeed] AS [MinSpeed], 
+    [Segments_SegmentChain7_AnomalySpreaded].[SpeedRange] AS [SpeedRange], 
+    [Segments_SegmentChain7_AnomalySpreaded].[MaxSpeedChange] AS [MaxSpeedChange], 
+    [Segments_SegmentChain7_AnomalySpreaded].[MinSpeedChange] AS [MinSpeedChange], 
+    [Segments_SegmentChain7_AnomalySpreaded].[MaxSpeedVar] AS [MaxSpeedVar], 
+    [Segments_SegmentChain7_AnomalySpreaded].[MinSpeedVar] AS [MinSpeedVar], 
+    [Segments_SegmentChain7_AnomalySpreaded].[SpeedVarRange] AS [SpeedVarRange], 
+    [Segments_SegmentChain7_AnomalySpreaded].[MaxTime] AS [MaxTime], 
+    [Segments_SegmentChain7_AnomalySpreaded].[MinTime] AS [MinTime], 
+    [Segments_SegmentChain7_AnomalySpreaded].[TimeRange] AS [TimeRange], 
+    [Segments_SegmentChain7_AnomalySpreaded].[TimeVar] AS [TimeVar], 
+    [Segments_SegmentChain7_AnomalySpreaded].[TotalTime] AS [TotalTime], 
+    [Segments_SegmentChain7_AnomalySpreaded].[distance] AS [distance], 
+    [Segments_SegmentChain7_AnomalySpreaded].[anomaly1Id] AS [anomaly1Id], 
+    [Segments_SegmentChain7_AnomalySpreaded].[anomaly2Id] AS [anomaly2Id], 
+    [Segments_SegmentChain7_AnomalySpreaded].[anomaly3Id] AS [anomaly3Id], 
+    [Segments_SegmentChain7_AnomalySpreaded].[anomaly4Id] AS [anomaly4Id], 
+    [Segments_SegmentChain7_AnomalySpreaded].[anomaly5Id] AS [anomaly5Id], 
+    [Segments_SegmentChain7_AnomalySpreaded].[anomaly6Id] AS [anomaly6Id], 
+    [Segments_SegmentChain7_AnomalySpreaded].[anomaly7Id] AS [anomaly7Id], 
+    [Segments_SegmentChain7_AnomalySpreaded].[ContainAnomaly] AS [ContainAnomaly]
+    FROM [dbo].[Segments_SegmentChain7_AnomalySpreaded] AS [Segments_SegmentChain7_AnomalySpreaded]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Segments_SpeedDifference_SegmentChain5" EntityType="Self.Segments_SpeedDifference_SegmentChain5" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1174,6 +1421,8 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
           <EntitySet Name="Segments_SpeedDifference_SegmentChain5_Minimized" EntityType="RoadScanner.Entities.Segments_SpeedDifference_SegmentChain5_Minimized" />
           <EntitySet Name="Segments_SegmentChain6_Rounded" EntityType="RoadScanner.Entities.Segments_SegmentChain6_Rounded" />
           <EntitySet Name="Segments_SegmentChain6_AnomalySpreaded" EntityType="RoadScanner.Entities.Segments_SegmentChain6_AnomalySpreaded" />
+          <EntitySet Name="Segments_SegmentChain6_4AnomalySpreaded" EntityType="RoadScanner.Entities.Segments_SegmentChain6_4AnomalySpreaded" />
+          <EntitySet Name="Segments_SegmentChain7_AnomalySpreaded" EntityType="RoadScanner.Entities.Segments_SegmentChain7_AnomalySpreaded" />
         </EntityContainer>
         <EntityType Name="SegmentChain3">
           <Key>
@@ -1690,6 +1939,135 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
           <Property Name="MaxTime" Type="Double" />
           <Property Name="MinTime" Type="Double" />
           <Property Name="TimeRange" Type="Double" />
+          <Property Name="MaxSpeedChange" Type="Double" />
+          <Property Name="MinSpeedChange" Type="Double" />
+          <Property Name="MaxSpeedVar" Type="Double" />
+          <Property Name="MinSpeedVar" Type="Double" />
+          <Property Name="SpeedVarRange" Type="Double" />
+          <Property Name="TimeVar" Type="Double" />
+          <Property Name="anomaly6Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Segments_SegmentChain6_4AnomalySpreaded">
+          <Key>
+            <PropertyRef Name="Segment1Id" />
+            <PropertyRef Name="Segment2Id" />
+            <PropertyRef Name="Segment3Id" />
+            <PropertyRef Name="Segment4Id" />
+            <PropertyRef Name="Segment5Id" />
+            <PropertyRef Name="Segment6Id" />
+            <PropertyRef Name="ContainAnomaly" />
+          </Key>
+          <Property Name="Segment1Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment2Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment3Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment4Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment5Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment6Id" Type="Int32" Nullable="false" />
+          <Property Name="speedAvg1" Type="Double" />
+          <Property Name="speedVar1" Type="Double" />
+          <Property Name="AvgSpentTime1" Type="Double" />
+          <Property Name="VarSpentTime1" Type="Double" />
+          <Property Name="speedAvg2" Type="Double" />
+          <Property Name="speedVar2" Type="Double" />
+          <Property Name="AvgSpentTime2" Type="Double" />
+          <Property Name="VarSpentTime2" Type="Double" />
+          <Property Name="speedAvg3" Type="Double" />
+          <Property Name="speedVar3" Type="Double" />
+          <Property Name="AvgSpentTime3" Type="Double" />
+          <Property Name="VarSpentTime3" Type="Double" />
+          <Property Name="speedAvg4" Type="Double" />
+          <Property Name="speedVar4" Type="Double" />
+          <Property Name="AvgSpentTime4" Type="Double" />
+          <Property Name="VarSpentTime4" Type="Double" />
+          <Property Name="speedAvg5" Type="Double" />
+          <Property Name="speedVar5" Type="Double" />
+          <Property Name="AvgSpentTime5" Type="Double" />
+          <Property Name="VarSpentTime5" Type="Double" />
+          <Property Name="speedAvg6" Type="Double" />
+          <Property Name="speedVar6" Type="Double" />
+          <Property Name="AvgSpentTime6" Type="Double" />
+          <Property Name="VarSpentTime6" Type="Double" />
+          <Property Name="MaxSpeed" Type="Double" />
+          <Property Name="MinSpeed" Type="Double" />
+          <Property Name="SpeedRange" Type="Double" />
+          <Property Name="MaxTime" Type="Double" />
+          <Property Name="MinTime" Type="Double" />
+          <Property Name="TimeRange" Type="Double" />
+          <Property Name="TotalTime" Type="Double" />
+          <Property Name="anomaly1Id" Type="Int32" />
+          <Property Name="anomaly2Id" Type="Int32" />
+          <Property Name="anomaly3Id" Type="Int32" />
+          <Property Name="anomaly4Id" Type="Int32" />
+          <Property Name="ContainAnomaly" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Segments_SegmentChain7_AnomalySpreaded">
+          <Key>
+            <PropertyRef Name="Segment1Id" />
+            <PropertyRef Name="Segment2Id" />
+            <PropertyRef Name="Segment3Id" />
+            <PropertyRef Name="Segment4Id" />
+            <PropertyRef Name="Segment5Id" />
+            <PropertyRef Name="Segment6Id" />
+            <PropertyRef Name="Segment7Id" />
+            <PropertyRef Name="ContainAnomaly" />
+          </Key>
+          <Property Name="Segment1Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment2Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment3Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment4Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment5Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment6Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment7Id" Type="Int32" Nullable="false" />
+          <Property Name="speedAvg1" Type="Double" />
+          <Property Name="speedVar1" Type="Double" />
+          <Property Name="AvgSpentTime1" Type="Double" />
+          <Property Name="VarSpentTime1" Type="Double" />
+          <Property Name="speedAvg2" Type="Double" />
+          <Property Name="speedVar2" Type="Double" />
+          <Property Name="AvgSpentTime2" Type="Double" />
+          <Property Name="VarSpentTime2" Type="Double" />
+          <Property Name="speedAvg3" Type="Double" />
+          <Property Name="speedVar3" Type="Double" />
+          <Property Name="AvgSpentTime3" Type="Double" />
+          <Property Name="VarSpentTime3" Type="Double" />
+          <Property Name="speedAvg4" Type="Double" />
+          <Property Name="speedVar4" Type="Double" />
+          <Property Name="AvgSpentTime4" Type="Double" />
+          <Property Name="VarSpentTime4" Type="Double" />
+          <Property Name="speedAvg5" Type="Double" />
+          <Property Name="speedVar5" Type="Double" />
+          <Property Name="AvgSpentTime5" Type="Double" />
+          <Property Name="VarSpentTime5" Type="Double" />
+          <Property Name="speedAvg6" Type="Double" />
+          <Property Name="speedVar6" Type="Double" />
+          <Property Name="AvgSpentTime6" Type="Double" />
+          <Property Name="VarSpentTime6" Type="Double" />
+          <Property Name="speedAvg7" Type="Double" />
+          <Property Name="speedVar7" Type="Double" />
+          <Property Name="AvgSpentTime7" Type="Double" />
+          <Property Name="VarSpentTime7" Type="Double" />
+          <Property Name="MaxSpeed" Type="Double" />
+          <Property Name="MinSpeed" Type="Double" />
+          <Property Name="SpeedRange" Type="Double" />
+          <Property Name="MaxTime" Type="Double" />
+          <Property Name="MinTime" Type="Double" />
+          <Property Name="TimeRange" Type="Double" />
+          <Property Name="TotalTime" Type="Double" />
+          <Property Name="anomaly1Id" Type="Int32" />
+          <Property Name="anomaly2Id" Type="Int32" />
+          <Property Name="anomaly3Id" Type="Int32" />
+          <Property Name="anomaly4Id" Type="Int32" />
+          <Property Name="anomaly5Id" Type="Int32" />
+          <Property Name="anomaly6Id" Type="Int32" />
+          <Property Name="ContainAnomaly" Type="Int32" Nullable="false" />
+          <Property Name="MaxSpeedChange" Type="Double" />
+          <Property Name="MinSpeedChange" Type="Double" />
+          <Property Name="distance" Type="Double" />
+          <Property Name="TimeVar" Type="Double" />
+          <Property Name="MaxSpeedVar" Type="Double" />
+          <Property Name="MinSpeedVar" Type="Double" />
+          <Property Name="SpeedVarRange" Type="Double" />
+          <Property Name="anomaly7Id" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2183,6 +2561,13 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
           <EntitySetMapping Name="Segments_SegmentChain6_AnomalySpreaded">
             <EntityTypeMapping TypeName="RoadScanner.Entities.Segments_SegmentChain6_AnomalySpreaded">
               <MappingFragment StoreEntitySet="Segments_SegmentChain6_AnomalySpreaded">
+                <ScalarProperty Name="anomaly6Id" ColumnName="anomaly6Id" />
+                <ScalarProperty Name="TimeVar" ColumnName="TimeVar" />
+                <ScalarProperty Name="SpeedVarRange" ColumnName="SpeedVarRange" />
+                <ScalarProperty Name="MinSpeedVar" ColumnName="MinSpeedVar" />
+                <ScalarProperty Name="MaxSpeedVar" ColumnName="MaxSpeedVar" />
+                <ScalarProperty Name="MinSpeedChange" ColumnName="MinSpeedChange" />
+                <ScalarProperty Name="MaxSpeedChange" ColumnName="MaxSpeedChange" />
                 <ScalarProperty Name="TimeRange" ColumnName="TimeRange" />
                 <ScalarProperty Name="MinTime" ColumnName="MinTime" />
                 <ScalarProperty Name="MaxTime" ColumnName="MaxTime" />
@@ -2220,6 +2605,117 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
                 <ScalarProperty Name="AvgSpentTime1" ColumnName="AvgSpentTime1" />
                 <ScalarProperty Name="speedVar1" ColumnName="speedVar1" />
                 <ScalarProperty Name="speedAvg1" ColumnName="speedAvg1" />
+                <ScalarProperty Name="Segment6Id" ColumnName="Segment6Id" />
+                <ScalarProperty Name="Segment5Id" ColumnName="Segment5Id" />
+                <ScalarProperty Name="Segment4Id" ColumnName="Segment4Id" />
+                <ScalarProperty Name="Segment3Id" ColumnName="Segment3Id" />
+                <ScalarProperty Name="Segment2Id" ColumnName="Segment2Id" />
+                <ScalarProperty Name="Segment1Id" ColumnName="Segment1Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Segments_SegmentChain6_4AnomalySpreaded">
+            <EntityTypeMapping TypeName="RoadScanner.Entities.Segments_SegmentChain6_4AnomalySpreaded">
+              <MappingFragment StoreEntitySet="Segments_SegmentChain6_4AnomalySpreaded">
+                <ScalarProperty Name="ContainAnomaly" ColumnName="ContainAnomaly" />
+                <ScalarProperty Name="anomaly4Id" ColumnName="anomaly4Id" />
+                <ScalarProperty Name="anomaly3Id" ColumnName="anomaly3Id" />
+                <ScalarProperty Name="anomaly2Id" ColumnName="anomaly2Id" />
+                <ScalarProperty Name="anomaly1Id" ColumnName="anomaly1Id" />
+                <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+                <ScalarProperty Name="TimeRange" ColumnName="TimeRange" />
+                <ScalarProperty Name="MinTime" ColumnName="MinTime" />
+                <ScalarProperty Name="MaxTime" ColumnName="MaxTime" />
+                <ScalarProperty Name="SpeedRange" ColumnName="SpeedRange" />
+                <ScalarProperty Name="MinSpeed" ColumnName="MinSpeed" />
+                <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+                <ScalarProperty Name="VarSpentTime6" ColumnName="VarSpentTime6" />
+                <ScalarProperty Name="AvgSpentTime6" ColumnName="AvgSpentTime6" />
+                <ScalarProperty Name="speedVar6" ColumnName="speedVar6" />
+                <ScalarProperty Name="speedAvg6" ColumnName="speedAvg6" />
+                <ScalarProperty Name="VarSpentTime5" ColumnName="VarSpentTime5" />
+                <ScalarProperty Name="AvgSpentTime5" ColumnName="AvgSpentTime5" />
+                <ScalarProperty Name="speedVar5" ColumnName="speedVar5" />
+                <ScalarProperty Name="speedAvg5" ColumnName="speedAvg5" />
+                <ScalarProperty Name="VarSpentTime4" ColumnName="VarSpentTime4" />
+                <ScalarProperty Name="AvgSpentTime4" ColumnName="AvgSpentTime4" />
+                <ScalarProperty Name="speedVar4" ColumnName="speedVar4" />
+                <ScalarProperty Name="speedAvg4" ColumnName="speedAvg4" />
+                <ScalarProperty Name="VarSpentTime3" ColumnName="VarSpentTime3" />
+                <ScalarProperty Name="AvgSpentTime3" ColumnName="AvgSpentTime3" />
+                <ScalarProperty Name="speedVar3" ColumnName="speedVar3" />
+                <ScalarProperty Name="speedAvg3" ColumnName="speedAvg3" />
+                <ScalarProperty Name="VarSpentTime2" ColumnName="VarSpentTime2" />
+                <ScalarProperty Name="AvgSpentTime2" ColumnName="AvgSpentTime2" />
+                <ScalarProperty Name="speedVar2" ColumnName="speedVar2" />
+                <ScalarProperty Name="speedAvg2" ColumnName="speedAvg2" />
+                <ScalarProperty Name="VarSpentTime1" ColumnName="VarSpentTime1" />
+                <ScalarProperty Name="AvgSpentTime1" ColumnName="AvgSpentTime1" />
+                <ScalarProperty Name="speedVar1" ColumnName="speedVar1" />
+                <ScalarProperty Name="speedAvg1" ColumnName="speedAvg1" />
+                <ScalarProperty Name="Segment6Id" ColumnName="Segment6Id" />
+                <ScalarProperty Name="Segment5Id" ColumnName="Segment5Id" />
+                <ScalarProperty Name="Segment4Id" ColumnName="Segment4Id" />
+                <ScalarProperty Name="Segment3Id" ColumnName="Segment3Id" />
+                <ScalarProperty Name="Segment2Id" ColumnName="Segment2Id" />
+                <ScalarProperty Name="Segment1Id" ColumnName="Segment1Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Segments_SegmentChain7_AnomalySpreaded">
+            <EntityTypeMapping TypeName="RoadScanner.Entities.Segments_SegmentChain7_AnomalySpreaded">
+              <MappingFragment StoreEntitySet="Segments_SegmentChain7_AnomalySpreaded">
+                <ScalarProperty Name="anomaly7Id" ColumnName="anomaly7Id" />
+                <ScalarProperty Name="SpeedVarRange" ColumnName="SpeedVarRange" />
+                <ScalarProperty Name="MinSpeedVar" ColumnName="MinSpeedVar" />
+                <ScalarProperty Name="MaxSpeedVar" ColumnName="MaxSpeedVar" />
+                <ScalarProperty Name="TimeVar" ColumnName="TimeVar" />
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="MinSpeedChange" ColumnName="MinSpeedChange" />
+                <ScalarProperty Name="MaxSpeedChange" ColumnName="MaxSpeedChange" />
+                <ScalarProperty Name="ContainAnomaly" ColumnName="ContainAnomaly" />
+                <ScalarProperty Name="anomaly6Id" ColumnName="anomaly6Id" />
+                <ScalarProperty Name="anomaly5Id" ColumnName="anomaly5Id" />
+                <ScalarProperty Name="anomaly4Id" ColumnName="anomaly4Id" />
+                <ScalarProperty Name="anomaly3Id" ColumnName="anomaly3Id" />
+                <ScalarProperty Name="anomaly2Id" ColumnName="anomaly2Id" />
+                <ScalarProperty Name="anomaly1Id" ColumnName="anomaly1Id" />
+                <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+                <ScalarProperty Name="TimeRange" ColumnName="TimeRange" />
+                <ScalarProperty Name="MinTime" ColumnName="MinTime" />
+                <ScalarProperty Name="MaxTime" ColumnName="MaxTime" />
+                <ScalarProperty Name="SpeedRange" ColumnName="SpeedRange" />
+                <ScalarProperty Name="MinSpeed" ColumnName="MinSpeed" />
+                <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+                <ScalarProperty Name="VarSpentTime7" ColumnName="VarSpentTime7" />
+                <ScalarProperty Name="AvgSpentTime7" ColumnName="AvgSpentTime7" />
+                <ScalarProperty Name="speedVar7" ColumnName="speedVar7" />
+                <ScalarProperty Name="speedAvg7" ColumnName="speedAvg7" />
+                <ScalarProperty Name="VarSpentTime6" ColumnName="VarSpentTime6" />
+                <ScalarProperty Name="AvgSpentTime6" ColumnName="AvgSpentTime6" />
+                <ScalarProperty Name="speedVar6" ColumnName="speedVar6" />
+                <ScalarProperty Name="speedAvg6" ColumnName="speedAvg6" />
+                <ScalarProperty Name="VarSpentTime5" ColumnName="VarSpentTime5" />
+                <ScalarProperty Name="AvgSpentTime5" ColumnName="AvgSpentTime5" />
+                <ScalarProperty Name="speedVar5" ColumnName="speedVar5" />
+                <ScalarProperty Name="speedAvg5" ColumnName="speedAvg5" />
+                <ScalarProperty Name="VarSpentTime4" ColumnName="VarSpentTime4" />
+                <ScalarProperty Name="AvgSpentTime4" ColumnName="AvgSpentTime4" />
+                <ScalarProperty Name="speedVar4" ColumnName="speedVar4" />
+                <ScalarProperty Name="speedAvg4" ColumnName="speedAvg4" />
+                <ScalarProperty Name="VarSpentTime3" ColumnName="VarSpentTime3" />
+                <ScalarProperty Name="AvgSpentTime3" ColumnName="AvgSpentTime3" />
+                <ScalarProperty Name="speedVar3" ColumnName="speedVar3" />
+                <ScalarProperty Name="speedAvg3" ColumnName="speedAvg3" />
+                <ScalarProperty Name="VarSpentTime2" ColumnName="VarSpentTime2" />
+                <ScalarProperty Name="AvgSpentTime2" ColumnName="AvgSpentTime2" />
+                <ScalarProperty Name="speedVar2" ColumnName="speedVar2" />
+                <ScalarProperty Name="speedAvg2" ColumnName="speedAvg2" />
+                <ScalarProperty Name="VarSpentTime1" ColumnName="VarSpentTime1" />
+                <ScalarProperty Name="AvgSpentTime1" ColumnName="AvgSpentTime1" />
+                <ScalarProperty Name="speedVar1" ColumnName="speedVar1" />
+                <ScalarProperty Name="speedAvg1" ColumnName="speedAvg1" />
+                <ScalarProperty Name="Segment7Id" ColumnName="Segment7Id" />
                 <ScalarProperty Name="Segment6Id" ColumnName="Segment6Id" />
                 <ScalarProperty Name="Segment5Id" ColumnName="Segment5Id" />
                 <ScalarProperty Name="Segment4Id" ColumnName="Segment4Id" />
