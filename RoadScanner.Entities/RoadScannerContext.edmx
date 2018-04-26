@@ -686,6 +686,9 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain7_AnomalySpre
           <Property Name="MinTime" Type="float" />
           <Property Name="TimeRange" Type="float" />
           <Property Name="TimeVar" Type="float" />
+          <Property Name="MaxTimeVar" Type="float" />
+          <Property Name="MinTimeVar" Type="float" />
+          <Property Name="TimeVarRange" Type="float" />
           <Property Name="TotalTime" Type="float" />
           <Property Name="distance" Type="float" />
           <Property Name="anomaly1Id" Type="int" />
@@ -1266,6 +1269,9 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
     [Segments_SegmentChain7_AnomalySpreaded].[MinTime] AS [MinTime], 
     [Segments_SegmentChain7_AnomalySpreaded].[TimeRange] AS [TimeRange], 
     [Segments_SegmentChain7_AnomalySpreaded].[TimeVar] AS [TimeVar], 
+    [Segments_SegmentChain7_AnomalySpreaded].[MaxTimeVar] AS [MaxTimeVar], 
+    [Segments_SegmentChain7_AnomalySpreaded].[MinTimeVar] AS [MinTimeVar], 
+    [Segments_SegmentChain7_AnomalySpreaded].[TimeVarRange] AS [TimeVarRange], 
     [Segments_SegmentChain7_AnomalySpreaded].[TotalTime] AS [TotalTime], 
     [Segments_SegmentChain7_AnomalySpreaded].[distance] AS [distance], 
     [Segments_SegmentChain7_AnomalySpreaded].[anomaly1Id] AS [anomaly1Id], 
@@ -2068,6 +2074,9 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
           <Property Name="MinSpeedVar" Type="Double" />
           <Property Name="SpeedVarRange" Type="Double" />
           <Property Name="anomaly7Id" Type="Int32" />
+          <Property Name="MaxTimeVar" Type="Double" />
+          <Property Name="MinTimeVar" Type="Double" />
+          <Property Name="TimeVarRange" Type="Double" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2665,6 +2674,9 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
           <EntitySetMapping Name="Segments_SegmentChain7_AnomalySpreaded">
             <EntityTypeMapping TypeName="RoadScanner.Entities.Segments_SegmentChain7_AnomalySpreaded">
               <MappingFragment StoreEntitySet="Segments_SegmentChain7_AnomalySpreaded">
+                <ScalarProperty Name="TimeVarRange" ColumnName="TimeVarRange" />
+                <ScalarProperty Name="MinTimeVar" ColumnName="MinTimeVar" />
+                <ScalarProperty Name="MaxTimeVar" ColumnName="MaxTimeVar" />
                 <ScalarProperty Name="anomaly7Id" ColumnName="anomaly7Id" />
                 <ScalarProperty Name="SpeedVarRange" ColumnName="SpeedVarRange" />
                 <ScalarProperty Name="MinSpeedVar" ColumnName="MinSpeedVar" />

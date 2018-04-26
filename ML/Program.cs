@@ -60,7 +60,9 @@ namespace ML
             //double[][] inputs = chain.Select(sc => new double[] { sc.SpeedDiff1.Value, sc.SpeedDiff2.Value, sc.SpeedDiff3.Value, sc.SpeedDiff4.Value,sc.AvgSpentTime1.Value, sc.AvgSpentTime2.Value, sc.AvgSpentTime3.Value, sc.AvgSpentTime4.Value, sc.AvgSpentTime5.Value }).ToArray();
             //double[][] inputs = chain.Select(sc => new double[] { sc.SpeedDiff1.Value, sc.SpeedDiff2.Value, sc.SpeedDiff3.Value, sc.SpeedDiff4.Value,sc.AvgSpentTime1.Value, sc.AvgSpentTime2.Value, sc.AvgSpentTime3.Value, sc.AvgSpentTime4.Value, sc.AvgSpentTime5.Value }).ToArray();
             //double[][] inputs = chain.Select(sc => new double[] { sc.SpeedDiff1.Value, sc.SpeedDiff2.Value,sc.AvgTime.Value,sc.speedAvg4.Value }).ToArray();
-            double[][] inputs = chain.Select(sc => new double[] { sc.MaxSpeed.Value, sc.MinSpeed.Value, sc.SpeedRange.Value, sc.TotalTime.Value,sc.MinTime.Value,sc.MaxTime.Value, sc.TimeRange.Value,sc.MaxSpeedVar.Value,sc.MinSpeedVar.Value, sc.SpeedVarRange.Value }).ToArray();  //  
+
+            double[][] inputs = chain.Select(sc => new double[] { sc.MaxSpeed.Value, sc.MinSpeed.Value, sc.SpeedRange.Value, sc.TotalTime.Value,sc.MinTime.Value,sc.MaxTime.Value, sc.TimeRange.Value,sc.MaxSpeedVar.Value,sc.MinSpeedVar.Value, sc.SpeedVarRange.Value,sc.MaxTimeVar.Value,sc.MinTimeVar.Value,sc.TimeVarRange.Value}).ToArray();  //  
+            //double[][] inputs = chain.Select(sc => new double[] { sc.TotalTime.Value, sc.MinTime.Value, sc.MaxTime.Value, sc.TimeRange.Value, sc.MaxSpeedVar.Value, sc.MinSpeedVar.Value, sc.SpeedVarRange.Value }).ToArray();  //  
             int[] outputs = chain.Select(sc => sc.ContainAnomaly).ToArray();
 
 
@@ -230,10 +232,24 @@ namespace ML
                 //},
 
                 //best results for 7 segments witrh fields :sc.MaxSpeed.Value, sc.MinSpeed.Value, sc.SpeedRange.Value, sc.TotalTime.Value,sc.MinTime.Value,sc.MaxTime.Value, sc.TimeRange.Value,sc.MaxSpeedVar.Value,sc.MinSpeedVar.Value, sc.SpeedVarRange.Value
+                //Learner = (s) => new SequentialMinimalOptimization<Gaussian, double[]>()
+                //{
+                //    Complexity = 7,
+                //    Kernel = new Gaussian(2.4)
+
+                //},
+                //Best of the best
+                //Learner = (s) => new SequentialMinimalOptimization<Gaussian, double[]>()
+                //{
+                //    Complexity = 7,
+                //    Kernel = new Gaussian(2.4)
+
+                //},
+
                 Learner = (s) => new SequentialMinimalOptimization<Gaussian, double[]>()
                 {
-                    Complexity = 7,
-                    Kernel = new Gaussian(2.4)
+                    Complexity =10,
+                    Kernel = new Gaussian(2.92)
 
                 },
 
@@ -258,7 +274,7 @@ namespace ML
             GeneralConfusionMatrix gcm = result.ToConfusionMatrix(inputs, outputs);
             double accuracy = gcm.Accuracy;
             double error = gcm.Error;
-
+            
 
             Console.WriteLine("Accuracy:" + gcm.Accuracy);
             Console.WriteLine("Error:" + gcm.Error);
@@ -268,12 +284,18 @@ namespace ML
             Console.WriteLine("Anomaly Precision:" + gcm.Precision[1]);
             Console.WriteLine("Anomaly Recall:" + gcm.Recall[1]);
 
-            double anomalyFScore = 2 * (gcm.Precision[1] * gcm.Recall[1]) / (gcm.Precision[1] + gcm.Recall[1]);
-            double NotAnomalyFScore = 2 * (gcm.Precision[0] * gcm.Recall[0]) / (gcm.Precision[0] + gcm.Recall[0]);
-            Console.WriteLine("Not ANomaly F-score:" + NotAnomalyFScore);
-            Console.WriteLine("Anomaly F-score:" + anomalyFScore);
+            //double anomalyFScore = 2 * (gcm.Precision[1] * gcm.Recall[1]) / (gcm.Precision[1] + gcm.Recall[1]);
+            //double NotAnomalyFScore = 2 * (gcm.Precision[0] * gcm.Recall[0]) / (gcm.Precision[0] + gcm.Recall[0]);
+            //Console.WriteLine("Not ANomaly F-score:" + NotAnomalyFScore);
+            //Console.WriteLine("Anomaly F-score:" + anomalyFScore);
+
+            Console.WriteLine("Not ANomaly F-score:" + gcm.PerClassMatrices[0].FScore);
+            Console.WriteLine("Anomaly F-score:" + gcm.PerClassMatrices[1].FScore);
             
             
+
+
+
         }
 
         public static void DecisionTree_crossValidation(double[][] inputs, int[] outputs)

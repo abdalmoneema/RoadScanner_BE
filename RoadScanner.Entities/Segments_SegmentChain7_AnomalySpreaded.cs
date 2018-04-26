@@ -71,5 +71,8 @@ namespace RoadScanner.Entities
         public Nullable<double> MinSpeedVar { get; set; }
         public Nullable<double> SpeedVarRange { get; set; }
         public Nullable<int> anomaly7Id { get; set; }
+        public Nullable<double> MaxTimeVar { get; set; }
+        public Nullable<double> MinTimeVar { get; set; }
+        public Nullable<double> TimeVarRange { get; set; }
     }
 }
