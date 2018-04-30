@@ -130,6 +130,12 @@
     <Compile Include="Segments_SegmentChain7_AnomalySpreaded.cs">
       <DependentUpon>RoadScannerContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Segments_SegmentChain7_AnomalySpreaded_ALL.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Segments_SpeedDifference_SegmentChain5.cs">
       <DependentUpon>RoadScannerContext.tt</DependentUpon>
     </Compile>

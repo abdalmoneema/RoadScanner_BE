@@ -112,5 +112,15 @@ namespace RoadScanner.Entities.Services
         {
             return db.Segments_SegmentChain7_AnomalySpreaded.ToList();
         }
+
+        public List<Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly> GetAllSegments_SegmentChain7_AnomalySpreaded_OnlyANomaly()
+        {
+            return db.Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly.ToList();
+        }
+
+        public List<Segments_SegmentChain7_AnomalySpreaded_ALL> GetAllSegments_SegmentChain7_AnomalySpreaded_All()
+        {
+            return db.Segments_SegmentChain7_AnomalySpreaded_ALL.ToList();
+        }
     }
 }

@@ -64,7 +64,7 @@
           <Property Name="DeviceID" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.SegmentChain2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.SegmentChain2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="SegmentChain2">
           <Key>
             <PropertyRef Name="ContainAnomaly" />
@@ -79,7 +79,7 @@ warning 6002: The table/view 'RoadScanner.dbo.SegmentChain2' does not have a pri
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.SegmentChain3' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.SegmentChain3' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="SegmentChain3">
           <Key>
             <PropertyRef Name="ContainAnomaly" />
@@ -96,7 +96,7 @@ warning 6002: The table/view 'RoadScanner.dbo.SegmentChain3' does not have a pri
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.SegmentChain4' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.SegmentChain4' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="SegmentChain4">
           <Key>
             <PropertyRef Name="ContainAnomaly" />
@@ -116,7 +116,7 @@ warning 6002: The table/view 'RoadScanner.dbo.SegmentChain4' does not have a pri
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.SegmentChain5' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.SegmentChain5' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="SegmentChain5">
           <Key>
             <PropertyRef Name="ContainAnomaly" />
@@ -139,7 +139,7 @@ warning 6002: The table/view 'RoadScanner.dbo.SegmentChain5' does not have a pri
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_HighSamplesCount_SegmentChain5' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_HighSamplesCount_SegmentChain5' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Segments_HighSamplesCount_SegmentChain5">
           <Key>
             <PropertyRef Name="Segment1Id" />
@@ -168,7 +168,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_HighSamplesCount_SegmentC
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SegmentChain2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Segments_SegmentChain2">
           <Key>
             <PropertyRef Name="Segment1Id" />
@@ -185,7 +185,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain2' does not h
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain3' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SegmentChain3' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Segments_SegmentChain3">
           <Key>
             <PropertyRef Name="Segment1Id" />
@@ -212,7 +212,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain3' does not h
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain3_HighSampleCount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SegmentChain3_HighSampleCount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Segments_SegmentChain3_HighSampleCount">
           <Key>
             <PropertyRef Name="Segment1Id" />
@@ -239,7 +239,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain3_HighSampleC
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain4' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SegmentChain4' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Segments_SegmentChain4">
           <Key>
             <PropertyRef Name="Segment1Id" />
@@ -272,7 +272,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain4' does not h
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain4_HighSampleCount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SegmentChain4_HighSampleCount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Segments_SegmentChain4_HighSampleCount">
           <Key>
             <PropertyRef Name="Segment1Id" />
@@ -297,7 +297,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain4_HighSampleC
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain5' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SegmentChain5' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Segments_SegmentChain5">
           <Key>
             <PropertyRef Name="Segment1Id" />
@@ -341,7 +341,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain5' does not h
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain5_HighSampleCount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SegmentChain5_HighSampleCount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Segments_SegmentChain5_HighSampleCount">
           <Key>
             <PropertyRef Name="Segment1Id" />
@@ -380,7 +380,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain5_HighSampleC
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain5_Top28' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SegmentChain5_Top28' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Segments_SegmentChain5_Top28">
           <Key>
             <PropertyRef Name="Segment1Id" />
@@ -419,7 +419,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain5_Top28' does
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain6' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SegmentChain6' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Segments_SegmentChain6">
           <Key>
             <PropertyRef Name="Segment1Id" />
@@ -464,7 +464,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain6' does not h
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain6_4AnomalySpreaded' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SegmentChain6_4AnomalySpreaded' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Segments_SegmentChain6_4AnomalySpreaded">
           <Key>
             <PropertyRef Name="Segment1Id" />
@@ -519,7 +519,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain6_4AnomalySpr
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain6_AnomalySpreaded' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SegmentChain6_AnomalySpreaded' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Segments_SegmentChain6_AnomalySpreaded">
           <Key>
             <PropertyRef Name="Segment1Id" />
@@ -529,6 +529,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain6_AnomalySpre
             <PropertyRef Name="Segment5Id" />
             <PropertyRef Name="Segment6Id" />
             <PropertyRef Name="ContainAnomaly" />
+            <PropertyRef Name="AnomalyType" />
           </Key>
           <Property Name="Segment1Id" Type="int" Nullable="false" />
           <Property Name="Segment2Id" Type="int" Nullable="false" />
@@ -579,10 +580,17 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain6_AnomalySpre
           <Property Name="anomaly4Id" Type="int" />
           <Property Name="anomaly5Id" Type="int" />
           <Property Name="anomaly6Id" Type="int" />
+          <Property Name="anomaly1Type" Type="int" />
+          <Property Name="anomaly2Type" Type="int" />
+          <Property Name="anomaly3Type" Type="int" />
+          <Property Name="anomaly4Type" Type="int" />
+          <Property Name="anomaly5Type" Type="int" />
+          <Property Name="anomaly6Type" Type="int" />
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
+          <Property Name="AnomalyType" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain6_Rounded' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SegmentChain6_Rounded' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Segments_SegmentChain6_Rounded">
           <Key>
             <PropertyRef Name="Segment1Id" />
@@ -627,7 +635,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain6_Rounded' do
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain7_AnomalySpreaded' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SegmentChain7_AnomalySpreaded' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Segments_SegmentChain7_AnomalySpreaded">
           <Key>
             <PropertyRef Name="Segment1Id" />
@@ -638,6 +646,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain7_AnomalySpre
             <PropertyRef Name="Segment6Id" />
             <PropertyRef Name="Segment7Id" />
             <PropertyRef Name="ContainAnomaly" />
+            <PropertyRef Name="AnomalyType" />
           </Key>
           <Property Name="Segment1Id" Type="int" Nullable="false" />
           <Property Name="Segment2Id" Type="int" Nullable="false" />
@@ -698,10 +707,184 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SegmentChain7_AnomalySpre
           <Property Name="anomaly5Id" Type="int" />
           <Property Name="anomaly6Id" Type="int" />
           <Property Name="anomaly7Id" Type="int" />
+          <Property Name="anomaly1Type" Type="int" />
+          <Property Name="anomaly2Type" Type="int" />
+          <Property Name="anomaly3Type" Type="int" />
+          <Property Name="anomaly4Type" Type="int" />
+          <Property Name="anomaly5Type" Type="int" />
+          <Property Name="anomaly6Type" Type="int" />
+          <Property Name="anomaly7Type" Type="int" />
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
+          <Property Name="AnomalyType" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentChain5' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SegmentChain7_AnomalySpreaded_ALL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Segments_SegmentChain7_AnomalySpreaded_ALL">
+          <Key>
+            <PropertyRef Name="Segment1Id" />
+            <PropertyRef Name="Segment2Id" />
+            <PropertyRef Name="Segment3Id" />
+            <PropertyRef Name="Segment4Id" />
+            <PropertyRef Name="Segment5Id" />
+            <PropertyRef Name="Segment6Id" />
+            <PropertyRef Name="Segment7Id" />
+            <PropertyRef Name="ContainAnomaly" />
+            <PropertyRef Name="AnomalyType" />
+          </Key>
+          <Property Name="Segment1Id" Type="int" Nullable="false" />
+          <Property Name="Segment2Id" Type="int" Nullable="false" />
+          <Property Name="Segment3Id" Type="int" Nullable="false" />
+          <Property Name="Segment4Id" Type="int" Nullable="false" />
+          <Property Name="Segment5Id" Type="int" Nullable="false" />
+          <Property Name="Segment6Id" Type="int" Nullable="false" />
+          <Property Name="Segment7Id" Type="int" Nullable="false" />
+          <Property Name="speedAvg1" Type="float" />
+          <Property Name="speedVar1" Type="float" />
+          <Property Name="AvgSpentTime1" Type="float" />
+          <Property Name="VarSpentTime1" Type="float" />
+          <Property Name="speedAvg2" Type="float" />
+          <Property Name="speedVar2" Type="float" />
+          <Property Name="AvgSpentTime2" Type="float" />
+          <Property Name="VarSpentTime2" Type="float" />
+          <Property Name="speedAvg3" Type="float" />
+          <Property Name="speedVar3" Type="float" />
+          <Property Name="AvgSpentTime3" Type="float" />
+          <Property Name="VarSpentTime3" Type="float" />
+          <Property Name="speedAvg4" Type="float" />
+          <Property Name="speedVar4" Type="float" />
+          <Property Name="AvgSpentTime4" Type="float" />
+          <Property Name="VarSpentTime4" Type="float" />
+          <Property Name="speedAvg5" Type="float" />
+          <Property Name="speedVar5" Type="float" />
+          <Property Name="AvgSpentTime5" Type="float" />
+          <Property Name="VarSpentTime5" Type="float" />
+          <Property Name="speedAvg6" Type="float" />
+          <Property Name="speedVar6" Type="float" />
+          <Property Name="AvgSpentTime6" Type="float" />
+          <Property Name="VarSpentTime6" Type="float" />
+          <Property Name="speedAvg7" Type="float" />
+          <Property Name="speedVar7" Type="float" />
+          <Property Name="AvgSpentTime7" Type="float" />
+          <Property Name="VarSpentTime7" Type="float" />
+          <Property Name="MaxSpeed" Type="float" />
+          <Property Name="MinSpeed" Type="float" />
+          <Property Name="SpeedRange" Type="float" />
+          <Property Name="MaxSpeedChange" Type="float" />
+          <Property Name="MinSpeedChange" Type="float" />
+          <Property Name="MaxSpeedVar" Type="float" />
+          <Property Name="MinSpeedVar" Type="float" />
+          <Property Name="SpeedVarRange" Type="float" />
+          <Property Name="MaxTime" Type="float" />
+          <Property Name="MinTime" Type="float" />
+          <Property Name="TimeRange" Type="float" />
+          <Property Name="TimeVar" Type="float" />
+          <Property Name="MaxTimeVar" Type="float" />
+          <Property Name="MinTimeVar" Type="float" />
+          <Property Name="TimeVarRange" Type="float" />
+          <Property Name="TotalTime" Type="float" />
+          <Property Name="distance" Type="float" />
+          <Property Name="anomaly1Id" Type="int" />
+          <Property Name="anomaly2Id" Type="int" />
+          <Property Name="anomaly3Id" Type="int" />
+          <Property Name="anomaly4Id" Type="int" />
+          <Property Name="anomaly5Id" Type="int" />
+          <Property Name="anomaly6Id" Type="int" />
+          <Property Name="anomaly7Id" Type="int" />
+          <Property Name="anomaly1Type" Type="int" />
+          <Property Name="anomaly2Type" Type="int" />
+          <Property Name="anomaly3Type" Type="int" />
+          <Property Name="anomaly4Type" Type="int" />
+          <Property Name="anomaly5Type" Type="int" />
+          <Property Name="anomaly6Type" Type="int" />
+          <Property Name="anomaly7Type" Type="int" />
+          <Property Name="ContainAnomaly" Type="int" Nullable="false" />
+          <Property Name="AnomalyType" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly">
+          <Key>
+            <PropertyRef Name="Segment1Id" />
+            <PropertyRef Name="Segment2Id" />
+            <PropertyRef Name="Segment3Id" />
+            <PropertyRef Name="Segment4Id" />
+            <PropertyRef Name="Segment5Id" />
+            <PropertyRef Name="Segment6Id" />
+            <PropertyRef Name="Segment7Id" />
+            <PropertyRef Name="ContainAnomaly" />
+            <PropertyRef Name="AnomalyType" />
+          </Key>
+          <Property Name="Segment1Id" Type="int" Nullable="false" />
+          <Property Name="Segment2Id" Type="int" Nullable="false" />
+          <Property Name="Segment3Id" Type="int" Nullable="false" />
+          <Property Name="Segment4Id" Type="int" Nullable="false" />
+          <Property Name="Segment5Id" Type="int" Nullable="false" />
+          <Property Name="Segment6Id" Type="int" Nullable="false" />
+          <Property Name="Segment7Id" Type="int" Nullable="false" />
+          <Property Name="speedAvg1" Type="float" />
+          <Property Name="speedVar1" Type="float" />
+          <Property Name="AvgSpentTime1" Type="float" />
+          <Property Name="VarSpentTime1" Type="float" />
+          <Property Name="speedAvg2" Type="float" />
+          <Property Name="speedVar2" Type="float" />
+          <Property Name="AvgSpentTime2" Type="float" />
+          <Property Name="VarSpentTime2" Type="float" />
+          <Property Name="speedAvg3" Type="float" />
+          <Property Name="speedVar3" Type="float" />
+          <Property Name="AvgSpentTime3" Type="float" />
+          <Property Name="VarSpentTime3" Type="float" />
+          <Property Name="speedAvg4" Type="float" />
+          <Property Name="speedVar4" Type="float" />
+          <Property Name="AvgSpentTime4" Type="float" />
+          <Property Name="VarSpentTime4" Type="float" />
+          <Property Name="speedAvg5" Type="float" />
+          <Property Name="speedVar5" Type="float" />
+          <Property Name="AvgSpentTime5" Type="float" />
+          <Property Name="VarSpentTime5" Type="float" />
+          <Property Name="speedAvg6" Type="float" />
+          <Property Name="speedVar6" Type="float" />
+          <Property Name="AvgSpentTime6" Type="float" />
+          <Property Name="VarSpentTime6" Type="float" />
+          <Property Name="speedAvg7" Type="float" />
+          <Property Name="speedVar7" Type="float" />
+          <Property Name="AvgSpentTime7" Type="float" />
+          <Property Name="VarSpentTime7" Type="float" />
+          <Property Name="MaxSpeed" Type="float" />
+          <Property Name="MinSpeed" Type="float" />
+          <Property Name="SpeedRange" Type="float" />
+          <Property Name="MaxSpeedChange" Type="float" />
+          <Property Name="MinSpeedChange" Type="float" />
+          <Property Name="MaxSpeedVar" Type="float" />
+          <Property Name="MinSpeedVar" Type="float" />
+          <Property Name="SpeedVarRange" Type="float" />
+          <Property Name="MaxTime" Type="float" />
+          <Property Name="MinTime" Type="float" />
+          <Property Name="TimeRange" Type="float" />
+          <Property Name="TimeVar" Type="float" />
+          <Property Name="MaxTimeVar" Type="float" />
+          <Property Name="MinTimeVar" Type="float" />
+          <Property Name="TimeVarRange" Type="float" />
+          <Property Name="TotalTime" Type="float" />
+          <Property Name="distance" Type="float" />
+          <Property Name="anomaly1Id" Type="int" />
+          <Property Name="anomaly2Id" Type="int" />
+          <Property Name="anomaly3Id" Type="int" />
+          <Property Name="anomaly4Id" Type="int" />
+          <Property Name="anomaly5Id" Type="int" />
+          <Property Name="anomaly6Id" Type="int" />
+          <Property Name="anomaly7Id" Type="int" />
+          <Property Name="anomaly1Type" Type="int" />
+          <Property Name="anomaly2Type" Type="int" />
+          <Property Name="anomaly3Type" Type="int" />
+          <Property Name="anomaly4Type" Type="int" />
+          <Property Name="anomaly5Type" Type="int" />
+          <Property Name="anomaly6Type" Type="int" />
+          <Property Name="anomaly7Type" Type="int" />
+          <Property Name="ContainAnomaly" Type="int" Nullable="false" />
+          <Property Name="AnomalyType" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SpeedDifference_SegmentChain5' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Segments_SpeedDifference_SegmentChain5">
           <Key>
             <PropertyRef Name="Segment1Id" />
@@ -729,7 +912,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
           <Property Name="ContainAnomaly" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentChain5_Minimized' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RoadScanner3.dbo.Segments_SpeedDifference_SegmentChain5_Minimized' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Segments_SpeedDifference_SegmentChain5_Minimized">
           <Key>
             <PropertyRef Name="Segment1Id" />
@@ -1181,7 +1364,14 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
     [Segments_SegmentChain6_AnomalySpreaded].[anomaly4Id] AS [anomaly4Id], 
     [Segments_SegmentChain6_AnomalySpreaded].[anomaly5Id] AS [anomaly5Id], 
     [Segments_SegmentChain6_AnomalySpreaded].[anomaly6Id] AS [anomaly6Id], 
-    [Segments_SegmentChain6_AnomalySpreaded].[ContainAnomaly] AS [ContainAnomaly]
+    [Segments_SegmentChain6_AnomalySpreaded].[anomaly1Type] AS [anomaly1Type], 
+    [Segments_SegmentChain6_AnomalySpreaded].[anomaly2Type] AS [anomaly2Type], 
+    [Segments_SegmentChain6_AnomalySpreaded].[anomaly3Type] AS [anomaly3Type], 
+    [Segments_SegmentChain6_AnomalySpreaded].[anomaly4Type] AS [anomaly4Type], 
+    [Segments_SegmentChain6_AnomalySpreaded].[anomaly5Type] AS [anomaly5Type], 
+    [Segments_SegmentChain6_AnomalySpreaded].[anomaly6Type] AS [anomaly6Type], 
+    [Segments_SegmentChain6_AnomalySpreaded].[ContainAnomaly] AS [ContainAnomaly], 
+    [Segments_SegmentChain6_AnomalySpreaded].[AnomalyType] AS [AnomalyType]
     FROM [dbo].[Segments_SegmentChain6_AnomalySpreaded] AS [Segments_SegmentChain6_AnomalySpreaded]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Segments_SegmentChain6_Rounded" EntityType="Self.Segments_SegmentChain6_Rounded" store:Type="Views" store:Schema="dbo">
@@ -1281,8 +1471,160 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
     [Segments_SegmentChain7_AnomalySpreaded].[anomaly5Id] AS [anomaly5Id], 
     [Segments_SegmentChain7_AnomalySpreaded].[anomaly6Id] AS [anomaly6Id], 
     [Segments_SegmentChain7_AnomalySpreaded].[anomaly7Id] AS [anomaly7Id], 
-    [Segments_SegmentChain7_AnomalySpreaded].[ContainAnomaly] AS [ContainAnomaly]
+    [Segments_SegmentChain7_AnomalySpreaded].[anomaly1Type] AS [anomaly1Type], 
+    [Segments_SegmentChain7_AnomalySpreaded].[anomaly2Type] AS [anomaly2Type], 
+    [Segments_SegmentChain7_AnomalySpreaded].[anomaly3Type] AS [anomaly3Type], 
+    [Segments_SegmentChain7_AnomalySpreaded].[anomaly4Type] AS [anomaly4Type], 
+    [Segments_SegmentChain7_AnomalySpreaded].[anomaly5Type] AS [anomaly5Type], 
+    [Segments_SegmentChain7_AnomalySpreaded].[anomaly6Type] AS [anomaly6Type], 
+    [Segments_SegmentChain7_AnomalySpreaded].[anomaly7Type] AS [anomaly7Type], 
+    [Segments_SegmentChain7_AnomalySpreaded].[ContainAnomaly] AS [ContainAnomaly], 
+    [Segments_SegmentChain7_AnomalySpreaded].[AnomalyType] AS [AnomalyType]
     FROM [dbo].[Segments_SegmentChain7_AnomalySpreaded] AS [Segments_SegmentChain7_AnomalySpreaded]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Segments_SegmentChain7_AnomalySpreaded_ALL" EntityType="Self.Segments_SegmentChain7_AnomalySpreaded_ALL" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[Segment1Id] AS [Segment1Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[Segment2Id] AS [Segment2Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[Segment3Id] AS [Segment3Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[Segment4Id] AS [Segment4Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[Segment5Id] AS [Segment5Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[Segment6Id] AS [Segment6Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[Segment7Id] AS [Segment7Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[speedAvg1] AS [speedAvg1], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[speedVar1] AS [speedVar1], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[AvgSpentTime1] AS [AvgSpentTime1], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[VarSpentTime1] AS [VarSpentTime1], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[speedAvg2] AS [speedAvg2], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[speedVar2] AS [speedVar2], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[AvgSpentTime2] AS [AvgSpentTime2], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[VarSpentTime2] AS [VarSpentTime2], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[speedAvg3] AS [speedAvg3], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[speedVar3] AS [speedVar3], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[AvgSpentTime3] AS [AvgSpentTime3], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[VarSpentTime3] AS [VarSpentTime3], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[speedAvg4] AS [speedAvg4], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[speedVar4] AS [speedVar4], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[AvgSpentTime4] AS [AvgSpentTime4], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[VarSpentTime4] AS [VarSpentTime4], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[speedAvg5] AS [speedAvg5], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[speedVar5] AS [speedVar5], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[AvgSpentTime5] AS [AvgSpentTime5], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[VarSpentTime5] AS [VarSpentTime5], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[speedAvg6] AS [speedAvg6], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[speedVar6] AS [speedVar6], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[AvgSpentTime6] AS [AvgSpentTime6], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[VarSpentTime6] AS [VarSpentTime6], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[speedAvg7] AS [speedAvg7], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[speedVar7] AS [speedVar7], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[AvgSpentTime7] AS [AvgSpentTime7], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[VarSpentTime7] AS [VarSpentTime7], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[MaxSpeed] AS [MaxSpeed], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[MinSpeed] AS [MinSpeed], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[SpeedRange] AS [SpeedRange], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[MaxSpeedChange] AS [MaxSpeedChange], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[MinSpeedChange] AS [MinSpeedChange], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[MaxSpeedVar] AS [MaxSpeedVar], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[MinSpeedVar] AS [MinSpeedVar], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[SpeedVarRange] AS [SpeedVarRange], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[MaxTime] AS [MaxTime], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[MinTime] AS [MinTime], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[TimeRange] AS [TimeRange], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[TimeVar] AS [TimeVar], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[MaxTimeVar] AS [MaxTimeVar], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[MinTimeVar] AS [MinTimeVar], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[TimeVarRange] AS [TimeVarRange], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[TotalTime] AS [TotalTime], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[distance] AS [distance], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[anomaly1Id] AS [anomaly1Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[anomaly2Id] AS [anomaly2Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[anomaly3Id] AS [anomaly3Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[anomaly4Id] AS [anomaly4Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[anomaly5Id] AS [anomaly5Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[anomaly6Id] AS [anomaly6Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[anomaly7Id] AS [anomaly7Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[anomaly1Type] AS [anomaly1Type], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[anomaly2Type] AS [anomaly2Type], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[anomaly3Type] AS [anomaly3Type], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[anomaly4Type] AS [anomaly4Type], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[anomaly5Type] AS [anomaly5Type], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[anomaly6Type] AS [anomaly6Type], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[anomaly7Type] AS [anomaly7Type], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[ContainAnomaly] AS [ContainAnomaly], 
+    [Segments_SegmentChain7_AnomalySpreaded_ALL].[AnomalyType] AS [AnomalyType]
+    FROM [dbo].[Segments_SegmentChain7_AnomalySpreaded_ALL] AS [Segments_SegmentChain7_AnomalySpreaded_ALL]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly" EntityType="Self.Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[Segment1Id] AS [Segment1Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[Segment2Id] AS [Segment2Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[Segment3Id] AS [Segment3Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[Segment4Id] AS [Segment4Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[Segment5Id] AS [Segment5Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[Segment6Id] AS [Segment6Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[Segment7Id] AS [Segment7Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[speedAvg1] AS [speedAvg1], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[speedVar1] AS [speedVar1], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[AvgSpentTime1] AS [AvgSpentTime1], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[VarSpentTime1] AS [VarSpentTime1], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[speedAvg2] AS [speedAvg2], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[speedVar2] AS [speedVar2], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[AvgSpentTime2] AS [AvgSpentTime2], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[VarSpentTime2] AS [VarSpentTime2], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[speedAvg3] AS [speedAvg3], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[speedVar3] AS [speedVar3], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[AvgSpentTime3] AS [AvgSpentTime3], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[VarSpentTime3] AS [VarSpentTime3], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[speedAvg4] AS [speedAvg4], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[speedVar4] AS [speedVar4], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[AvgSpentTime4] AS [AvgSpentTime4], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[VarSpentTime4] AS [VarSpentTime4], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[speedAvg5] AS [speedAvg5], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[speedVar5] AS [speedVar5], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[AvgSpentTime5] AS [AvgSpentTime5], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[VarSpentTime5] AS [VarSpentTime5], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[speedAvg6] AS [speedAvg6], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[speedVar6] AS [speedVar6], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[AvgSpentTime6] AS [AvgSpentTime6], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[VarSpentTime6] AS [VarSpentTime6], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[speedAvg7] AS [speedAvg7], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[speedVar7] AS [speedVar7], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[AvgSpentTime7] AS [AvgSpentTime7], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[VarSpentTime7] AS [VarSpentTime7], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[MaxSpeed] AS [MaxSpeed], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[MinSpeed] AS [MinSpeed], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[SpeedRange] AS [SpeedRange], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[MaxSpeedChange] AS [MaxSpeedChange], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[MinSpeedChange] AS [MinSpeedChange], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[MaxSpeedVar] AS [MaxSpeedVar], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[MinSpeedVar] AS [MinSpeedVar], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[SpeedVarRange] AS [SpeedVarRange], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[MaxTime] AS [MaxTime], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[MinTime] AS [MinTime], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[TimeRange] AS [TimeRange], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[TimeVar] AS [TimeVar], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[MaxTimeVar] AS [MaxTimeVar], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[MinTimeVar] AS [MinTimeVar], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[TimeVarRange] AS [TimeVarRange], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[TotalTime] AS [TotalTime], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[distance] AS [distance], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[anomaly1Id] AS [anomaly1Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[anomaly2Id] AS [anomaly2Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[anomaly3Id] AS [anomaly3Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[anomaly4Id] AS [anomaly4Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[anomaly5Id] AS [anomaly5Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[anomaly6Id] AS [anomaly6Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[anomaly7Id] AS [anomaly7Id], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[anomaly1Type] AS [anomaly1Type], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[anomaly2Type] AS [anomaly2Type], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[anomaly3Type] AS [anomaly3Type], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[anomaly4Type] AS [anomaly4Type], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[anomaly5Type] AS [anomaly5Type], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[anomaly6Type] AS [anomaly6Type], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[anomaly7Type] AS [anomaly7Type], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[ContainAnomaly] AS [ContainAnomaly], 
+    [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly].[AnomalyType] AS [AnomalyType]
+    FROM [dbo].[Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly] AS [Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Segments_SpeedDifference_SegmentChain5" EntityType="Self.Segments_SpeedDifference_SegmentChain5" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1429,6 +1771,8 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
           <EntitySet Name="Segments_SegmentChain6_AnomalySpreaded" EntityType="RoadScanner.Entities.Segments_SegmentChain6_AnomalySpreaded" />
           <EntitySet Name="Segments_SegmentChain6_4AnomalySpreaded" EntityType="RoadScanner.Entities.Segments_SegmentChain6_4AnomalySpreaded" />
           <EntitySet Name="Segments_SegmentChain7_AnomalySpreaded" EntityType="RoadScanner.Entities.Segments_SegmentChain7_AnomalySpreaded" />
+          <EntitySet Name="Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly" EntityType="RoadScanner.Entities.Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly" />
+          <EntitySet Name="Segments_SegmentChain7_AnomalySpreaded_ALL" EntityType="RoadScanner.Entities.Segments_SegmentChain7_AnomalySpreaded_ALL" />
         </EntityContainer>
         <EntityType Name="SegmentChain3">
           <Key>
@@ -1901,6 +2245,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
             <PropertyRef Name="Segment5Id" />
             <PropertyRef Name="Segment6Id" />
             <PropertyRef Name="ContainAnomaly" />
+            <PropertyRef Name="AnomalyType" />
           </Key>
           <Property Name="Segment1Id" Type="Int32" Nullable="false" />
           <Property Name="Segment2Id" Type="Int32" Nullable="false" />
@@ -1952,6 +2297,13 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
           <Property Name="SpeedVarRange" Type="Double" />
           <Property Name="TimeVar" Type="Double" />
           <Property Name="anomaly6Id" Type="Int32" />
+          <Property Name="anomaly1Type" Type="Int32" />
+          <Property Name="anomaly2Type" Type="Int32" />
+          <Property Name="anomaly3Type" Type="Int32" />
+          <Property Name="anomaly4Type" Type="Int32" />
+          <Property Name="anomaly5Type" Type="Int32" />
+          <Property Name="anomaly6Type" Type="Int32" />
+          <Property Name="AnomalyType" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Segments_SegmentChain6_4AnomalySpreaded">
           <Key>
@@ -2016,6 +2368,7 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
             <PropertyRef Name="Segment6Id" />
             <PropertyRef Name="Segment7Id" />
             <PropertyRef Name="ContainAnomaly" />
+            <PropertyRef Name="AnomalyType" />
           </Key>
           <Property Name="Segment1Id" Type="Int32" Nullable="false" />
           <Property Name="Segment2Id" Type="Int32" Nullable="false" />
@@ -2077,6 +2430,176 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
           <Property Name="MaxTimeVar" Type="Double" />
           <Property Name="MinTimeVar" Type="Double" />
           <Property Name="TimeVarRange" Type="Double" />
+          <Property Name="anomaly1Type" Type="Int32" />
+          <Property Name="anomaly2Type" Type="Int32" />
+          <Property Name="anomaly3Type" Type="Int32" />
+          <Property Name="anomaly4Type" Type="Int32" />
+          <Property Name="anomaly5Type" Type="Int32" />
+          <Property Name="anomaly6Type" Type="Int32" />
+          <Property Name="anomaly7Type" Type="Int32" />
+          <Property Name="AnomalyType" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly">
+          <Key>
+            <PropertyRef Name="Segment1Id" />
+            <PropertyRef Name="Segment2Id" />
+            <PropertyRef Name="Segment3Id" />
+            <PropertyRef Name="Segment4Id" />
+            <PropertyRef Name="Segment5Id" />
+            <PropertyRef Name="Segment6Id" />
+            <PropertyRef Name="Segment7Id" />
+            <PropertyRef Name="ContainAnomaly" />
+            <PropertyRef Name="AnomalyType" />
+          </Key>
+          <Property Name="Segment1Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment2Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment3Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment4Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment5Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment6Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment7Id" Type="Int32" Nullable="false" />
+          <Property Name="speedAvg1" Type="Double" />
+          <Property Name="speedVar1" Type="Double" />
+          <Property Name="AvgSpentTime1" Type="Double" />
+          <Property Name="VarSpentTime1" Type="Double" />
+          <Property Name="speedAvg2" Type="Double" />
+          <Property Name="speedVar2" Type="Double" />
+          <Property Name="AvgSpentTime2" Type="Double" />
+          <Property Name="VarSpentTime2" Type="Double" />
+          <Property Name="speedAvg3" Type="Double" />
+          <Property Name="speedVar3" Type="Double" />
+          <Property Name="AvgSpentTime3" Type="Double" />
+          <Property Name="VarSpentTime3" Type="Double" />
+          <Property Name="speedAvg4" Type="Double" />
+          <Property Name="speedVar4" Type="Double" />
+          <Property Name="AvgSpentTime4" Type="Double" />
+          <Property Name="VarSpentTime4" Type="Double" />
+          <Property Name="speedAvg5" Type="Double" />
+          <Property Name="speedVar5" Type="Double" />
+          <Property Name="AvgSpentTime5" Type="Double" />
+          <Property Name="VarSpentTime5" Type="Double" />
+          <Property Name="speedAvg6" Type="Double" />
+          <Property Name="speedVar6" Type="Double" />
+          <Property Name="AvgSpentTime6" Type="Double" />
+          <Property Name="VarSpentTime6" Type="Double" />
+          <Property Name="speedAvg7" Type="Double" />
+          <Property Name="speedVar7" Type="Double" />
+          <Property Name="AvgSpentTime7" Type="Double" />
+          <Property Name="VarSpentTime7" Type="Double" />
+          <Property Name="MaxSpeed" Type="Double" />
+          <Property Name="MinSpeed" Type="Double" />
+          <Property Name="SpeedRange" Type="Double" />
+          <Property Name="MaxSpeedChange" Type="Double" />
+          <Property Name="MinSpeedChange" Type="Double" />
+          <Property Name="MaxSpeedVar" Type="Double" />
+          <Property Name="MinSpeedVar" Type="Double" />
+          <Property Name="SpeedVarRange" Type="Double" />
+          <Property Name="MaxTime" Type="Double" />
+          <Property Name="MinTime" Type="Double" />
+          <Property Name="TimeRange" Type="Double" />
+          <Property Name="TimeVar" Type="Double" />
+          <Property Name="MaxTimeVar" Type="Double" />
+          <Property Name="MinTimeVar" Type="Double" />
+          <Property Name="TimeVarRange" Type="Double" />
+          <Property Name="TotalTime" Type="Double" />
+          <Property Name="distance" Type="Double" />
+          <Property Name="anomaly1Id" Type="Int32" />
+          <Property Name="anomaly2Id" Type="Int32" />
+          <Property Name="anomaly3Id" Type="Int32" />
+          <Property Name="anomaly4Id" Type="Int32" />
+          <Property Name="anomaly5Id" Type="Int32" />
+          <Property Name="anomaly6Id" Type="Int32" />
+          <Property Name="anomaly7Id" Type="Int32" />
+          <Property Name="anomaly1Type" Type="Int32" />
+          <Property Name="anomaly2Type" Type="Int32" />
+          <Property Name="anomaly3Type" Type="Int32" />
+          <Property Name="anomaly4Type" Type="Int32" />
+          <Property Name="anomaly5Type" Type="Int32" />
+          <Property Name="anomaly6Type" Type="Int32" />
+          <Property Name="anomaly7Type" Type="Int32" />
+          <Property Name="ContainAnomaly" Type="Int32" Nullable="false" />
+          <Property Name="AnomalyType" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Segments_SegmentChain7_AnomalySpreaded_ALL">
+          <Key>
+            <PropertyRef Name="Segment1Id" />
+            <PropertyRef Name="Segment2Id" />
+            <PropertyRef Name="Segment3Id" />
+            <PropertyRef Name="Segment4Id" />
+            <PropertyRef Name="Segment5Id" />
+            <PropertyRef Name="Segment6Id" />
+            <PropertyRef Name="Segment7Id" />
+            <PropertyRef Name="ContainAnomaly" />
+            <PropertyRef Name="AnomalyType" />
+          </Key>
+          <Property Name="Segment1Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment2Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment3Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment4Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment5Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment6Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment7Id" Type="Int32" Nullable="false" />
+          <Property Name="speedAvg1" Type="Double" />
+          <Property Name="speedVar1" Type="Double" />
+          <Property Name="AvgSpentTime1" Type="Double" />
+          <Property Name="VarSpentTime1" Type="Double" />
+          <Property Name="speedAvg2" Type="Double" />
+          <Property Name="speedVar2" Type="Double" />
+          <Property Name="AvgSpentTime2" Type="Double" />
+          <Property Name="VarSpentTime2" Type="Double" />
+          <Property Name="speedAvg3" Type="Double" />
+          <Property Name="speedVar3" Type="Double" />
+          <Property Name="AvgSpentTime3" Type="Double" />
+          <Property Name="VarSpentTime3" Type="Double" />
+          <Property Name="speedAvg4" Type="Double" />
+          <Property Name="speedVar4" Type="Double" />
+          <Property Name="AvgSpentTime4" Type="Double" />
+          <Property Name="VarSpentTime4" Type="Double" />
+          <Property Name="speedAvg5" Type="Double" />
+          <Property Name="speedVar5" Type="Double" />
+          <Property Name="AvgSpentTime5" Type="Double" />
+          <Property Name="VarSpentTime5" Type="Double" />
+          <Property Name="speedAvg6" Type="Double" />
+          <Property Name="speedVar6" Type="Double" />
+          <Property Name="AvgSpentTime6" Type="Double" />
+          <Property Name="VarSpentTime6" Type="Double" />
+          <Property Name="speedAvg7" Type="Double" />
+          <Property Name="speedVar7" Type="Double" />
+          <Property Name="AvgSpentTime7" Type="Double" />
+          <Property Name="VarSpentTime7" Type="Double" />
+          <Property Name="MaxSpeed" Type="Double" />
+          <Property Name="MinSpeed" Type="Double" />
+          <Property Name="SpeedRange" Type="Double" />
+          <Property Name="MaxSpeedChange" Type="Double" />
+          <Property Name="MinSpeedChange" Type="Double" />
+          <Property Name="MaxSpeedVar" Type="Double" />
+          <Property Name="MinSpeedVar" Type="Double" />
+          <Property Name="SpeedVarRange" Type="Double" />
+          <Property Name="MaxTime" Type="Double" />
+          <Property Name="MinTime" Type="Double" />
+          <Property Name="TimeRange" Type="Double" />
+          <Property Name="TimeVar" Type="Double" />
+          <Property Name="MaxTimeVar" Type="Double" />
+          <Property Name="MinTimeVar" Type="Double" />
+          <Property Name="TimeVarRange" Type="Double" />
+          <Property Name="TotalTime" Type="Double" />
+          <Property Name="distance" Type="Double" />
+          <Property Name="anomaly1Id" Type="Int32" />
+          <Property Name="anomaly2Id" Type="Int32" />
+          <Property Name="anomaly3Id" Type="Int32" />
+          <Property Name="anomaly4Id" Type="Int32" />
+          <Property Name="anomaly5Id" Type="Int32" />
+          <Property Name="anomaly6Id" Type="Int32" />
+          <Property Name="anomaly7Id" Type="Int32" />
+          <Property Name="anomaly1Type" Type="Int32" />
+          <Property Name="anomaly2Type" Type="Int32" />
+          <Property Name="anomaly3Type" Type="Int32" />
+          <Property Name="anomaly4Type" Type="Int32" />
+          <Property Name="anomaly5Type" Type="Int32" />
+          <Property Name="anomaly6Type" Type="Int32" />
+          <Property Name="anomaly7Type" Type="Int32" />
+          <Property Name="ContainAnomaly" Type="Int32" Nullable="false" />
+          <Property Name="AnomalyType" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2570,6 +3093,13 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
           <EntitySetMapping Name="Segments_SegmentChain6_AnomalySpreaded">
             <EntityTypeMapping TypeName="RoadScanner.Entities.Segments_SegmentChain6_AnomalySpreaded">
               <MappingFragment StoreEntitySet="Segments_SegmentChain6_AnomalySpreaded">
+                <ScalarProperty Name="AnomalyType" ColumnName="AnomalyType" />
+                <ScalarProperty Name="anomaly6Type" ColumnName="anomaly6Type" />
+                <ScalarProperty Name="anomaly5Type" ColumnName="anomaly5Type" />
+                <ScalarProperty Name="anomaly4Type" ColumnName="anomaly4Type" />
+                <ScalarProperty Name="anomaly3Type" ColumnName="anomaly3Type" />
+                <ScalarProperty Name="anomaly2Type" ColumnName="anomaly2Type" />
+                <ScalarProperty Name="anomaly1Type" ColumnName="anomaly1Type" />
                 <ScalarProperty Name="anomaly6Id" ColumnName="anomaly6Id" />
                 <ScalarProperty Name="TimeVar" ColumnName="TimeVar" />
                 <ScalarProperty Name="SpeedVarRange" ColumnName="SpeedVarRange" />
@@ -2674,6 +3204,14 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
           <EntitySetMapping Name="Segments_SegmentChain7_AnomalySpreaded">
             <EntityTypeMapping TypeName="RoadScanner.Entities.Segments_SegmentChain7_AnomalySpreaded">
               <MappingFragment StoreEntitySet="Segments_SegmentChain7_AnomalySpreaded">
+                <ScalarProperty Name="AnomalyType" ColumnName="AnomalyType" />
+                <ScalarProperty Name="anomaly7Type" ColumnName="anomaly7Type" />
+                <ScalarProperty Name="anomaly6Type" ColumnName="anomaly6Type" />
+                <ScalarProperty Name="anomaly5Type" ColumnName="anomaly5Type" />
+                <ScalarProperty Name="anomaly4Type" ColumnName="anomaly4Type" />
+                <ScalarProperty Name="anomaly3Type" ColumnName="anomaly3Type" />
+                <ScalarProperty Name="anomaly2Type" ColumnName="anomaly2Type" />
+                <ScalarProperty Name="anomaly1Type" ColumnName="anomaly1Type" />
                 <ScalarProperty Name="TimeVarRange" ColumnName="TimeVarRange" />
                 <ScalarProperty Name="MinTimeVar" ColumnName="MinTimeVar" />
                 <ScalarProperty Name="MaxTimeVar" ColumnName="MaxTimeVar" />
@@ -2696,6 +3234,154 @@ warning 6002: The table/view 'RoadScanner.dbo.Segments_SpeedDifference_SegmentCh
                 <ScalarProperty Name="TimeRange" ColumnName="TimeRange" />
                 <ScalarProperty Name="MinTime" ColumnName="MinTime" />
                 <ScalarProperty Name="MaxTime" ColumnName="MaxTime" />
+                <ScalarProperty Name="SpeedRange" ColumnName="SpeedRange" />
+                <ScalarProperty Name="MinSpeed" ColumnName="MinSpeed" />
+                <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+                <ScalarProperty Name="VarSpentTime7" ColumnName="VarSpentTime7" />
+                <ScalarProperty Name="AvgSpentTime7" ColumnName="AvgSpentTime7" />
+                <ScalarProperty Name="speedVar7" ColumnName="speedVar7" />
+                <ScalarProperty Name="speedAvg7" ColumnName="speedAvg7" />
+                <ScalarProperty Name="VarSpentTime6" ColumnName="VarSpentTime6" />
+                <ScalarProperty Name="AvgSpentTime6" ColumnName="AvgSpentTime6" />
+                <ScalarProperty Name="speedVar6" ColumnName="speedVar6" />
+                <ScalarProperty Name="speedAvg6" ColumnName="speedAvg6" />
+                <ScalarProperty Name="VarSpentTime5" ColumnName="VarSpentTime5" />
+                <ScalarProperty Name="AvgSpentTime5" ColumnName="AvgSpentTime5" />
+                <ScalarProperty Name="speedVar5" ColumnName="speedVar5" />
+                <ScalarProperty Name="speedAvg5" ColumnName="speedAvg5" />
+                <ScalarProperty Name="VarSpentTime4" ColumnName="VarSpentTime4" />
+                <ScalarProperty Name="AvgSpentTime4" ColumnName="AvgSpentTime4" />
+                <ScalarProperty Name="speedVar4" ColumnName="speedVar4" />
+                <ScalarProperty Name="speedAvg4" ColumnName="speedAvg4" />
+                <ScalarProperty Name="VarSpentTime3" ColumnName="VarSpentTime3" />
+                <ScalarProperty Name="AvgSpentTime3" ColumnName="AvgSpentTime3" />
+                <ScalarProperty Name="speedVar3" ColumnName="speedVar3" />
+                <ScalarProperty Name="speedAvg3" ColumnName="speedAvg3" />
+                <ScalarProperty Name="VarSpentTime2" ColumnName="VarSpentTime2" />
+                <ScalarProperty Name="AvgSpentTime2" ColumnName="AvgSpentTime2" />
+                <ScalarProperty Name="speedVar2" ColumnName="speedVar2" />
+                <ScalarProperty Name="speedAvg2" ColumnName="speedAvg2" />
+                <ScalarProperty Name="VarSpentTime1" ColumnName="VarSpentTime1" />
+                <ScalarProperty Name="AvgSpentTime1" ColumnName="AvgSpentTime1" />
+                <ScalarProperty Name="speedVar1" ColumnName="speedVar1" />
+                <ScalarProperty Name="speedAvg1" ColumnName="speedAvg1" />
+                <ScalarProperty Name="Segment7Id" ColumnName="Segment7Id" />
+                <ScalarProperty Name="Segment6Id" ColumnName="Segment6Id" />
+                <ScalarProperty Name="Segment5Id" ColumnName="Segment5Id" />
+                <ScalarProperty Name="Segment4Id" ColumnName="Segment4Id" />
+                <ScalarProperty Name="Segment3Id" ColumnName="Segment3Id" />
+                <ScalarProperty Name="Segment2Id" ColumnName="Segment2Id" />
+                <ScalarProperty Name="Segment1Id" ColumnName="Segment1Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly">
+            <EntityTypeMapping TypeName="RoadScanner.Entities.Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly">
+              <MappingFragment StoreEntitySet="Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly">
+                <ScalarProperty Name="AnomalyType" ColumnName="AnomalyType" />
+                <ScalarProperty Name="ContainAnomaly" ColumnName="ContainAnomaly" />
+                <ScalarProperty Name="anomaly7Type" ColumnName="anomaly7Type" />
+                <ScalarProperty Name="anomaly6Type" ColumnName="anomaly6Type" />
+                <ScalarProperty Name="anomaly5Type" ColumnName="anomaly5Type" />
+                <ScalarProperty Name="anomaly4Type" ColumnName="anomaly4Type" />
+                <ScalarProperty Name="anomaly3Type" ColumnName="anomaly3Type" />
+                <ScalarProperty Name="anomaly2Type" ColumnName="anomaly2Type" />
+                <ScalarProperty Name="anomaly1Type" ColumnName="anomaly1Type" />
+                <ScalarProperty Name="anomaly7Id" ColumnName="anomaly7Id" />
+                <ScalarProperty Name="anomaly6Id" ColumnName="anomaly6Id" />
+                <ScalarProperty Name="anomaly5Id" ColumnName="anomaly5Id" />
+                <ScalarProperty Name="anomaly4Id" ColumnName="anomaly4Id" />
+                <ScalarProperty Name="anomaly3Id" ColumnName="anomaly3Id" />
+                <ScalarProperty Name="anomaly2Id" ColumnName="anomaly2Id" />
+                <ScalarProperty Name="anomaly1Id" ColumnName="anomaly1Id" />
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+                <ScalarProperty Name="TimeVarRange" ColumnName="TimeVarRange" />
+                <ScalarProperty Name="MinTimeVar" ColumnName="MinTimeVar" />
+                <ScalarProperty Name="MaxTimeVar" ColumnName="MaxTimeVar" />
+                <ScalarProperty Name="TimeVar" ColumnName="TimeVar" />
+                <ScalarProperty Name="TimeRange" ColumnName="TimeRange" />
+                <ScalarProperty Name="MinTime" ColumnName="MinTime" />
+                <ScalarProperty Name="MaxTime" ColumnName="MaxTime" />
+                <ScalarProperty Name="SpeedVarRange" ColumnName="SpeedVarRange" />
+                <ScalarProperty Name="MinSpeedVar" ColumnName="MinSpeedVar" />
+                <ScalarProperty Name="MaxSpeedVar" ColumnName="MaxSpeedVar" />
+                <ScalarProperty Name="MinSpeedChange" ColumnName="MinSpeedChange" />
+                <ScalarProperty Name="MaxSpeedChange" ColumnName="MaxSpeedChange" />
+                <ScalarProperty Name="SpeedRange" ColumnName="SpeedRange" />
+                <ScalarProperty Name="MinSpeed" ColumnName="MinSpeed" />
+                <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+                <ScalarProperty Name="VarSpentTime7" ColumnName="VarSpentTime7" />
+                <ScalarProperty Name="AvgSpentTime7" ColumnName="AvgSpentTime7" />
+                <ScalarProperty Name="speedVar7" ColumnName="speedVar7" />
+                <ScalarProperty Name="speedAvg7" ColumnName="speedAvg7" />
+                <ScalarProperty Name="VarSpentTime6" ColumnName="VarSpentTime6" />
+                <ScalarProperty Name="AvgSpentTime6" ColumnName="AvgSpentTime6" />
+                <ScalarProperty Name="speedVar6" ColumnName="speedVar6" />
+                <ScalarProperty Name="speedAvg6" ColumnName="speedAvg6" />
+                <ScalarProperty Name="VarSpentTime5" ColumnName="VarSpentTime5" />
+                <ScalarProperty Name="AvgSpentTime5" ColumnName="AvgSpentTime5" />
+                <ScalarProperty Name="speedVar5" ColumnName="speedVar5" />
+                <ScalarProperty Name="speedAvg5" ColumnName="speedAvg5" />
+                <ScalarProperty Name="VarSpentTime4" ColumnName="VarSpentTime4" />
+                <ScalarProperty Name="AvgSpentTime4" ColumnName="AvgSpentTime4" />
+                <ScalarProperty Name="speedVar4" ColumnName="speedVar4" />
+                <ScalarProperty Name="speedAvg4" ColumnName="speedAvg4" />
+                <ScalarProperty Name="VarSpentTime3" ColumnName="VarSpentTime3" />
+                <ScalarProperty Name="AvgSpentTime3" ColumnName="AvgSpentTime3" />
+                <ScalarProperty Name="speedVar3" ColumnName="speedVar3" />
+                <ScalarProperty Name="speedAvg3" ColumnName="speedAvg3" />
+                <ScalarProperty Name="VarSpentTime2" ColumnName="VarSpentTime2" />
+                <ScalarProperty Name="AvgSpentTime2" ColumnName="AvgSpentTime2" />
+                <ScalarProperty Name="speedVar2" ColumnName="speedVar2" />
+                <ScalarProperty Name="speedAvg2" ColumnName="speedAvg2" />
+                <ScalarProperty Name="VarSpentTime1" ColumnName="VarSpentTime1" />
+                <ScalarProperty Name="AvgSpentTime1" ColumnName="AvgSpentTime1" />
+                <ScalarProperty Name="speedVar1" ColumnName="speedVar1" />
+                <ScalarProperty Name="speedAvg1" ColumnName="speedAvg1" />
+                <ScalarProperty Name="Segment7Id" ColumnName="Segment7Id" />
+                <ScalarProperty Name="Segment6Id" ColumnName="Segment6Id" />
+                <ScalarProperty Name="Segment5Id" ColumnName="Segment5Id" />
+                <ScalarProperty Name="Segment4Id" ColumnName="Segment4Id" />
+                <ScalarProperty Name="Segment3Id" ColumnName="Segment3Id" />
+                <ScalarProperty Name="Segment2Id" ColumnName="Segment2Id" />
+                <ScalarProperty Name="Segment1Id" ColumnName="Segment1Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Segments_SegmentChain7_AnomalySpreaded_ALL">
+            <EntityTypeMapping TypeName="RoadScanner.Entities.Segments_SegmentChain7_AnomalySpreaded_ALL">
+              <MappingFragment StoreEntitySet="Segments_SegmentChain7_AnomalySpreaded_ALL">
+                <ScalarProperty Name="AnomalyType" ColumnName="AnomalyType" />
+                <ScalarProperty Name="ContainAnomaly" ColumnName="ContainAnomaly" />
+                <ScalarProperty Name="anomaly7Type" ColumnName="anomaly7Type" />
+                <ScalarProperty Name="anomaly6Type" ColumnName="anomaly6Type" />
+                <ScalarProperty Name="anomaly5Type" ColumnName="anomaly5Type" />
+                <ScalarProperty Name="anomaly4Type" ColumnName="anomaly4Type" />
+                <ScalarProperty Name="anomaly3Type" ColumnName="anomaly3Type" />
+                <ScalarProperty Name="anomaly2Type" ColumnName="anomaly2Type" />
+                <ScalarProperty Name="anomaly1Type" ColumnName="anomaly1Type" />
+                <ScalarProperty Name="anomaly7Id" ColumnName="anomaly7Id" />
+                <ScalarProperty Name="anomaly6Id" ColumnName="anomaly6Id" />
+                <ScalarProperty Name="anomaly5Id" ColumnName="anomaly5Id" />
+                <ScalarProperty Name="anomaly4Id" ColumnName="anomaly4Id" />
+                <ScalarProperty Name="anomaly3Id" ColumnName="anomaly3Id" />
+                <ScalarProperty Name="anomaly2Id" ColumnName="anomaly2Id" />
+                <ScalarProperty Name="anomaly1Id" ColumnName="anomaly1Id" />
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+                <ScalarProperty Name="TimeVarRange" ColumnName="TimeVarRange" />
+                <ScalarProperty Name="MinTimeVar" ColumnName="MinTimeVar" />
+                <ScalarProperty Name="MaxTimeVar" ColumnName="MaxTimeVar" />
+                <ScalarProperty Name="TimeVar" ColumnName="TimeVar" />
+                <ScalarProperty Name="TimeRange" ColumnName="TimeRange" />
+                <ScalarProperty Name="MinTime" ColumnName="MinTime" />
+                <ScalarProperty Name="MaxTime" ColumnName="MaxTime" />
+                <ScalarProperty Name="SpeedVarRange" ColumnName="SpeedVarRange" />
+                <ScalarProperty Name="MinSpeedVar" ColumnName="MinSpeedVar" />
+                <ScalarProperty Name="MaxSpeedVar" ColumnName="MaxSpeedVar" />
+                <ScalarProperty Name="MinSpeedChange" ColumnName="MinSpeedChange" />
+                <ScalarProperty Name="MaxSpeedChange" ColumnName="MaxSpeedChange" />
                 <ScalarProperty Name="SpeedRange" ColumnName="SpeedRange" />
                 <ScalarProperty Name="MinSpeed" ColumnName="MinSpeed" />
                 <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />

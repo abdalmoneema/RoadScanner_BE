@@ -25,6 +25,18 @@ namespace ML
     {
         static void Main(string[] args)
         {
+            //trainAnomalyDetectionModel();
+            //trainAnomalyDetectionMultiClassModel();
+            //trainAnomalyDetectionTwoClassModel();
+
+            //trainAnomalyClassifierModel();
+
+            trainSeverityModel();
+
+        }
+
+        static void trainAnomalyDetectionModel()
+        {
             MLService service = new MLService();
             //var chain = service.GetAllSegments_SegmentChain3();
             //var chain = service.GetAllSegments_SegmentChain4();
@@ -37,7 +49,7 @@ namespace ML
             //var chain = service.GetAllSegments_SegmentChain6_AnomalySpreaded();
             //var chain = service.GetAllSegments_SegmentChain6_AnomalySpreaded();
             var chain = service.GetAllSegments_SegmentChain7_AnomalySpreaded();
-
+            // var chain = service.GetAllSegments_SegmentChain7_AnomalySpreaded().Where(t => t.AnomalyType == 1 || t.AnomalyType == 2);
             //var chain = service.GetAllSegments_SpeedDifference_SegmentChain5();
             //var chain = service.GetAllSegments_HighSamplesCount_SegmentChain5();
 
@@ -61,10 +73,11 @@ namespace ML
             //double[][] inputs = chain.Select(sc => new double[] { sc.SpeedDiff1.Value, sc.SpeedDiff2.Value, sc.SpeedDiff3.Value, sc.SpeedDiff4.Value,sc.AvgSpentTime1.Value, sc.AvgSpentTime2.Value, sc.AvgSpentTime3.Value, sc.AvgSpentTime4.Value, sc.AvgSpentTime5.Value }).ToArray();
             //double[][] inputs = chain.Select(sc => new double[] { sc.SpeedDiff1.Value, sc.SpeedDiff2.Value,sc.AvgTime.Value,sc.speedAvg4.Value }).ToArray();
 
-            double[][] inputs = chain.Select(sc => new double[] { sc.MaxSpeed.Value, sc.MinSpeed.Value, sc.SpeedRange.Value, sc.TotalTime.Value,sc.MinTime.Value,sc.MaxTime.Value, sc.TimeRange.Value,sc.MaxSpeedVar.Value,sc.MinSpeedVar.Value, sc.SpeedVarRange.Value,sc.MaxTimeVar.Value,sc.MinTimeVar.Value,sc.TimeVarRange.Value}).ToArray();  //  
-            //double[][] inputs = chain.Select(sc => new double[] { sc.TotalTime.Value, sc.MinTime.Value, sc.MaxTime.Value, sc.TimeRange.Value, sc.MaxSpeedVar.Value, sc.MinSpeedVar.Value, sc.SpeedVarRange.Value }).ToArray();  //  
-            int[] outputs = chain.Select(sc => sc.ContainAnomaly).ToArray();
+            double[][] inputs = chain.Select(sc => new double[] { sc.MaxSpeed.Value, sc.MinSpeed.Value, sc.SpeedRange.Value, sc.TotalTime.Value, sc.MinTime.Value, sc.MaxTime.Value, sc.TimeRange.Value, sc.MaxSpeedVar.Value, sc.MinSpeedVar.Value, sc.SpeedVarRange.Value, sc.MaxTimeVar.Value, sc.MinTimeVar.Value, sc.TimeVarRange.Value }).ToArray();  //  
+                                                                                                                                                                                                                                                                                                                                                            //double[][] inputs = chain.Select(sc => new double[] { sc.TotalTime.Value, sc.MinTime.Value, sc.MaxTime.Value, sc.TimeRange.Value, sc.MaxSpeedVar.Value, sc.MinSpeedVar.Value, sc.SpeedVarRange.Value }).ToArray();  //  
 
+            int[] outputs = chain.Select(sc => sc.ContainAnomaly).ToArray();
+            //int[] outputs = chain.Select(sc => sc.AnomalyType).ToArray();
 
             //double[][] inputs0 = chain.Where(sc => sc.ContainAnomaly == 0).Select(sc => new double[] { sc.SpeedDiff1.Value, sc.SpeedDiff2.Value }).ToArray();
             //int[] outputs0 = chain.Where(sc => sc.ContainAnomaly == 0).Select(sc => sc.ContainAnomaly).ToArray();
@@ -78,7 +91,10 @@ namespace ML
 
             //double[][] inputs3= chain.Where(sc => sc.ContainAnomaly == 1).Select(sc => new double[] { sc.SpeedDiff1.Value, sc.AvgTime.Value }).ToArray();
             //int[] outputs3= chain.Where(sc => sc.ContainAnomaly == 1).Select(sc => sc.ContainAnomaly).ToArray();
-            SVM_crossValidation(inputs, outputs);
+
+            //SVM_crossValidation(inputs, outputs);
+            SVM_crossValidation_AnomalyDetection(inputs, outputs);
+
             //DecisionTree_crossValidation(inputs, outputs);
             //GridSearch(inputs, outputs);
 
@@ -168,28 +184,211 @@ namespace ML
 
         }
 
-    //    public static void NaiveBaise(double[][] chain)
-    //    {
-            
-    //        DataTable data = new DataTable("dataa");
-    //        data.Rows.Add()
-    //        data.Columns.AddRange( "speedAvg1", "speedAvg2", "speedAvg3", "speedAvg4", "speedAvg5", "speedAvg6", "ContainAnomaly");
+        static void trainSeverityModel()
+        {
+            MLService service = new MLService();
+            var chain = service.GetAllSegments_SegmentChain7_AnomalySpreaded_OnlyANomaly();
+            double[][] inputs = chain.Select(sc => new double[] { sc.MaxSpeedChange.Value, sc.MinSpeedChange.Value }).ToArray();  //  
 
-    //        Codification codebook = new Codification(data,
-    //"speedAvg1", "speedAvg2", "speedAvg3", "speedAvg4", "speedAvg5", "speedAvg6", "ContainAnomaly");
+            KMeans kmeans = new KMeans(k: 3);
+            //kmeans.Centroids = new double [2][];
+            //kmeans.Centroids[0] = new double[] {-2.76384235537843, 0.608515794829327 };
+            //kmeans.Centroids[1] = new double[] {-0.579246221664498,0.121793585323178};
+            // Compute and retrieve the data centroids
+            var clusters = kmeans.Learn(inputs);
 
-    //        // Extract input and output pairs to train
-    //        DataTable symbols = codebook.Apply(data);
-    //        int[][] inputs = symbols.ToArray<int>("Outlook", "Temperature", "Humidity", "Wind");
-    //        int[] outputs = symbols.ToArray<int>("PlayTennis");
 
-    //    }
-        public static void SVM_crossValidation(double[][] inputs, int[] outputs)
+
+            // Use the centroids to parition all the data
+            int[] labels = clusters.Decide(inputs);
+            var zeros = labels.Where(l => l == 0).ToList();
+            var ones = labels.Where(l => l == 1).ToList();
+            var twos = labels.Where(l => l == 2).ToList();
+
+            ScatterplotBox.Show("Severity Clusters", inputs, labels);
+
+
+
+        }
+
+        static void trainAnomalyDetectionMultiClassModel()
+        {
+            MLService service = new MLService();
+
+            var chain = service.GetAllSegments_SegmentChain7_AnomalySpreaded_All();
+
+            double[][] inputs = chain.Select(sc => new double[] { sc.MaxSpeed.Value, sc.MinSpeed.Value, sc.SpeedRange.Value, sc.TotalTime.Value, sc.MinTime.Value, sc.MaxTime.Value, sc.TimeRange.Value, sc.MaxSpeedVar.Value, sc.MinSpeedVar.Value, sc.SpeedVarRange.Value, sc.MaxTimeVar.Value, sc.MinTimeVar.Value, sc.TimeVarRange.Value }).ToArray();  //  
+                                                                                                                                                                                                                                                                                                                                                            //double[][] inputs = chain.Select(sc => new double[] { sc.TotalTime.Value, sc.MinTime.Value, sc.MaxTime.Value, sc.TimeRange.Value, sc.MaxSpeedVar.Value, sc.MinSpeedVar.Value, sc.SpeedVarRange.Value }).ToArray();  //  
+
+            int[] outputs = chain.Select(sc => sc.AnomalyType).ToArray();
+
+            //SVM_crossValidation_AnomalyDetection(inputs, outputs);
+            trainMultiClass(inputs, outputs);
+
+            Console.ReadKey();
+
+        }
+
+        static void trainAnomalyDetectionTwoClassModel()
+        {
+            MLService service = new MLService();
+
+            var chain = service.GetAllSegments_SegmentChain7_AnomalySpreaded_All();
+
+            double[][] inputs = chain.Select(sc => new double[] { sc.MaxSpeed.Value, sc.MinSpeed.Value, sc.SpeedRange.Value, sc.TotalTime.Value, sc.MinTime.Value, sc.MaxTime.Value, sc.TimeRange.Value, sc.MaxSpeedVar.Value, sc.MinSpeedVar.Value, sc.SpeedVarRange.Value, sc.MaxTimeVar.Value, sc.MinTimeVar.Value, sc.TimeVarRange.Value }).ToArray();  //  
+                                                                                                                                                                                                                                                                                                                                                            //double[][] inputs = chain.Select(sc => new double[] { sc.TotalTime.Value, sc.MinTime.Value, sc.MaxTime.Value, sc.TimeRange.Value, sc.MaxSpeedVar.Value, sc.MinSpeedVar.Value, sc.SpeedVarRange.Value }).ToArray();  //  
+
+            int[] outputs = chain.Select(sc => sc.ContainAnomaly).ToArray();
+
+            //SVM_crossValidation_AnomalyDetection(inputs, outputs);
+            trainTwoClass(inputs, outputs);
+
+            Console.ReadKey();
+
+        }
+
+        static void trainMultiClass(double[][] inputs, int[] outputs)
+        {
+
+            var splitset = new SplitSetValidation<MulticlassSupportVectorMachine<Gaussian, double[]>, double[]>()
+            {
+                Learner = (s) => new MulticlassSupportVectorLearning<Gaussian, double[]>()
+                {
+                    Learner = (m) => new SequentialMinimalOptimization<Gaussian, double[]>()
+                    {
+                        Complexity = 10,
+                        Kernel = new Gaussian(3)
+                    }
+
+                }
+            };
+
+            // Create the multi-class learning algorithm for the machine
+            //var teacher = new MulticlassSupportVectorLearning<Gaussian>()
+            //{
+            //    // Configure the learning algorithm to use SMO to train the
+            //    //  underlying SVMs in each of the binary class subproblems.
+            //    Learner = (param) => new SequentialMinimalOptimization<Gaussian>()
+            //    {
+            //        Complexity = 10,
+            //        Kernel = new Gaussian(3)
+            //        // Estimate a suitable guess for the Gaussian kernel's parameters.
+            //        // This estimate can serve as a starting point for a grid search.
+            //        //UseKernelEstimation = true
+            //    }
+            //};
+
+            // The following line is only needed to ensure reproducible results. Please remove it to enable full parallelization
+            //teacher.ParallelOptions.MaxDegreeOfParallelism = 1; // (Remove, comment, or change this line to enable full parallelism)
+
+            // Learn a machine
+            //var machine = teacher.Learn(inputs, outputs);
+            // Obtain class predictions for each sample
+            //int[] predicted = machine.Decide(inputs);
+
+            //splitset.ParallelOptions.MaxDegreeOfParallelism = 1;
+            var machine = splitset.Learn(inputs, outputs);
+
+            int[] predicted = machine.Model.Decide(inputs);
+
+            //var value1 = machine.Training.Value;
+            //var value2 = machine.Validation.Value;
+            //int[] predicted = machine.Decide(inputs);
+
+
+            // Get class scores for each sample
+            double[] scores = machine.Model.Score(inputs);
+
+            //Compute classification error
+            double error = new ZeroOneLoss(outputs).Loss(predicted);
+        }
+
+
+        static void trainTwoClass(double[][] inputs, int[] outputs)
+        {
+
+
+
+            var teacher = new SequentialMinimalOptimization<Gaussian>()
+            {
+                Complexity = 10,
+                Kernel = new Gaussian(3)
+                // Estimate a suitable guess for the Gaussian kernel's parameters.
+                // This estimate can serve as a starting point for a grid search.
+                //UseKernelEstimation = true
+            };
+
+
+
+            // Learn a machine
+            var machine = teacher.Learn(inputs, outputs);
+
+
+            bool[] predicted = machine.Decide(inputs);
+
+
+
+            // Get class scores for each sample
+            double[] scores = machine.Score(inputs);
+
+            // Compute classification error
+            double error = new ZeroOneLoss(outputs).Loss(predicted);
+        }
+
+        static void trainAnomalyClassifierModel()
+        {
+            MLService service = new MLService();
+
+            var chain = service.GetAllSegments_SegmentChain7_AnomalySpreaded_OnlyANomaly().ToList();
+
+            double[][] inputs = chain.Select(sc => new double[] { sc.MaxSpeed.Value, sc.MinSpeed.Value, sc.SpeedRange.Value, sc.TotalTime.Value, sc.MinTime.Value, sc.MaxTime.Value, sc.TimeRange.Value, sc.MaxSpeedVar.Value, sc.MinSpeedVar.Value, sc.SpeedVarRange.Value, sc.MaxTimeVar.Value, sc.MinTimeVar.Value, sc.TimeVarRange.Value }).ToArray();  //  
+
+            int[] outputs = chain.Select(sc => sc.AnomalyType).ToArray();
+
+            SVM_crossValidation_AnomalyClassifier(inputs, outputs);
+
+            Console.ReadKey();
+
+        }
+
+        static void trainAnomalyDetecorDTModel()
+        {
+            MLService service = new MLService();
+
+            var chain = service.GetAllSegments_SegmentChain7_AnomalySpreaded_OnlyANomaly().ToList();
+
+            double[][] inputs = chain.Select(sc => new double[] { sc.MaxSpeed.Value, sc.MinSpeed.Value, sc.SpeedRange.Value, sc.TotalTime.Value, sc.MinTime.Value, sc.MaxTime.Value, sc.TimeRange.Value, sc.MaxSpeedVar.Value, sc.MinSpeedVar.Value, sc.SpeedVarRange.Value, sc.MaxTimeVar.Value, sc.MinTimeVar.Value, sc.TimeVarRange.Value }).ToArray();  //  
+
+            int[] outputs = chain.Select(sc => sc.AnomalyType).ToArray();
+
+            DecisionTree_crossValidation(inputs, outputs);
+
+            Console.ReadKey();
+
+        }
+
+        //    public static void NaiveBaise(double[][] chain)
+        //    {
+
+        //        DataTable data = new DataTable("dataa");
+        //        data.Rows.Add()
+        //        data.Columns.AddRange( "speedAvg1", "speedAvg2", "speedAvg3", "speedAvg4", "speedAvg5", "speedAvg6", "ContainAnomaly");
+
+        //        Codification codebook = new Codification(data,
+        //"speedAvg1", "speedAvg2", "speedAvg3", "speedAvg4", "speedAvg5", "speedAvg6", "ContainAnomaly");
+
+        //        // Extract input and output pairs to train
+        //        DataTable symbols = codebook.Apply(data);
+        //        int[][] inputs = symbols.ToArray<int>("Outlook", "Temperature", "Humidity", "Wind");
+        //        int[] outputs = symbols.ToArray<int>("PlayTennis");
+
+        //    }
+        public static void SVM_crossValidation_AnomalyDetection(double[][] inputs, int[] outputs)
         {
             Accord.Math.Random.Generator.Seed = 0;
             var crossvalidation = new CrossValidation<SupportVectorMachine<Gaussian, double[]>, double[]>()
             {
-                K =100, // Use 3 folds in cross-validation
+                K = 100, // Use 3 folds in cross-validation
 
                 // Indicate how learning algorithms for the models should be created
 
@@ -246,10 +445,39 @@ namespace ML
 
                 //},
 
+                //for Roadscanner DB
+                //Learner = (s) => new SequentialMinimalOptimization<Gaussian, double[]>()
+                //{
+                //    Complexity = 10,
+                //    Kernel = new Gaussian(2.92)
+
+                //},
+
+                //for Roadscanner3 DB
+                //without pothole
+                //Learner = (s) => new SequentialMinimalOptimization<Gaussian, double[]>()
+                //{
+                //    Complexity = 10,
+                //    Kernel = new Gaussian(2.1)
+
+                //},
+
+                //for Roadscanner3 DB
+                //with pothole
+                //Learner = (s) => new SequentialMinimalOptimization<Gaussian, double[]>()
+                //{
+                //    Complexity = 15,
+                //    Kernel = new Gaussian(2.5)
+
+                //},
+
+                //RoadScanner3 Db
+                //with pothole
+                //
                 Learner = (s) => new SequentialMinimalOptimization<Gaussian, double[]>()
                 {
-                    Complexity =10,
-                    Kernel = new Gaussian(2.92)
+                    Complexity = 15,
+                    Kernel = new Gaussian(3)
 
                 },
 
@@ -258,7 +486,7 @@ namespace ML
 
                 Stratify = true, //   force balancing of classes
             };
-           
+
             // If needed, control the parallelization degree
             crossvalidation.ParallelOptions.MaxDegreeOfParallelism = 1;
 
@@ -274,7 +502,7 @@ namespace ML
             GeneralConfusionMatrix gcm = result.ToConfusionMatrix(inputs, outputs);
             double accuracy = gcm.Accuracy;
             double error = gcm.Error;
-            
+
 
             Console.WriteLine("Accuracy:" + gcm.Accuracy);
             Console.WriteLine("Error:" + gcm.Error);
@@ -291,19 +519,96 @@ namespace ML
 
             Console.WriteLine("Not ANomaly F-score:" + gcm.PerClassMatrices[0].FScore);
             Console.WriteLine("Anomaly F-score:" + gcm.PerClassMatrices[1].FScore);
-            
-            
-
-
 
         }
 
+        public static void SVM_crossValidation_AnomalyClassifier(double[][] inputs, int[] outputs)
+        {
+            Accord.Math.Random.Generator.Seed = 0;
+            var crossvalidation = new CrossValidation<SupportVectorMachine<Gaussian, double[]>, double[]>()
+            {
+                K = 10, // Use 3 folds in cross-validation
+
+                //Learner = (s) => new SequentialMinimalOptimization<Gaussian, double[]>()
+                //{
+                //    Complexity = 10,
+                //    Kernel = new Gaussian(3)
+
+                //},
+                Learner = (s) => new SequentialMinimalOptimization<Gaussian, double[]>()
+                {
+                    Complexity = 50,
+                    Kernel = new Gaussian(2.55)
+
+                },
+
+                // Indicate how the performance of those models will be measured
+                Loss = (expected, actual, p) => new ZeroOneLoss(expected).Loss(actual),
+
+                Stratify = true, //   force balancing of classes
+            };
+
+            // If needed, control the parallelization degree
+            crossvalidation.ParallelOptions.MaxDegreeOfParallelism = 1;
+
+            // Compute the cross-validation
+            var result = crossvalidation.Learn(inputs, outputs);
+
+
+            // Finally, access the measured performance.
+            double trainingErrors = result.Training.Mean;
+            double validationErrors = result.Validation.Mean;
+
+            // If desired, compute an aggregate confusion matrix for the validation sets:
+            GeneralConfusionMatrix gcm = result.ToConfusionMatrix(inputs, outputs);
+            double accuracy = gcm.Accuracy;
+            double error = gcm.Error;
+
+
+            Console.WriteLine("Accuracy:" + gcm.Accuracy);
+            Console.WriteLine("Error:" + gcm.Error);
+
+            Console.WriteLine("First Anomaly type Precision:" + gcm.Precision[0]);
+            Console.WriteLine("First Anomaly type  Recall:" + gcm.Recall[0]);
+            Console.WriteLine("Second Anomaly type  Precision:" + gcm.Precision[1]);
+            Console.WriteLine("Second Anomaly type  Recall:" + gcm.Recall[1]);
+
+            //double anomalyFScore = 2 * (gcm.Precision[1] * gcm.Recall[1]) / (gcm.Precision[1] + gcm.Recall[1]);
+            //double NotAnomalyFScore = 2 * (gcm.Precision[0] * gcm.Recall[0]) / (gcm.Precision[0] + gcm.Recall[0]);
+            //Console.WriteLine("Not ANomaly F-score:" + NotAnomalyFScore);
+            //Console.WriteLine("Anomaly F-score:" + anomalyFScore);
+
+            Console.WriteLine("First Anomaly type F-score:" + gcm.PerClassMatrices[0].FScore);
+            Console.WriteLine("Second Anomaly type  F-score:" + gcm.PerClassMatrices[1].FScore);
+
+
+            //var splitset = new SplitSetValidation<MulticlassSupportVectorMachine<Gaussian, double[]>, double[]>()
+            //{
+
+            //    Learner = (s) => new MulticlassSupportVectorLearning<Gaussian, double[]>()
+            //    {
+
+            //        Learner = (m) => new SequentialMinimalOptimization<Gaussian, double[]>()
+            //        {
+            //            Complexity = 10,
+            //            Kernel = new Gaussian(2.92)
+            //        }
+            //    }
+            //    ,Stratify =true
+            //};
+
+            //var result = splitset.Learn(inputs, outputs);
+
+            //double trainingErrors = result.Training.Value; 
+            //double validationErrors = result.Validation.Value;
+
+        }
         public static void DecisionTree_crossValidation(double[][] inputs, int[] outputs)
         {
             // Ensure we have reproducible results
             Accord.Math.Random.Generator.Seed = 0;
 
-            
+
 
             // Let's say we want to measure the cross-validation performance of
             // a decision tree with a maximum tree height of 5 and where variables
@@ -313,7 +618,7 @@ namespace ML
                 k: 10, // We will be using 10-fold cross validation
 
                 learner: (p) => new C45Learning() // here we create the learning algorithm
-    {
+                {
                     Join = 2,
                     MaxHeight = 5
                 },
@@ -362,10 +667,6 @@ namespace ML
             Console.WriteLine("Anomaly F-score:" + anomalyFScore);
         }
 
-
-
-
-
         public static void GridSearch(double[][] inputs, int[] outputs)
         {
             GridSearchRange[] ranges =
@@ -374,7 +675,7 @@ namespace ML
     new GridSearchRange("degree",     new double[] { 1, 2, 3, 4, 5, 10 } ),
     new GridSearchRange("constant",   new double[] { 0, 1, 2 } ),
     new GridSearchRange("sigma",   new double[] { 0.1,0.25,0.5, 1, 2,5 } )
-    
+
 };
 
 
