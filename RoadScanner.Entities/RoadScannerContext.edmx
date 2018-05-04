@@ -26,15 +26,9 @@
           <Property Name="TripId" Type="int" Nullable="false" />
           <Property Name="Longitude" Type="float" Nullable="false" />
           <Property Name="Latitude" Type="float" Nullable="false" />
-          <Property Name="AccelerationX" Type="float" />
-          <Property Name="AccelerationY" Type="float" />
-          <Property Name="AccelerationZ" Type="float" />
-          <Property Name="Speed" Type="float" />
           <Property Name="MeasurementTime" Type="datetime" Nullable="false" />
-          <Property Name="AccelerationMagnitude" Type="float" />
           <Property Name="SnappedLatitude" Type="float" />
           <Property Name="SnappedLongitude" Type="float" />
-          <Property Name="IsSpeedIncrease" Type="bit" />
           <Property Name="SegmentId" Type="int" />
           <Property Name="serial" Type="int" />
           <Property Name="DistanceFromPrevious" Type="float" />
@@ -1691,15 +1685,9 @@ warning 6002: The table/view 'RoadScanner3.dbo.Segments_SpeedDifference_SegmentC
           <Property Name="TripId" Type="Int32" Nullable="false" />
           <Property Name="Longitude" Type="Double" Nullable="false" />
           <Property Name="Latitude" Type="Double" Nullable="false" />
-          <Property Name="AccelerationX" Type="Double" />
-          <Property Name="AccelerationY" Type="Double" />
-          <Property Name="AccelerationZ" Type="Double" />
-          <Property Name="Speed" Type="Double" />
           <Property Name="MeasurementTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="AccelerationMagnitude" Type="Double" />
           <Property Name="SnappedLatitude" Type="Double" />
           <Property Name="SnappedLongitude" Type="Double" />
-          <Property Name="IsSpeedIncrease" Type="Boolean" />
           <Property Name="SegmentId" Type="Int32" />
           <NavigationProperty Name="Trip" Relationship="Self.FK_Measurement_Trip" FromRole="Measurement" ToRole="Trip" />
           <Property Name="serial" Type="Int32" />
@@ -2632,15 +2620,9 @@ warning 6002: The table/view 'RoadScanner3.dbo.Segments_SpeedDifference_SegmentC
                 <ScalarProperty Name="TripId" ColumnName="TripId" />
                 <ScalarProperty Name="Longitude" ColumnName="Longitude" />
                 <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-                <ScalarProperty Name="AccelerationX" ColumnName="AccelerationX" />
-                <ScalarProperty Name="AccelerationY" ColumnName="AccelerationY" />
-                <ScalarProperty Name="AccelerationZ" ColumnName="AccelerationZ" />
-                <ScalarProperty Name="Speed" ColumnName="Speed" />
                 <ScalarProperty Name="MeasurementTime" ColumnName="MeasurementTime" />
-                <ScalarProperty Name="AccelerationMagnitude" ColumnName="AccelerationMagnitude" />
                 <ScalarProperty Name="SnappedLatitude" ColumnName="SnappedLatitude" />
                 <ScalarProperty Name="SnappedLongitude" ColumnName="SnappedLongitude" />
-                <ScalarProperty Name="IsSpeedIncrease" ColumnName="IsSpeedIncrease" />
                 <ScalarProperty Name="SegmentId" ColumnName="SegmentId" />
               </MappingFragment>
             </EntityTypeMapping>

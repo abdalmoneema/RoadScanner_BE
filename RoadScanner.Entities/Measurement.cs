@@ -18,15 +18,9 @@ namespace RoadScanner.Entities
         public int TripId { get; set; }
         public double Longitude { get; set; }
         public double Latitude { get; set; }
-        public Nullable<double> AccelerationX { get; set; }
-        public Nullable<double> AccelerationY { get; set; }
-        public Nullable<double> AccelerationZ { get; set; }
-        public Nullable<double> Speed { get; set; }
         public System.DateTime MeasurementTime { get; set; }
-        public Nullable<double> AccelerationMagnitude { get; set; }
         public Nullable<double> SnappedLatitude { get; set; }
         public Nullable<double> SnappedLongitude { get; set; }
-        public Nullable<bool> IsSpeedIncrease { get; set; }
         public Nullable<int> SegmentId { get; set; }
         public Nullable<int> serial { get; set; }
         public Nullable<double> DistanceFromPrevious { get; set; }

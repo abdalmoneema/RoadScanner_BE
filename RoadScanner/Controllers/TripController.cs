@@ -48,12 +48,6 @@ namespace RoadScanner.Controllers
                     SnappedLongitude = a.SnappedLongitude,
                     Latitude =a.Latitude,
                     Longitude =a.Longitude,
-                    Speed =a.Speed,
-                    AccelerationX =a.AccelerationX,
-                    AccelerationY =a.AccelerationY,
-                    AccelerationZ =a.AccelerationZ,
-                    AccelerationMagnitude =a.AccelerationMagnitude,
-                    IsSpeedIncrease =a.IsSpeedIncrease,
                     SegmentId = a.SegmentId
                 }).ToList();
             }

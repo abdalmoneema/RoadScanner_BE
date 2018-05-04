@@ -20,13 +20,7 @@ namespace RoadScanner.Areas.API.Mapper
                 {
                     Longitude = m.Longitude,
                     Latitude = m.Latitude,
-                    AccelerationX = m.AccelerationX,
-                    AccelerationY = m.AccelerationY,
-                    AccelerationZ = m.AccelerationZ,
-                    AccelerationMagnitude = Math.Sqrt((m.AccelerationX * m.AccelerationX) + (m.AccelerationY * m.AccelerationY) + (m.AccelerationZ * m.AccelerationZ)),
-                    Speed = 0,
                     MeasurementTime = m.MeasurementTime
-                    //Accelerations = m.Accelerations.Select(a=>new Acceleration() { AccelerationX = a.AccelerationX, AccelerationY = a.AccelerationY,AccelerationZ = a.AccelerationZ}).ToList()
                 }).ToList().MapToSnappedLocations()
             };
         }
@@ -68,46 +62,6 @@ namespace RoadScanner.Areas.API.Mapper
                         }
                     }  
                 }
-
-                for (int j = 1; j < measurements.Count; j++)
-                {
-                    var longitude = measurements[j].Longitude;
-                    var latitude = measurements[j].Latitude;
-                    var perviouslongitude = measurements[j - 1].Longitude;
-                    var perviouslatitude = measurements[j - 1].Latitude;
-
-                    if (measurements[j].SnappedLongitude.HasValue)
-                    {
-                        longitude = measurements[j].SnappedLongitude.Value;
-                    }
-
-                    if (measurements[j].SnappedLatitude.HasValue)
-                    {
-                        latitude = measurements[j].SnappedLatitude.Value;
-                    }
-
-                    if (measurements[j - 1].SnappedLongitude.HasValue)
-                    {
-                        perviouslongitude = measurements[j - 1].SnappedLongitude.Value;
-                    }
-
-                    if (measurements[j - 1].SnappedLatitude.HasValue)
-                    {
-                        perviouslatitude = measurements[j - 1].SnappedLatitude.Value;
-                    }
-
-                    double timeSeconds = measurements[j].MeasurementTime.Subtract(measurements[j - 1].MeasurementTime).TotalSeconds;
-                    if (timeSeconds > 0)
-                    {
-                        measurements[j].Speed = Math.Sqrt(Math.Pow(longitude - perviouslongitude, 2) + Math.Pow(latitude - perviouslatitude, 2)) / timeSeconds;
-                        if (measurements[j].Speed > measurements[j - 1].Speed)
-                            measurements[j].IsSpeedIncrease = true;
-                        else if (measurements[j].Speed < measurements[j - 1].Speed)
-                            measurements[j].IsSpeedIncrease = false;
-
-                        
-                    }
-                 }
             }
 
             return measurements;
