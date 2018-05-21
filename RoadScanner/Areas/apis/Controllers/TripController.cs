@@ -33,7 +33,5 @@ namespace RoadScanner.Areas.apis.Controllers
             else
                 return Ok(new GeneralModel() { Success = 0, Message = "Error Saving Trip" });
         }
-
-        
     }
 }

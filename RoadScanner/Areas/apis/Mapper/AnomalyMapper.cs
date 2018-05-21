@@ -26,8 +26,8 @@ namespace RoadScanner.Areas.apis.Mapper
 
                     if (snappedPath != null && snappedPath.snappedPoints != null && snappedPath.snappedPoints.Count() > 0)
                     {
-                        snappedLatitude = snappedPath.snappedPoints.ElementAt(0).location.latitude;
-                        snappedLongitude = snappedPath.snappedPoints.ElementAt(0).location.longitude;
+                        snappedLatitude = snappedPath.snappedPoints.ElementAt(0).location.Latitude;
+                        snappedLongitude = snappedPath.snappedPoints.ElementAt(0).location.Longitude;
                     }
                 }
             }

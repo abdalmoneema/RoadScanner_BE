@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Longitude" Type="float" Nullable="false" />
           <Property Name="Latitude" Type="float" Nullable="false" />
           <Property Name="Type" Type="int" Nullable="false" />
@@ -22,7 +22,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TripId" Type="int" Nullable="false" />
           <Property Name="Longitude" Type="float" Nullable="false" />
           <Property Name="Latitude" Type="float" Nullable="false" />
@@ -50,12 +50,28 @@
           <Property Name="AccelerationMagnitude" Type="float" />
           <Property Name="NextSegmentId" Type="int" />
         </EntityType>
+        <EntityType Name="SegmentChain">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Segment1Id" Type="int" Nullable="false" />
+          <Property Name="Segment2Id" Type="int" Nullable="false" />
+          <Property Name="Segment3Id" Type="int" Nullable="false" />
+          <Property Name="Segment4Id" Type="int" Nullable="false" />
+          <Property Name="Segment5Id" Type="int" Nullable="false" />
+          <Property Name="Segment6Id" Type="int" Nullable="false" />
+          <Property Name="Segment7Id" Type="int" Nullable="false" />
+          <Property Name="PredictedAnomalyType" Type="smallint" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Trip">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DeviceID" Type="varchar" MaxLength="50" />
+          <Property Name="CreationDate" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'RoadScanner3.dbo.SegmentChain2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -940,10 +956,15 @@ warning 6002: The table/view 'RoadScanner3.dbo.Segments_SpeedDifference_SegmentC
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="GetPointSegment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="latitude" Type="float" Mode="In" />
+          <Parameter Name="longitude" Type="float" Mode="In" />
+        </Function>
         <EntityContainer Name="RoadScannerEntitiesStoreContainer">
           <EntitySet Name="ManualAnomaly" EntityType="Self.ManualAnomaly" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Measurement" EntityType="Self.Measurement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Segment" EntityType="Self.Segment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SegmentChain" EntityType="Self.SegmentChain" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Trip" EntityType="Self.Trip" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SegmentChain2" EntityType="Self.SegmentChain2" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1717,6 +1738,7 @@ warning 6002: The table/view 'RoadScanner3.dbo.Segments_SpeedDifference_SegmentC
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="DeviceID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Measurements" Relationship="Self.FK_Measurement_Trip" FromRole="Trip" ToRole="Measurement" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK_Measurement_Trip">
           <End Role="Trip" Type="Self.Trip" Multiplicity="1" />
@@ -1761,6 +1783,7 @@ warning 6002: The table/view 'RoadScanner3.dbo.Segments_SpeedDifference_SegmentC
           <EntitySet Name="Segments_SegmentChain7_AnomalySpreaded" EntityType="RoadScanner.Entities.Segments_SegmentChain7_AnomalySpreaded" />
           <EntitySet Name="Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly" EntityType="RoadScanner.Entities.Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly" />
           <EntitySet Name="Segments_SegmentChain7_AnomalySpreaded_ALL" EntityType="RoadScanner.Entities.Segments_SegmentChain7_AnomalySpreaded_ALL" />
+          <EntitySet Name="SegmentChains" EntityType="RoadScanner.Entities.SegmentChain" />
         </EntityContainer>
         <EntityType Name="SegmentChain3">
           <Key>
@@ -2589,6 +2612,21 @@ warning 6002: The table/view 'RoadScanner3.dbo.Segments_SpeedDifference_SegmentC
           <Property Name="ContainAnomaly" Type="Int32" Nullable="false" />
           <Property Name="AnomalyType" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="SegmentChain">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Segment1Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment2Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment3Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment4Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment5Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment6Id" Type="Int32" Nullable="false" />
+          <Property Name="Segment7Id" Type="Int32" Nullable="false" />
+          <Property Name="PredictedAnomalyType" Type="Int16" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2646,6 +2684,7 @@ warning 6002: The table/view 'RoadScanner3.dbo.Segments_SpeedDifference_SegmentC
           <EntitySetMapping Name="Trips">
             <EntityTypeMapping TypeName="RoadScanner.Entities.Trip">
               <MappingFragment StoreEntitySet="Trip">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
               </MappingFragment>
@@ -3402,6 +3441,22 @@ warning 6002: The table/view 'RoadScanner3.dbo.Segments_SpeedDifference_SegmentC
                 <ScalarProperty Name="Segment3Id" ColumnName="Segment3Id" />
                 <ScalarProperty Name="Segment2Id" ColumnName="Segment2Id" />
                 <ScalarProperty Name="Segment1Id" ColumnName="Segment1Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SegmentChains">
+            <EntityTypeMapping TypeName="RoadScanner.Entities.SegmentChain">
+              <MappingFragment StoreEntitySet="SegmentChain">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="PredictedAnomalyType" ColumnName="PredictedAnomalyType" />
+                <ScalarProperty Name="Segment7Id" ColumnName="Segment7Id" />
+                <ScalarProperty Name="Segment6Id" ColumnName="Segment6Id" />
+                <ScalarProperty Name="Segment5Id" ColumnName="Segment5Id" />
+                <ScalarProperty Name="Segment4Id" ColumnName="Segment4Id" />
+                <ScalarProperty Name="Segment3Id" ColumnName="Segment3Id" />
+                <ScalarProperty Name="Segment2Id" ColumnName="Segment2Id" />
+                <ScalarProperty Name="Segment1Id" ColumnName="Segment1Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

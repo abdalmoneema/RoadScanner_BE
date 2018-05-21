@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HelperModels\PredictedAnomaly.cs" />
     <Compile Include="ManualAnomaly.cs">
       <DependentUpon>RoadScannerContext.tt</DependentUpon>
     </Compile>
@@ -73,7 +74,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RoadScannerContext.edmx</DependentUpon>
     </Compile>
+    <Compile Include="RoadScannerModel.cs" />
     <Compile Include="Segment.cs">
+      <DependentUpon>RoadScannerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SegmentChain.cs">
       <DependentUpon>RoadScannerContext.tt</DependentUpon>
     </Compile>
     <Compile Include="SegmentChain2.cs">
@@ -144,6 +149,7 @@
     </Compile>
     <Compile Include="Services\AnomalyService.cs" />
     <Compile Include="Services\MLService.cs" />
+    <Compile Include="Services\RealtimeService.cs" />
     <Compile Include="Services\SegmentService.cs" />
     <Compile Include="Services\TripPathService.cs" />
     <Compile Include="Services\TripService.cs" />
@@ -179,6 +185,7 @@
       <LastGenOutput>RoadScannerContext.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

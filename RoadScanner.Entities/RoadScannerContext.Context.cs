@@ -51,5 +51,6 @@ namespace RoadScanner.Entities
         public virtual DbSet<Segments_SegmentChain7_AnomalySpreaded> Segments_SegmentChain7_AnomalySpreaded { get; set; }
         public virtual DbSet<Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly> Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly { get; set; }
         public virtual DbSet<Segments_SegmentChain7_AnomalySpreaded_ALL> Segments_SegmentChain7_AnomalySpreaded_ALL { get; set; }
+        public virtual DbSet<SegmentChain> SegmentChains { get; set; }
     }
 }

@@ -1,39 +1,24 @@
 ﻿using RoadScanner.Areas.API.Models;
 using RoadScanner.Areas.apis;
-using RoadScanner.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Web;
 
-namespace RoadScanner.Areas.API.Mapper
+namespace RoadScanner.Utilities
 {
-    public static class TripMapper
+    public static class LocationSnapper
     {
-        public static Trip MapToTrip(this TripModel tripModel)
+        public static List<Location> MapToSnappedLocations(this List<Location> pathPoints)
         {
-            return new Trip()
+            List<Location> snappedPathPoints = new List<Location>();
+            if (pathPoints.Count > 0)
             {
-                DeviceID = tripModel.DeviceID,
-                CreationDate = DateTime.UtcNow,
-                Measurements = tripModel.Measurements.Select(m => new Measurement()
-                {
-                    Longitude = m.Longitude,
-                    Latitude = m.Latitude,
-                    MeasurementTime = m.MeasurementTime
-                }).ToList().MapToSnappedLocations()
-            };
-        }
-
-        private static List<Measurement> MapToSnappedLocations(this List<Measurement> measurements)
-        {
-            if (measurements.Count > 0)
-            {
-                int batchesCount = measurements.Count/100 + (measurements.Count % 100 > 0? 1:0 );
+                int batchesCount = pathPoints.Count / 100 + (pathPoints.Count % 100 > 0 ? 1 : 0);
                 for (int i = 0; i < batchesCount; i++)
                 {
-                    var batch =measurements.Skip(100 * i).Take(100).ToList();
+                    var batch = pathPoints.Skip(100 * i).Take(100).ToList();
 
                     string locationPoints = "";
                     for (int j = 0; j < batch.Count; j++)
@@ -55,17 +40,21 @@ namespace RoadScanner.Areas.API.Mapper
                             {
                                 for (int j = 0; j < snappedPath.snappedPoints.Count(); j++)
                                 {
-                                    measurements[100 * i + snappedPath.snappedPoints.ElementAt(j).originalIndex].SnappedLatitude = snappedPath.snappedPoints.ElementAt(j).location.Latitude;
-                                    measurements[100 * i + snappedPath.snappedPoints.ElementAt(j).originalIndex].SnappedLongitude = snappedPath.snappedPoints.ElementAt(j).location.Longitude;
+                                    Location location = new Location();
+
+                                    location.Latitude = snappedPath.snappedPoints.ElementAt(j).location.Latitude;
+                                    location.Longitude = snappedPath.snappedPoints.ElementAt(j).location.Longitude;
+                                    snappedPathPoints.Add(location);
                                 }
                             }
 
                         }
-                    }  
+                    }
                 }
             }
+            return snappedPathPoints;
 
-            return measurements;
+
         }
     }
 }

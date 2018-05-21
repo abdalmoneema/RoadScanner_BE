@@ -22,6 +22,7 @@ namespace RoadScanner.Entities
     
         public int Id { get; set; }
         public string DeviceID { get; set; }
+        public Nullable<System.DateTime> CreationDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Measurement> Measurements { get; set; }

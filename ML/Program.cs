@@ -1,4 +1,5 @@
 ﻿using Accord.Controls;
+using Accord.IO;
 using Accord.MachineLearning;
 using Accord.MachineLearning.Bayes;
 using Accord.MachineLearning.DecisionTrees.Learning;
@@ -11,6 +12,7 @@ using Accord.Statistics.Analysis;
 using Accord.Statistics.Filters;
 using Accord.Statistics.Kernels;
 using Accord.Statistics.Models.Regression.Linear;
+using RoadScanner.Entities;
 using RoadScanner.Entities.Services;
 using System;
 using System.Collections.Generic;
@@ -23,15 +25,25 @@ namespace ML
 {
     class Program
     {
+        static string AnomalyDetectionModelFileName = "AnomalyDetectionModel.txt";
+        static string AnomalyClassificationModelFileName = "AnomalyClassificationModel.txt";
+        static string AnomalyClassifierBySeverityModelFileName = "AnomalyClassifierBySeverityModelFileName.txt";
+
+
+
         static void Main(string[] args)
         {
             //trainAnomalyDetectionModel();
+           // trainAnomalyClassifierModel();
+
+            //detectAnomalies();
+
+
             //trainAnomalyDetectionMultiClassModel();
             //trainAnomalyDetectionTwoClassModel();
 
-            //trainAnomalyClassifierModel();
-
             trainSeverityModel();
+
 
         }
 
@@ -93,7 +105,9 @@ namespace ML
             //int[] outputs3= chain.Where(sc => sc.ContainAnomaly == 1).Select(sc => sc.ContainAnomaly).ToArray();
 
             //SVM_crossValidation(inputs, outputs);
-            SVM_crossValidation_AnomalyDetection(inputs, outputs);
+
+            SVM_TrainAnomalyDetectionModel(inputs, outputs);
+            //SVM_crossValidation_AnomalyDetection(inputs, outputs);
 
             //DecisionTree_crossValidation(inputs, outputs);
             //GridSearch(inputs, outputs);
@@ -184,6 +198,64 @@ namespace ML
 
         }
 
+        static void trainAnomalyClassifierModel()
+        {
+            MLService service = new MLService();
+
+            var chain = service.GetAllSegments_SegmentChain7_AnomalySpreaded_OnlyANomaly().ToList();
+
+            double[][] inputs = chain.Select(sc => new double[] { sc.MaxSpeed.Value, sc.MinSpeed.Value, sc.SpeedRange.Value, sc.TotalTime.Value, sc.MinTime.Value, sc.MaxTime.Value, sc.TimeRange.Value, sc.MaxSpeedVar.Value, sc.MinSpeedVar.Value, sc.SpeedVarRange.Value, sc.MaxTimeVar.Value, sc.MinTimeVar.Value, sc.TimeVarRange.Value }).ToArray();  //  
+
+            int[] outputs = chain.Select(sc => sc.AnomalyType).ToArray();
+
+            //SVM_TrainAnomalyClassificationModel(inputs, outputs);
+            SVM_crossValidation_AnomalyClassifier(inputs, outputs);
+            Console.ReadKey();
+
+        }
+
+        static void detectAnomalies()
+        {
+            var anomalyDetectionModel=Serializer.Load<SupportVectorMachine<Gaussian>>(AnomalyDetectionModelFileName);
+            var anomalyClassificationModel = Serializer.Load<SupportVectorMachine<Gaussian>>(AnomalyClassificationModelFileName);
+
+            MLService service = new MLService();
+            SegmentService serviceService = new SegmentService();
+
+            var chains = service.GetAllSegments_SegmentChain7_AnomalySpreaded();
+
+            int numberOfAnomalies =0;
+            int numberOfPotholes = 0;
+            foreach (var chain in chains)
+            {
+                double[] inputs = new double[] { chain.MaxSpeed.Value, chain.MinSpeed.Value, chain.SpeedRange.Value, chain.TotalTime.Value, chain.MinTime.Value, chain.MaxTime.Value, chain.TimeRange.Value, chain.MaxSpeedVar.Value, chain.MinSpeedVar.Value, chain.SpeedVarRange.Value, chain.MaxTimeVar.Value, chain.MinTimeVar.Value, chain.TimeVarRange.Value };
+                bool isContainAnomaly = anomalyDetectionModel.Decide(inputs);
+                bool isPothole = false;
+                if (isContainAnomaly)
+                {
+                    numberOfAnomalies++;
+
+                    isPothole = anomalyClassificationModel.Decide(inputs);
+                    if (isPothole)
+                        numberOfPotholes++;
+
+                    SegmentChain sc = new SegmentChain() {
+                        Segment1Id = chain.Segment1Id,
+                        Segment2Id = chain.Segment2Id,
+                        Segment3Id = chain.Segment3Id,
+                        Segment4Id = chain.Segment4Id,
+                        Segment5Id = chain.Segment5Id,
+                        Segment6Id = chain.Segment6Id,
+                        Segment7Id = chain.Segment7Id,
+                        PredictedAnomalyType = (short)(isContainAnomaly? (isPothole?2:1):0),
+                        CreationDate = DateTime.Now
+                    };
+                    serviceService.CreateSegmentChain(sc);
+                }
+                
+            }
+        }
+
         static void trainSeverityModel()
         {
             MLService service = new MLService();
@@ -196,7 +268,7 @@ namespace ML
             //kmeans.Centroids[1] = new double[] {-0.579246221664498,0.121793585323178};
             // Compute and retrieve the data centroids
             var clusters = kmeans.Learn(inputs);
-
+            Serializer.Save(clusters, AnomalyClassifierBySeverityModelFileName);
 
 
             // Use the centroids to parition all the data
@@ -205,7 +277,7 @@ namespace ML
             var ones = labels.Where(l => l == 1).ToList();
             var twos = labels.Where(l => l == 2).ToList();
 
-            ScatterplotBox.Show("Severity Clusters", inputs, labels);
+            ScatterplotBox.Show("Severity Clusters", inputs,labels);
 
 
 
@@ -303,7 +375,6 @@ namespace ML
             double error = new ZeroOneLoss(outputs).Loss(predicted);
         }
 
-
         static void trainTwoClass(double[][] inputs, int[] outputs)
         {
 
@@ -335,21 +406,7 @@ namespace ML
             double error = new ZeroOneLoss(outputs).Loss(predicted);
         }
 
-        static void trainAnomalyClassifierModel()
-        {
-            MLService service = new MLService();
-
-            var chain = service.GetAllSegments_SegmentChain7_AnomalySpreaded_OnlyANomaly().ToList();
-
-            double[][] inputs = chain.Select(sc => new double[] { sc.MaxSpeed.Value, sc.MinSpeed.Value, sc.SpeedRange.Value, sc.TotalTime.Value, sc.MinTime.Value, sc.MaxTime.Value, sc.TimeRange.Value, sc.MaxSpeedVar.Value, sc.MinSpeedVar.Value, sc.SpeedVarRange.Value, sc.MaxTimeVar.Value, sc.MinTimeVar.Value, sc.TimeVarRange.Value }).ToArray();  //  
-
-            int[] outputs = chain.Select(sc => sc.AnomalyType).ToArray();
-
-            SVM_crossValidation_AnomalyClassifier(inputs, outputs);
-
-            Console.ReadKey();
-
-        }
+       
 
         static void trainAnomalyDetecorDTModel()
         {
@@ -522,6 +579,20 @@ namespace ML
 
         }
 
+
+        public static void SVM_TrainAnomalyDetectionModel(double[][] inputs, int[] outputs)
+        {
+            var learn = new SequentialMinimalOptimization<Gaussian>()
+            {
+                Complexity = 15,
+                Kernel = new Gaussian(3)
+            };
+
+            SupportVectorMachine<Gaussian> svm = learn.Learn(inputs, outputs);
+            Serializer.Save(svm, AnomalyDetectionModelFileName);
+        }
+
+
         public static void SVM_crossValidation_AnomalyClassifier(double[][] inputs, int[] outputs)
         {
             Accord.Math.Random.Generator.Seed = 0;
@@ -537,8 +608,8 @@ namespace ML
                 //},
                 Learner = (s) => new SequentialMinimalOptimization<Gaussian, double[]>()
                 {
-                    Complexity = 50,
-                    Kernel = new Gaussian(2.55)
+                    Complexity = 10,
+                    Kernel = new Gaussian(2.6)
 
                 },
 
@@ -603,6 +674,23 @@ namespace ML
             //double validationErrors = result.Validation.Value;
 
         }
+
+
+        public static void SVM_TrainAnomalyClassificationModel(double[][] inputs, int[] outputs)
+        {
+            var learn = new SequentialMinimalOptimization<Gaussian>()
+            {
+                //Complexity = 50,
+                //Kernel = new Gaussian(2.55)
+                Complexity = 10,
+                Kernel = new Gaussian(2.6)
+            };
+
+            SupportVectorMachine<Gaussian> svm = learn.Learn(inputs, outputs);
+            Serializer.Save(svm, AnomalyClassificationModelFileName);
+        }
+
+
         public static void DecisionTree_crossValidation(double[][] inputs, int[] outputs)
         {
             // Ensure we have reproducible results

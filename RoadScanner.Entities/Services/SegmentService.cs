@@ -19,6 +19,14 @@ namespace RoadScanner.Entities.Services
             return db.Segments.ToList();
         }
 
-       
+        public int CreateSegmentChain(SegmentChain segmentChain)
+        {
+            db.SegmentChains.Add(segmentChain);
+            segmentChain.CreationDate = DateTime.UtcNow;
+            db.SaveChanges();
+            return segmentChain.Id;
+        }
+
+
     }
 }

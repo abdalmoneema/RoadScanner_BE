@@ -76,16 +76,7 @@ namespace PointToRoadSnapper
                     }
 
                     double timeSeconds = measurements[j].MeasurementTime.Subtract(measurements[j - 1].MeasurementTime).TotalSeconds;
-                    if (timeSeconds > 0)
-                    {
-                        measurements[j].Speed = Math.Sqrt(Math.Pow(longitude - perviouslongitude, 2) + Math.Pow(latitude - perviouslatitude, 2)) / timeSeconds;
-                        if (measurements[j].Speed > measurements[j - 1].Speed)
-                            measurements[j].IsSpeedIncrease = true;
-                        else if (measurements[j].Speed < measurements[j - 1].Speed)
-                            measurements[j].IsSpeedIncrease = false;
-
-
-                    }
+                   
                 }
             }
 

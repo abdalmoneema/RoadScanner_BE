@@ -122,5 +122,7 @@ namespace RoadScanner.Entities.Services
         {
             return db.Segments_SegmentChain7_AnomalySpreaded_ALL.ToList();
         }
+
+        
     }
 }

@@ -32,6 +32,7 @@
         <EntityTypeShape EntityType="RoadScanner.Entities.Segments_SegmentChain7_AnomalySpreaded" Width="1.5" PointX="9.375" PointY="16.75" />
         <EntityTypeShape EntityType="RoadScanner.Entities.Segments_SegmentChain7_AnomalySpreaded_OnLyAnomaly" Width="1.5" PointX="5.375" PointY="18.75" />
         <EntityTypeShape EntityType="RoadScanner.Entities.Segments_SegmentChain7_AnomalySpreaded_ALL" Width="1.5" PointX="18.375" PointY="17.75" />
+        <EntityTypeShape EntityType="RoadScanner.Entities.SegmentChain" Width="1.5" PointX="17.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

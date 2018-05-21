@@ -7,8 +7,8 @@ namespace RoadScanner.Areas.API.Models
 {
     public class Location
     {
-        public float latitude { get; set; }
-        public float longitude { get; set; }
+        public float Latitude { get; set; }
+        public float Longitude { get; set; }
        
     }
 }
